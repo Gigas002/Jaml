@@ -339,3 +339,4 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /Secrets.txt
+/Jaml.Wpf/nuget.config
