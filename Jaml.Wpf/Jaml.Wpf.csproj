@@ -12,7 +12,7 @@
     <Description>Jaml is an analogue of Xaml, but uses .json files instead</Description>
     <Copyright>Copyright © Gigas002 2020</Copyright>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageTags>wpf jaml xaml analogue gui</PackageTags>
+    <PackageTags>wpf jaml xaml analogue gui json</PackageTags>
     <LangVersion>latest</LangVersion>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/Gigas002/Jaml</PackageProjectUrl>

@@ -26,7 +26,7 @@ Feel free to contribute, just read the [CONTRIBUTING](CONTRIBUTING.md) file firs
 
 You can also track current state in GitHub's [issues](https://github.com/Gigas002/Jaml/issues), [milestones](https://github.com/Gigas002/Jaml/milestones) and [projects](https://github.com/Gigas002/Jaml/projects).
 
-Stable releases will be located here: [![Release](https://img.shields.io/github/release/Gigas002/Jaml.svg)](https://github.com/Gigas002/Jaml/releases/latest), or on NuGet: [![NuGet](https://img.shields.io/nuget/v/Jaml.svg)](https://www.nuget.org/packages/Jaml/).
+Stable releases will be located here: [![Release](https://img.shields.io/github/release/Gigas002/Jaml.svg)](https://github.com/Gigas002/Jaml/releases/latest), or on NuGet: [![NuGet](https://img.shields.io/nuget/v/Jaml.svg)](https://www.nuget.org/packages/Jaml.Wpf/).
 
 Previous versions can be found on [releases](https://github.com/Gigas002/Jaml/releases) and [branches](https://github.com/Gigas002/Jaml/branches) pages. You can also search through **Git**'s tags.
 
