@@ -11,7 +11,7 @@ namespace Jaml.Wpf.Providers.CommandProvider
         #region Properties
 
         /// <inheritdoc />
-        public Dictionary<string, Delegate> CommandsDictionary { get; }
+        public Dictionary<string, Delegate> Commands { get; }
 
         #endregion
 
@@ -20,13 +20,13 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// <summary>
         /// Creates a new <see cref="CommandProvider"/> with specified commands
         /// </summary>
-        /// <param name="commandsDictionary">Commands for this provider</param>
-        public CommandProvider(Dictionary<string, Delegate> commandsDictionary) => CommandsDictionary = commandsDictionary;
+        /// <param name="commands">Commands for this provider</param>
+        public CommandProvider(Dictionary<string, Delegate> commands) => Commands = commands;
 
         /// <summary>
         /// Creates a new <see cref="CommandProvider"/> with empty dictionary of commands
         /// </summary>
-        public CommandProvider() => CommandsDictionary = new Dictionary<string, Delegate>();
+        public CommandProvider() => Commands = new Dictionary<string, Delegate>();
 
         #endregion
 
@@ -45,33 +45,33 @@ namespace Jaml.Wpf.Providers.CommandProvider
         }
 
         /// <inheritdoc />
-        public void ClearCommands() => CommandsDictionary.Clear();
+        public void ClearCommands() => Commands.Clear();
 
         /// <inheritdoc />
-        public void RegisterCommand(string commandName, Delegate command) => CommandsDictionary.TryAdd(commandName, command);
+        public void RegisterCommand(string commandName, Delegate command) => Commands.TryAdd(commandName, command);
 
         /// <inheritdoc />
-        public void UnregisterCommand(string commandName) => CommandsDictionary.Remove(commandName);
+        public void UnregisterCommand(string commandName) => Commands.Remove(commandName);
 
         /// <inheritdoc />
         public void AddToExistentCommand(string commandName, Delegate delegateToAdd)
         {
-            Delegate firstDelegate = CommandsDictionary[commandName];
-            CommandsDictionary[commandName] = Delegate.Combine(firstDelegate, delegateToAdd);
+            Delegate firstDelegate = Commands[commandName];
+            Commands[commandName] = Delegate.Combine(firstDelegate, delegateToAdd);
         }
 
         /// <inheritdoc />
         public void RemoveFromExistentCommand(string commandName, Delegate delegateToRemove)
         {
-            Delegate firstDelegate = CommandsDictionary[commandName];
-            CommandsDictionary[commandName] = Delegate.Remove(firstDelegate, delegateToRemove);
+            Delegate firstDelegate = Commands[commandName];
+            Commands[commandName] = Delegate.Remove(firstDelegate, delegateToRemove);
         }
 
         /// <inheritdoc />
         public void RunCommand(string commandName, object sender = null, string args = null)
         {
             if (string.IsNullOrWhiteSpace(commandName)) return;
-            if (!CommandsDictionary.ContainsKey(commandName)) return;
+            if (!Commands.ContainsKey(commandName)) return;
 
             if (string.IsNullOrWhiteSpace(args))
                 GetCommand(commandName).DynamicInvoke(sender);
@@ -82,7 +82,7 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// <inheritdoc />
         public Delegate GetCommand(string commandName)
         {
-            CommandsDictionary.TryGetValue(commandName, out Delegate value);
+            Commands.TryGetValue(commandName, out Delegate value);
 
             return value;
         }

@@ -11,7 +11,7 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// <summary>
         /// Dictionary of commands. Key is name, and Value is delegate to run
         /// </summary>
-        public Dictionary<string, Delegate> CommandsDictionary { get; }
+        public Dictionary<string, Delegate> Commands { get; }
 
         /// <summary>
         /// Registers all commands from dictionary
