@@ -9,7 +9,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.1.0-ci723</Version>
     <Authors>Gigas002</Authors>
-    <Description>Jaml is an analogue of Xaml, but uses .json files instead</Description>
+    <Description>Jaml is an alternative to Xaml, that uses .json files instead</Description>
     <Copyright>Copyright © Gigas002 2020</Copyright>
     <PackageLicenseExpression></PackageLicenseExpression>
     <PackageTags>wpf jaml xaml analogue gui json</PackageTags>

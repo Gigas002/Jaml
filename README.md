@@ -1,6 +1,6 @@
 # Jaml
 
-**Jaml** is an analogue of **Xaml**, but uses `json` files instead.
+**Jaml** is an alternative to **Xaml**, that uses `.json` files instead
 
 The nearest plans are for **WPF** support (**Jaml.Wpf** library), but in future I'd like to support a cross-platform solution too (using **Avalonia UI** probably?).
 
