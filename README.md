@@ -6,7 +6,7 @@ The nearest plans are for **WPF** support (**Jaml.Wpf** library), but in future 
 
 The demo app is WIP and will be published in different repo later.
 
-[![Actions Status](https://github.com/Gigas002/Jaml/workflows/.NET%20Core%20CI/badge.svg)](https://github.com/Gigas002/Jaml/actions)
+[![Build status](https://ci.appveyor.com/api/projects/status/0fvuk184rr4qgu8j?svg=true)](https://ci.appveyor.com/project/Gigas002/jaml) [![Actions Status](https://github.com/Gigas002/Jaml/workflows/.NET%20Core%20CI/badge.svg)](https://github.com/Gigas002/Jaml/actions)
 
 ## Table of contents
 

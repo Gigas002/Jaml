@@ -5,3 +5,7 @@ version: 0.1.0.{build}
 platform: x64
 
 configuration: Release
+
+before_build:
+ - nuget restore
+ 
