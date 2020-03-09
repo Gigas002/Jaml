@@ -9,8 +9,13 @@ using Jaml.Wpf.Providers.StyleProvider;
 namespace Jaml.Wpf.Models.UiElementModels
 {
     // ReSharper disable once ClassNeverInstantiated.Global
+
+    /// <summary>
+    /// Model of button
+    /// </summary>
     public class ButtonModel : UiElementModel
     {
+        /// <inheritdoc />
         public override T ToUiElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             Button button = new Button

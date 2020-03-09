@@ -11,41 +11,57 @@ using Jaml.Wpf.Parsers;
 namespace Jaml.Wpf.Models.StyleModels
 {
     // ReSharper disable once ClassNeverInstantiated.Global
+
+    /// <summary>
+    /// Basic class, that implements the <see cref="T:Jaml.Wpf.Models.StyleModels.IStyleModel" />
+    /// </summary>
     public class StyleModel : IStyleModel
     {
         #region Json Properties
 
+        /// <inheritdoc />
         [JsonPropertyName("Id")]
         public int Id { get; set; } = -1;
 
+        /// <inheritdoc />
         [JsonPropertyName("FontSize")]
         public double FontSize { get; set; } = 20.0;
 
+        /// <inheritdoc />
         [JsonPropertyName("FontFamily")]
         public string FontFamily { get; set; } = null;
 
+        /// <inheritdoc />
         [JsonPropertyName("FontStyle")]
         public string FontStyle { get; set; } = null;
 
+        /// <inheritdoc />
         [JsonPropertyName("FontWeight")]
         public string FontWeight { get; set; } = null;
 
+        /// <inheritdoc />
         [JsonPropertyName("Foreground")]
         public string Foreground { get; set; } = null;
 
+        /// <inheritdoc />
         [JsonPropertyName("Background")]
         public BackgroundModel Background { get; set; } = null;
 
+        /// <inheritdoc />
         [JsonPropertyName("BorderThickness")]
         public double BorderThickness { get; set; } = 1.0;
 
+        /// <inheritdoc />
         [JsonPropertyName("Visibility")]
         public string Visibility { get; set; } = null;
 
         #endregion
 
+        /// <inheritdoc />
         public Style ToStyle()
         {
+            //todo improve this ugly code?
+
             Style style = new Style();
 
             FontWeight fontWeight = PropertyParser.ParseFontWeight(FontWeight);
@@ -55,17 +71,6 @@ namespace Jaml.Wpf.Models.StyleModels
             Thickness borderThickness = PropertyParser.ParseThickness(BorderThickness);
             Visibility visibility = PropertyParser.ParseVisibility(Visibility);
 
-            if (!string.IsNullOrWhiteSpace(FontFamily))
-            {
-                style.Setters.Add(new Setter
-                {
-                    Property = Control.FontFamilyProperty,
-                    Value =
-                        new
-                            FontFamily(PathsHelper.GetUriFromRelativePath(FontFamily),
-                                       string.Empty)
-                });
-            }
 
             style.Setters.Add(new Setter { Property = Control.FontWeightProperty, Value = fontWeight });
             style.Setters.Add(new Setter { Property = Control.FontStyleProperty, Value = fontStyle });
@@ -75,9 +80,18 @@ namespace Jaml.Wpf.Models.StyleModels
             style.Setters.Add(new Setter { Property = Control.BorderThicknessProperty, Value = borderThickness });
             style.Setters.Add(new Setter { Property = UIElement.VisibilityProperty, Value = visibility });
 
+            if (string.IsNullOrWhiteSpace(FontFamily)) return style;
+
+            style.Setters.Add(new Setter
+            {
+                Property = Control.FontFamilyProperty,
+                Value = new FontFamily(PathsHelper.GetUriFromRelativePath(FontFamily), string.Empty)
+            });
+
             return style;
         }
 
+        /// <inheritdoc />
         public void BindStyle(FrameworkElement element) => element.Style = ToStyle();
     }
 }

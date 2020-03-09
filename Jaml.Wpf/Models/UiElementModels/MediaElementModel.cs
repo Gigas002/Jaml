@@ -10,8 +10,13 @@ using Jaml.Wpf.Providers.StyleProvider;
 namespace Jaml.Wpf.Models.UiElementModels
 {
     // ReSharper disable once ClassNeverInstantiated.Global
+
+    /// <summary>
+    /// Model of media elements, like video or audio
+    /// </summary>
     public class MediaElementModel : UiElementModel
     {
+        /// <inheritdoc />
         public override T ToUiElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             MediaElement mediaElement = new MediaElement

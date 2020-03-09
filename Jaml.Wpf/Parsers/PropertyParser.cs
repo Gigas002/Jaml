@@ -5,8 +5,17 @@ using Jaml.Wpf.Models.UiElementModels;
 
 namespace Jaml.Wpf.Parsers
 {
+    //todo move strings to constants
+    /// <summary>
+    /// Contains static method to parse different <see cref="UIElement"/>'s properties
+    /// </summary>
     public static class PropertyParser
     {
+        /// <summary>
+        /// Parse the <see cref="HorizontalAlignment"/> from string
+        /// </summary>
+        /// <param name="horizontalAlignment">Horizontal alignment string</param>
+        /// <returns>Parsed <see cref="HorizontalAlignment"/></returns>
         public static HorizontalAlignment ParseHorizontalAlignment(string horizontalAlignment) => horizontalAlignment switch
         {
             "Stretch" => HorizontalAlignment.Stretch,
@@ -15,6 +24,11 @@ namespace Jaml.Wpf.Parsers
             _ => HorizontalAlignment.Center
         };
 
+        /// <summary>
+        /// Parse the <see cref="VerticalAlignment"/> from string
+        /// </summary>
+        /// <param name="verticalAlignment">Vertical alignment string</param>
+        /// <returns>Parsed <see cref="VerticalAlignment"/></returns>
         public static VerticalAlignment ParseVerticalAlignment(string verticalAlignment) => verticalAlignment switch
         {
             "Stretch" => VerticalAlignment.Stretch,
@@ -23,6 +37,11 @@ namespace Jaml.Wpf.Parsers
             _ => VerticalAlignment.Center
         };
 
+        /// <summary>
+        /// Parse the <see cref="FontWeight"/> from string
+        /// </summary>
+        /// <param name="fontWeight">Font weight string</param>
+        /// <returns>Parsed <see cref="FontWeight"/></returns>
         public static FontWeight ParseFontWeight(string fontWeight) => fontWeight switch
         {
             "Bold" => FontWeights.Bold,
@@ -43,6 +62,11 @@ namespace Jaml.Wpf.Parsers
             _ => FontWeights.Regular
         };
 
+        /// <summary>
+        /// Parse the <see cref="FontStyle"/> from string
+        /// </summary>
+        /// <param name="fontStyle">Font style string</param>
+        /// <returns>Parsed <see cref="FontStyle"/></returns>
         public static FontStyle ParseFontStyle(string fontStyle) => fontStyle switch
         {
             "Italic" => FontStyles.Italic,
@@ -50,6 +74,11 @@ namespace Jaml.Wpf.Parsers
             _ => FontStyles.Normal
         };
 
+        /// <summary>
+        /// Converts the argb string to <see cref="Brush"/>
+        /// </summary>
+        /// <param name="argbString">argb string (e.g. 255,100,100,100)</param>
+        /// <returns>Parsed <see cref="Brush"/></returns>
         public static Brush ConvertArgbToBrush(string argbString)
         {
             if (string.IsNullOrWhiteSpace(argbString)) return new SolidColorBrush(Colors.White);
@@ -64,6 +93,9 @@ namespace Jaml.Wpf.Parsers
             return new SolidColorBrush(Color.FromArgb(a, r, g, b));
         }
 
+        /// <summary>
+        /// todo
+        /// </summary>
         public static Brush ParseBackground(BackgroundModel background)
         {
             if (background == null) return Brushes.Transparent;
@@ -71,8 +103,18 @@ namespace Jaml.Wpf.Parsers
             return background.IsImage ? UIHelper.GetBrushFromImage(background.Value) : ConvertArgbToBrush(background.Value);
         }
 
+        /// <summary>
+        /// Converts the thickness string to <see cref="Thickness"/>
+        /// </summary>
+        /// <param name="thickness">Thickenss string</param>
+        /// <returns>Parsed <see cref="Thickness"/></returns>
         public static Thickness ParseThickness(double thickness) => new Thickness(thickness);
 
+        /// <summary>
+        /// Converts the visibility string to <see cref="Visibility"/>
+        /// </summary>
+        /// <param name="visibility">Visibility string</param>
+        /// <returns>Parsed <see cref="Visibility"/></returns>
         public static Visibility ParseVisibility(string visibility) => visibility switch
         {
             "Hidden" => Visibility.Hidden,

@@ -5,14 +5,22 @@
 
 namespace Jaml.Wpf.Models.UiElementModels
 {
-    //todo
+    /// <summary>
+    /// todo
+    /// </summary>
     public class BackgroundModel
     {
         #region Json Properties
 
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonPropertyName("IsImage")]
         public bool IsImage { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         [JsonPropertyName("Value")]
         public string Value { get; set; }
 

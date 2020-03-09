@@ -9,15 +9,26 @@ using System.Windows.Controls;
 namespace Jaml.Wpf.Models.UiElementModels
 {
     // ReSharper disable once ClassNeverInstantiated.Global
+
+    /// <summary>
+    /// Grid's column definition model
+    /// </summary>
     public class ColumnDefinitionModel
     {
         #region Json Properties
 
+        /// <summary>
+        /// Width of the column
+        /// </summary>
         [JsonPropertyName("Width")]
         public string Width { get; set; } = "10.0";
 
         #endregion
 
+        /// <summary>
+        /// Converts this model to <see cref="ColumnDefinition"/>
+        /// </summary>
+        /// <returns>Converted <see cref="ColumnDefinition"/></returns>
         public ColumnDefinition ToColumnDefinition()
         {
             GridLength gridLength;

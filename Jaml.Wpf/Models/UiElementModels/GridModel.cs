@@ -15,24 +15,41 @@ using Jaml.Wpf.Providers.StyleProvider;
 namespace Jaml.Wpf.Models.UiElementModels
 {
     // ReSharper disable once ClassNeverInstantiated.Global
+
+    /// <summary>
+    /// Model of Grid
+    /// </summary>
     public class GridModel : UiElementModel
     {
         #region Json Properties
 
+        /// <summary>
+        /// Collection of row definitions
+        /// </summary>
         [JsonPropertyName("RowDefinitions")]
         public IEnumerable<RowDefinitionModel> RowDefinitions { get; set; } = new List<RowDefinitionModel>();
 
+        /// <summary>
+        /// Collection of column definitions
+        /// </summary>
         [JsonPropertyName("ColumnDefinitions")]
         public IEnumerable<ColumnDefinitionModel> ColumnDefinitions { get; set; } = new List<ColumnDefinitionModel>();
 
+        /// <summary>
+        /// Collection of children, bound to this grid
+        /// </summary>
         [JsonPropertyName("Children")]
         public IEnumerable<ChildModel> Children { get; set; } = new List<ChildModel>();
 
+        /// <summary>
+        /// Grid's background
+        /// </summary>
         [JsonPropertyName("Background")]
         public BackgroundModel Background { get; set; } = null;
 
         #endregion
 
+        /// <inheritdoc />
         public override T ToUiElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             Grid grid = new Grid

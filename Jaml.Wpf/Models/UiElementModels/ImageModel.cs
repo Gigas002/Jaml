@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Jaml.Wpf.Helpers;
 using Jaml.Wpf.Models.CommandModels;
+using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
@@ -11,9 +12,18 @@ using Jaml.Wpf.Providers.StyleProvider;
 
 namespace Jaml.Wpf.Models.UiElementModels
 {
+    /// <summary>
+    /// Image model
+    /// </summary>
     public class ImageModel : UiElementModel
     {
-        public Image ToImage(ICommandProvider commandProvider)
+        /// <summary>
+        /// Converts current model to <see cref="Image"/>
+        /// </summary>
+        /// <param name="commandProvider">Command provider</param>
+        /// <param name="styleProvider">Style provider</param>
+        /// <returns>Converted <see cref="Image"/></returns>
+        public Image ToImage(ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             Image image = new Image
             {
@@ -24,9 +34,13 @@ namespace Jaml.Wpf.Models.UiElementModels
 
             foreach (CommandModel commandModel in Commands) commandModel.BindCommand(image, commandProvider);
 
+            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
+            styleModel?.BindStyle(image);
+
             return image;
         }
 
+        /// <inheritdoc />
         public override T ToUiElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             throw new NotImplementedException();

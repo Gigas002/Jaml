@@ -1,17 +1,38 @@
 ﻿namespace Jaml.Wpf.Constants
 {
+    /// <summary>
+    /// Supported event names
+    /// </summary>
     public static class EventNames
     {
-        public const string MediaEnded = "MediaEnded";
+        /// <summary>
+        /// MediaEnded
+        /// </summary>
+        public const string MediaEnded = nameof(MediaEnded);
 
-        public const string MouseLeftButtonUp = "MouseLeftButtonUp";
+        /// <summary>
+        /// MouseLeftButtonUp
+        /// </summary>
+        public const string MouseLeftButtonUp = nameof(MouseLeftButtonUp);
 
-        public const string PreviewMouseLeftButtonUp = "PreviewMouseLeftButtonUp";
+        /// <summary>
+        /// PreviewMouseLeftButtonUp
+        /// </summary>
+        public const string PreviewMouseLeftButtonUp = nameof(PreviewMouseLeftButtonUp);
 
-        public const string MouseRightButtonUp = "MouseRightButtonUp";
+        /// <summary>
+        /// MouseRightButtonUp
+        /// </summary>
+        public const string MouseRightButtonUp = nameof(MouseRightButtonUp);
 
-        public const string Click = "Click";
+        /// <summary>
+        /// Click
+        /// </summary>
+        public const string Click = nameof(Click);
 
-        public const string Initialized = "Initialized";
+        /// <summary>
+        /// Initialized
+        /// </summary>
+        public const string Initialized = nameof(Initialized);
     }
 }
