@@ -22,12 +22,11 @@ This project supports [SemVer 2.0.0](https://semver.org/) with template `{MAJOR}
 The project is still heavy under development and there's a lot of things to do before releasing something.
 Feel free to contribute, just read the [CONTRIBUTING](CONTRIBUTING.md) file first.
 
-todo
-You can also track current state in GitHub's Issues, Milestones and Projects.
+You can also track current state in GitHub's [issues](https://github.com/Gigas002/Jaml/issues), [milestones](https://github.com/Gigas002/Jaml/milestones) and [projects](https://github.com/Gigas002/Jaml/projects).
 
-Stable releases will be located here: [todo latest release badge].
+Stable releases will be located here: [![Release](https://img.shields.io/github/release/Gigas002/Jaml.svg)](https://github.com/Gigas002/Jaml/releases/latest), or on NuGet: [![NuGet](https://img.shields.io/nuget/v/Jaml.svg)](https://www.nuget.org/packages/Jaml/).
 
-Previous versions can be found on [releases]() and [branches]() pages. You can also search through **Git**'s tags.
+Previous versions can be found on [releases](https://github.com/Gigas002/Jaml/releases) and [branches](https://github.com/Gigas002/Jaml/branches) pages. You can also search through **Git**'s tags.
 
 If you want to learn, what've been done in previous releases, take a look at [CHANGELOG](CHANGELOG.md).
 
