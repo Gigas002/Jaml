@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AssemblyVersion>0.1.0.721</AssemblyVersion>
+    <FileVersion>0.1.0.721</FileVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0-ci721</Version>
+    <Authors>Gigas002</Authors>
+    <Description>Jaml is an analogue of Xaml, but uses .json files instead</Description>
+    <Copyright>Copyright © Gigas002 2020</Copyright>
+    <PackageLicenseExpression>DBADPL</PackageLicenseExpression>
+    <PackageTags>wpf jaml xaml analogue gui</PackageTags>
+    <LangVersion>latest</LangVersion>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DocumentationFile></DocumentationFile>
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\gigas\Documents\Visual Studio 2019\Projects\Jaml\Jaml.Wpf\Jaml.Wpf.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DocumentationFile>C:\Users\gigas\Documents\Visual Studio 2019\Projects\Jaml\Jaml.Wpf\Jaml.Wpf.xml</DocumentationFile>
+  </PropertyGroup>
+
+</Project>
