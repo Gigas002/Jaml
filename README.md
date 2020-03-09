@@ -48,7 +48,7 @@ To browse the docs offline, it's recomended to use [dotnet try](https://github.c
 
 ## Contributing
 
-Feel free to contribute this project: make forks, issues, PRs, etc. For more details, please read [CONTRIBUTING.md](CONTRIBUTING.md).
+Feel free to contribute this project: make forks, issues, PRs, etc. For more details, please read [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License
 
