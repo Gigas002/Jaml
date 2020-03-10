@@ -13,7 +13,7 @@ namespace Jaml.Wpf.Models.JsonModels
         private static ReadOnlySpan<T> GetReadOnlySpan<T>(T[] t) => new ReadOnlySpan<T>(t);
 
         /// <summary>
-        /// Parses the model into <see cref="T"/>
+        /// Parses the model into chosen type from <see cref="IJsonModel"/> children
         /// </summary>
         /// <typeparam name="T">Children of <see cref="IJsonModel"/></typeparam>
         /// <param name="filePath">Path to json file to parse</param>
@@ -25,7 +25,7 @@ namespace Jaml.Wpf.Models.JsonModels
         }
 
         /// <summary>
-        /// Asynchroniously parses the model into <see cref="T"/>
+        /// Asynchroniously parses the model into chosen type from <see cref="IJsonModel"/> children
         /// </summary>
         /// <typeparam name="T">Children of <see cref="IJsonModel"/></typeparam>
         /// <param name="filePath">Path to json file to parse</param>

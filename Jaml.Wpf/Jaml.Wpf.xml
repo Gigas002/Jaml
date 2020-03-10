@@ -39,6 +39,11 @@
             Initialized
             </summary>
         </member>
+        <member name="F:Jaml.Wpf.Constants.EventNames.Loaded">
+            <summary>
+            Loaded
+            </summary>
+        </member>
         <member name="T:Jaml.Wpf.Helpers.PathsHelper">
             <summary>
             Shortcuts to help with paths
@@ -150,7 +155,7 @@
         </member>
         <member name="M:Jaml.Wpf.Models.JsonModels.IJsonModel.GetJsonModel``1(System.String)">
             <summary>
-            Parses the model into <see cref="!:T"/>
+            Parses the model into chosen type from <see cref="T:Jaml.Wpf.Models.JsonModels.IJsonModel"/> children
             </summary>
             <typeparam name="T">Children of <see cref="T:Jaml.Wpf.Models.JsonModels.IJsonModel"/></typeparam>
             <param name="filePath">Path to json file to parse</param>
@@ -163,7 +168,7 @@
         </member>
         <member name="M:Jaml.Wpf.Models.JsonModels.JsonModel.GetModel``1(System.String)">
             <summary>
-            Parses the model into <see cref="!:T"/>
+            Parses the model into chosen type from <see cref="T:Jaml.Wpf.Models.JsonModels.IJsonModel"/> children
             </summary>
             <typeparam name="T">Children of <see cref="T:Jaml.Wpf.Models.JsonModels.IJsonModel"/></typeparam>
             <param name="filePath">Path to json file to parse</param>
@@ -171,7 +176,7 @@
         </member>
         <member name="M:Jaml.Wpf.Models.JsonModels.JsonModel.GetModelAsync``1(System.String)">
             <summary>
-            Asynchroniously parses the model into <see cref="!:T"/>
+            Asynchroniously parses the model into chosen type from <see cref="T:Jaml.Wpf.Models.JsonModels.IJsonModel"/> children
             </summary>
             <typeparam name="T">Children of <see cref="T:Jaml.Wpf.Models.JsonModels.IJsonModel"/></typeparam>
             <param name="filePath">Path to json file to parse</param>
@@ -179,6 +184,21 @@
         </member>
         <member name="M:Jaml.Wpf.Models.JsonModels.JsonModel.GetJsonModel``1(System.String)">
             <inheritdoc />
+        </member>
+        <member name="T:Jaml.Wpf.Models.JsonModels.MainWindowModel">
+            <summary>
+            Model of MainWindow.json
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.JsonModels.MainWindowModel.MainWindow">
+            <summary>
+            Json's main window element
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.JsonModels.MainWindowModel.WindowModel">
+            <summary>
+            Window inside of MainWindow
+            </summary>
         </member>
         <member name="T:Jaml.Wpf.Models.JsonModels.PageModel">
             <summary>
@@ -203,6 +223,11 @@
         <member name="P:Jaml.Wpf.Models.JsonModels.RootModel.Root">
             <summary>
             Json's Root element
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.JsonModels.RootModel.MainWindow">
+            <summary>
+            Path to main window json
             </summary>
         </member>
         <member name="P:Jaml.Wpf.Models.JsonModels.RootModel.FirstPage">
@@ -543,6 +568,19 @@
             <inheritdoc />
         </member>
         <member name="M:Jaml.Wpf.Models.UiElementModels.UiElementModel.GetCorrespondingStyle(Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <inheritdoc />
+        </member>
+        <member name="T:Jaml.Wpf.Models.UiElementModels.WindowModel">
+            <summary>
+            Window model
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UiElementModels.WindowModel.GridModel">
+            <summary>
+            Content of the window
+            </summary>
+        </member>
+        <member name="M:Jaml.Wpf.Models.UiElementModels.WindowModel.ToUiElement``1(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Parsers.PageParser">
