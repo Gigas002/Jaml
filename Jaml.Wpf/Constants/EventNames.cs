@@ -34,5 +34,10 @@
         /// Initialized
         /// </summary>
         public const string Initialized = nameof(Initialized);
+
+        /// <summary>
+        /// Loaded
+        /// </summary>
+        public const string Loaded = nameof(Loaded);
     }
 }

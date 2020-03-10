@@ -72,6 +72,12 @@ namespace Jaml.Wpf.Models.CommandModels
                         mediaElement.MediaEnded += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
                     break;
                 }
+                case EventNames.Loaded:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.Loaded += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
+                    break;
+                }
                 default: { throw new NotSupportedException($"Event {Event} is not supported."); }
             }
         }
