@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Jaml.Wpf.Helpers;
 using Jaml.Wpf.Models.CommandModels;
@@ -10,50 +9,30 @@ using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable ClassNeverInstantiated.Global
 
-namespace Jaml.Wpf.Models.UiElementModels
+namespace Jaml.Wpf.Models.UIElementModels
 {
     /// <summary>
     /// Image model
     /// </summary>
-    public class ImageModel : UiElementModel
+    public class ImageModel : FrameworkElementModel
     {
         /// <summary>
-        /// Converts current model to <see cref="Image"/>
+        /// Creates image from model
         /// </summary>
+        /// <typeparam name="T">Children of <see cref="Image"/></typeparam>
+        /// <param name="image">Target image</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        /// <returns>Converted <see cref="Image"/></returns>
-        public Image ToImage(ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public void ToImage<T>(ref T image, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Image
         {
-            Image image = new Image
-            {
-                VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment),
-                HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment),
-                Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Content))
-            };
+            image.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
+            image.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
+            image.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Content));
 
             foreach (CommandModel commandModel in Commands) commandModel.BindCommand(image, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
             styleModel?.BindStyle(image);
-
-            return image;
-        }
-
-        /// <inheritdoc />
-        public override T ToUiElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider)
-        {
-            throw new NotImplementedException();
-
-            //Image image = new Image
-            //{
-            //    VerticalAlignment = ModelPropertiesParser.ParseVerticalAlignment(VerticalAlignment),
-            //    HorizontalAlignment = ModelPropertiesParser.ParseHorizontalAlignment(HorizontalAlignment),
-            //    Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Content))
-            //};
-
-            ////throws an exception
-            //return (T) Convert.ChangeType(image, typeof(T));
         }
     }
 }

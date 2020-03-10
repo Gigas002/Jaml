@@ -4,7 +4,7 @@ This entry refers to `MediaElement control` (`MediaElementModel`) inside `Child`
 
 ## Contents
 
-`MediaElementModel` inherits from `UiElementModel`, so you can read about basic properties in it’s [docs](UiElement.md).
+`MediaElementModel` inherits from `UIElementModel`, so you can read about basic properties in it’s [docs](UIElement.md).
 
 `MediaElement`’s are **video** and **audio** files, that can be stored in your `json` files inside of `Grid.Children` element.
 
@@ -21,7 +21,7 @@ Use `dotnet try` tool to see the contents of the code block below.
 <details>
   <summary>MediaElementModel.cs</summary>
 
-``` cs --source-file ../Models/UiElementModels/MediaElementModel.cs --project ../Jaml.Wpf.csproj
+``` cs --source-file ../Models/UIElementModels/MediaElementModel.cs --project ../Jaml.Wpf.csproj
 
 ```
 

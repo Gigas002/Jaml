@@ -1,12 +1,12 @@
-# UiElement
+# UIElement
 
-`UiElement` (`Jaml.Wpf.Models.UiElementModel`) represents every control on your window, it’s the basic class for all `controlModel`s.
+`UIElement` (`Jaml.Wpf.Models.UIElementModel`) represents every control on your window, it’s the basic class for all `controlModel`s.
 
 You don’t create this element in `json` explicitly, but since it’s the basic thing, here’s docs for it.
 
 ## Contents
 
-`UiElementModel` inherits from `IUiElementModel`.
+`UIElementModel` inherits from `IUIElementModel`.
 
 |         Name          |                      Description                       |                           Comment                            |       Default value       |  Example   |
 | :-------------------: | :----------------------------------------------------: | :----------------------------------------------------------: | :-----------------------: | :--------: |
@@ -26,9 +26,9 @@ You don’t create this element in `json` explicitly, but since it’s the basic
 Use `dotnet try` tool to see the contents of the code block below.
 
 <details>
-  <summary>UiElementModel.cs</summary>
+  <summary>UIElementModel.cs</summary>
 
-``` cs --source-file ../Models/UiElementModels/UiElementModel.cs --project ../Jaml.Wpf.csproj
+``` cs --source-file ../Models/UIElementModels/UIElementModel.cs --project ../Jaml.Wpf.csproj
 
 ```
 

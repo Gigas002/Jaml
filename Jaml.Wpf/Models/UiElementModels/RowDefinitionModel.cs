@@ -6,7 +6,7 @@ using System.Windows.Controls;
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
-namespace Jaml.Wpf.Models.UiElementModels
+namespace Jaml.Wpf.Models.UIElementModels
 {
     // ReSharper disable once ClassNeverInstantiated.Global
 

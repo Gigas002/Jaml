@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using Jaml.Wpf.Models.UiElementModels;
+using Jaml.Wpf.Models.UIElementModels;
 
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 

@@ -4,7 +4,7 @@ This entry refers to `Image control` (`ImageModel`) inside `Child` (`ChildModel`
 
 ## Contents
 
-`ImageModel` inherits from `UiElementModel`, so you can read about basic properties in it’s [docs](UiElement.md).
+`ImageModel` inherits from `UIElementModel`, so you can read about basic properties in it’s [docs](UIElement.md).
 
 `Images` can be stored in your `json` files inside of `Grid.Children` element.
 
@@ -19,7 +19,7 @@ Use `dotnet try` tool to see the contents of the code block below.
 <details>
   <summary>ImageModel.cs</summary>
 
-``` cs --source-file ../Models/UiElementModels/ImageModel.cs --project ../Jaml.Wpf.csproj
+``` cs --source-file ../Models/UIElementModels/ImageModel.cs --project ../Jaml.Wpf.csproj
 
 ```
 

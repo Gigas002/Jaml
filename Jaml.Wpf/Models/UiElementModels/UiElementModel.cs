@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using System.Windows;
@@ -9,12 +10,12 @@ using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
-namespace Jaml.Wpf.Models.UiElementModels
+namespace Jaml.Wpf.Models.UIElementModels
 {
     /// <summary>
-    /// Base class, that implements <see cref="IUiElementModel"/>
+    /// Base class, that implements <see cref="IUIElementModel"/>
     /// </summary>
-    public class UiElementModel : IUiElementModel
+    public class UIElementModel : IUIElementModel
     {
         #region Json Properties
 
@@ -61,7 +62,8 @@ namespace Jaml.Wpf.Models.UiElementModels
         #endregion
 
         /// <inheritdoc />
-        public virtual T ToUiElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement => null;
+        public void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement =>
+            throw new NotImplementedException();
 
         /// <inheritdoc />
         public IStyleModel GetCorrespondingStyle(IStyleProvider styleProvider)

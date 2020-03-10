@@ -3,7 +3,7 @@
 // ReSharper disable ClassNeverInstantiated.Global
 // ReSharper disable UnusedAutoPropertyAccessor.Global
 
-namespace Jaml.Wpf.Models.UiElementModels
+namespace Jaml.Wpf.Models.UIElementModels
 {
     /// <summary>
     /// todo

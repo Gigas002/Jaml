@@ -20,6 +20,6 @@ Here goes the TOC.
 - [RowDefinition](RowDefinition.md)
 - [Style](Style.md)
 - [Styles](Styles.md)
-- [UiElement](UiElement.md)
+- [UIElement](UIElement.md)
 - [Window](Window.md)
 

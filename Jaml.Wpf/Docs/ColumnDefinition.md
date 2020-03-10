@@ -17,7 +17,7 @@ Use `dotnet try` tool to see the contents of the code block below.
 <details>
   <summary>ColumnDefinitionModel.cs</summary>
 
-``` cs --source-file ../Models/UiElementModels/ColumnDefinitionModel.cs --project ../Jaml.Wpf.csproj
+``` cs --source-file ../Models/UIElementModels/ColumnDefinitionModel.cs --project ../Jaml.Wpf.csproj
 
 ```
 

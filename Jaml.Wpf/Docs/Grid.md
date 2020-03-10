@@ -6,7 +6,7 @@ This entry refers to `Grid control` (`GridModel`) documentation.
 
 ## Contents
 
-`GridModel` inherits from `UiElementModel`, so you can read about basic properties in it’s [docs](UiElement.md).
+`GridModel` inherits from `UIElementModel`, so you can read about basic properties in it’s [docs](UIElement.md).
 
 `Grid` properties are not required by default, but can be required for some `children` controls. If initialized `Grid` without properties -- the app will be open with blank page.
 
@@ -24,7 +24,7 @@ Use `dotnet try` tool to see the contents of the code block below.
 <details>
   <summary>GridModel.cs</summary>
 
-``` cs --source-file ../Models/UiElementModels/GridModel.cs --project ../Jaml.Wpf.csproj
+``` cs --source-file ../Models/UIElementModels/GridModel.cs --project ../Jaml.Wpf.csproj
 
 ```
 

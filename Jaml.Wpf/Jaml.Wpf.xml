@@ -351,259 +351,303 @@
         <member name="M:Jaml.Wpf.Models.StyleModels.StyleModel.BindStyle(System.Windows.FrameworkElement)">
             <inheritdoc />
         </member>
-        <member name="T:Jaml.Wpf.Models.UiElementModels.BackgroundModel">
+        <member name="T:Jaml.Wpf.Models.UIElementModels.BackgroundModel">
             <summary>
             todo
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.BackgroundModel.IsImage">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.BackgroundModel.IsImage">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.BackgroundModel.Value">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.BackgroundModel.Value">
             <summary>
             
             </summary>
         </member>
-        <member name="T:Jaml.Wpf.Models.UiElementModels.ButtonModel">
+        <member name="T:Jaml.Wpf.Models.UIElementModels.ButtonModel">
             <summary>
             Model of button
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.ButtonModel.ToUiElement``1(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
-            <inheritdoc />
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonModel.ToButton``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Creates button from model
+            </summary>
+            <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Primitives.ButtonBase"/></typeparam>
+            <param name="button">Target button</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
-        <member name="T:Jaml.Wpf.Models.UiElementModels.ColumnDefinitionModel">
+        <member name="T:Jaml.Wpf.Models.UIElementModels.ColumnDefinitionModel">
             <summary>
             Grid's column definition model
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.ColumnDefinitionModel.Width">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.ColumnDefinitionModel.Width">
             <summary>
             Width of the column
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.ColumnDefinitionModel.ToColumnDefinition">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ColumnDefinitionModel.ToColumnDefinition">
             <summary>
             Converts this model to <see cref="T:System.Windows.Controls.ColumnDefinition"/>
             </summary>
             <returns>Converted <see cref="T:System.Windows.Controls.ColumnDefinition"/></returns>
         </member>
-        <member name="T:Jaml.Wpf.Models.UiElementModels.GridModel">
+        <member name="T:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel">
+            <summary>
+            todo
+            </summary>
+        </member>
+        <member name="T:Jaml.Wpf.Models.UIElementModels.GridModel">
             <summary>
             Model of Grid
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.GridModel.RowDefinitions">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.GridModel.RowDefinitions">
             <summary>
             Collection of row definitions
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.GridModel.ColumnDefinitions">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.GridModel.ColumnDefinitions">
             <summary>
             Collection of column definitions
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.GridModel.Children">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.GridModel.Children">
             <summary>
             Collection of children, bound to this grid
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.GridModel.Background">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.GridModel.Background">
             <summary>
             Grid's background
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.GridModel.ToUiElement``1(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
-            <inheritdoc />
+        <member name="M:Jaml.Wpf.Models.UIElementModels.GridModel.ToGrid``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Creates grid from model
+            </summary>
+            <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Grid"/></typeparam>
+            <param name="grid">Target grid</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
-        <member name="T:Jaml.Wpf.Models.UiElementModels.ImageModel">
+        <member name="T:Jaml.Wpf.Models.UIElementModels.ImageModel">
             <summary>
             Image model
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.ImageModel.ToImage(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ImageModel.ToImage``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
-            Converts current model to <see cref="T:System.Windows.Controls.Image"/>
+            Creates image from model
             </summary>
+            <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Image"/></typeparam>
+            <param name="image">Target image</param>
             <param name="commandProvider">Command provider</param>
             <param name="styleProvider">Style provider</param>
-            <returns>Converted <see cref="T:System.Windows.Controls.Image"/></returns>
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.ImageModel.ToUiElement``1(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
-            <inheritdoc />
-        </member>
-        <member name="T:Jaml.Wpf.Models.UiElementModels.IUiElementModel">
+        <member name="T:Jaml.Wpf.Models.UIElementModels.IUIElementModel">
             <summary>
             Base interface for all <see cref="T:System.Windows.UIElement"/> on page
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.IUiElementModel.Name">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Name">
             <summary>
             Name of element
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.IUiElementModel.VerticalAlignment">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.VerticalAlignment">
             <summary>
             Vertical alignment
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.IUiElementModel.HorizontalAlignment">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.HorizontalAlignment">
             <summary>
             Horizontal alignment
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.IUiElementModel.Content">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Content">
             <summary>
             Element's content
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.IUiElementModel.StyleId">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.StyleId">
             <summary>
             Style id to use on this element
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.IUiElementModel.ParentRow">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ParentRow">
             <summary>
             Row position in parent grid
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.IUiElementModel.ParentColumn">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ParentColumn">
             <summary>
             Column position in parent grid
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.IUiElementModel.RowSpan">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.RowSpan">
             <summary>
             RowSpan in parent grid
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.IUiElementModel.ColumnSpan">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ColumnSpan">
             <summary>
             ColumnSpan in parent grid
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.IUiElementModel.Commands">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Commands">
             <summary>
             Collection of commands, associated with this element
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.IUiElementModel.ToUiElement``1(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Converts this model to one of <see cref="T:System.Windows.UIElement"/>'s children
             </summary>
-            <typeparam name="T">Chilren of <see cref="T:System.Windows.UIElement"/></typeparam>
+            <typeparam name="T">Children of <see cref="T:System.Windows.UIElement"/></typeparam>
+            <param name="element">Element, where model will be converted</param>
             <param name="commandProvider">Command provider</param>
-            <param name="styleProvider">Style provideer</param>
-            <returns>Converted <see cref="T:System.Windows.UIElement"/></returns>
+            <param name="styleProvider">Style provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.IUiElementModel.GetCorrespondingStyle(Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.GetCorrespondingStyle(Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Checks if there is a style for this element
             </summary>
             <param name="styleProvider">Style provider</param>
             <returns>Corresponding style model or <see langword="null"/></returns>
         </member>
-        <member name="T:Jaml.Wpf.Models.UiElementModels.MediaElementModel">
+        <member name="T:Jaml.Wpf.Models.UIElementModels.MediaElementModel">
             <summary>
             Model of media elements, like video or audio
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.MediaElementModel.ToUiElement``1(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
-            <inheritdoc />
+        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel.ToMediaElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Creates media element from model
+            </summary>
+            <typeparam name="T">Children of <see cref="T:System.Windows.Controls.MediaElement"/></typeparam>
+            <param name="mediaElement">Target media element</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
-        <member name="T:Jaml.Wpf.Models.UiElementModels.RowDefinitionModel">
+        <member name="T:Jaml.Wpf.Models.UIElementModels.RowDefinitionModel">
             <summary>
             Grid's row definition model
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.RowDefinitionModel.Height">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.RowDefinitionModel.Height">
             <summary>
             Height of the column
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.RowDefinitionModel.ToRowDefinition">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.RowDefinitionModel.ToRowDefinition">
             <summary>
             Converts this model to <see cref="T:System.Windows.Controls.RowDefinition"/>
             </summary>
             <returns>Converted <see cref="T:System.Windows.Controls.RowDefinition"/></returns>
         </member>
-        <member name="T:Jaml.Wpf.Models.UiElementModels.UiElementModel">
+        <member name="T:Jaml.Wpf.Models.UIElementModels.UIElementModel">
             <summary>
-            Base class, that implements <see cref="T:Jaml.Wpf.Models.UiElementModels.IUiElementModel"/>
+            Base class, that implements <see cref="T:Jaml.Wpf.Models.UIElementModels.IUIElementModel"/>
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.UiElementModel.Name">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Name">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.UiElementModel.VerticalAlignment">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.VerticalAlignment">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.UiElementModel.HorizontalAlignment">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.HorizontalAlignment">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.UiElementModel.Content">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Content">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.UiElementModel.StyleId">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.StyleId">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.UiElementModel.ParentRow">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.ParentRow">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.UiElementModel.ParentColumn">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.ParentColumn">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.UiElementModel.RowSpan">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.RowSpan">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.UiElementModel.ColumnSpan">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.ColumnSpan">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.UiElementModel.Commands">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Commands">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.UiElementModel.ToUiElement``1(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.UiElementModel.GetCorrespondingStyle(Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.GetCorrespondingStyle(Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <inheritdoc />
         </member>
-        <member name="T:Jaml.Wpf.Models.UiElementModels.WindowModel">
+        <member name="T:Jaml.Wpf.Models.UIElementModels.WindowModel">
             <summary>
             Window model
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UiElementModels.WindowModel.GridModel">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.WindowModel.GridModel">
             <summary>
             Content of the window
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UiElementModels.WindowModel.ToUiElement``1(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
-            <inheritdoc />
+        <member name="M:Jaml.Wpf.Models.UIElementModels.WindowModel.ToWindow``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Creates window from model
+            </summary>
+            <typeparam name="T">Children of <see cref="T:System.Windows.Window"/></typeparam>
+            <param name="window">Target window</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
         <member name="T:Jaml.Wpf.Parsers.PageParser">
             <summary>
             Contains static method to parse different elements of the page
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Parsers.PageParser.ParseUiElement``1(System.Windows.Controls.Grid,Jaml.Wpf.Models.UiElementModels.IUiElementModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+        <member name="M:Jaml.Wpf.Parsers.PageParser.ParseAndAddImage(System.Windows.Controls.Grid,Jaml.Wpf.Models.UIElementModels.ImageModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
-            Parse the specific <see cref="T:System.Windows.UIElement"/>
-            </summary>
-            <typeparam name="T"><see cref="T:System.Windows.UIElement"/> and it's children</typeparam>
-            <param name="parentGrid">Grid to which bind the element</param>
-            <param name="uiElementModel">Model to parse and bind</param>
-            <param name="commandProvider">Command provider</param>
-            <param name="styleProvider">Style provider</param>
-        </member>
-        <member name="M:Jaml.Wpf.Parsers.PageParser.ParseAndAddImage(System.Windows.Controls.Grid,Jaml.Wpf.Models.UiElementModels.ImageModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
-            <summary>
-            Todo temp
+            Parses and adds an element to the grid
             </summary>
             <param name="parentGrid">Grid to which bind the element</param>
             <param name="imageModel">Model to parse and bind</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
+        </member>
+        <member name="M:Jaml.Wpf.Parsers.PageParser.ParseAndAddButton(System.Windows.Controls.Grid,Jaml.Wpf.Models.UIElementModels.ButtonModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Parses and adds an element to the grid
+            </summary>
+            <param name="parentGrid">Grid to which bind the element</param>
+            <param name="buttonModel">Model to parse and bind</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
+        </member>
+        <member name="M:Jaml.Wpf.Parsers.PageParser.ParseAndAddMediaElement(System.Windows.Controls.Grid,Jaml.Wpf.Models.UIElementModels.MediaElementModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Parses and adds an element to the grid
+            </summary>
+            <param name="parentGrid">Grid to which bind the element</param>
+            <param name="mediaElementModel">Model to parse and bind</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
+        </member>
+        <member name="M:Jaml.Wpf.Parsers.PageParser.ParseAndAddGrid(System.Windows.Controls.Grid,Jaml.Wpf.Models.UIElementModels.GridModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Parses and adds an element to the grid
+            </summary>
+            <param name="parentGrid">Grid to which bind the element</param>
+            <param name="gridModel">Model to parse and bind</param>
             <param name="commandProvider">Command provider</param>
             <param name="styleProvider">Style provider</param>
         </member>
@@ -656,7 +700,7 @@
             <param name="argbString">argb string (e.g. 255,100,100,100)</param>
             <returns>Parsed <see cref="T:System.Windows.Media.Brush"/></returns>
         </member>
-        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseBackground(Jaml.Wpf.Models.UiElementModels.BackgroundModel)">
+        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseBackground(Jaml.Wpf.Models.UIElementModels.BackgroundModel)">
             <summary>
             todo
             </summary>

@@ -4,7 +4,7 @@ This entry refers to `Button control` (`ButtonModel`) inside `Child` (`ChildMode
 
 ## Contents
 
-`ButtonModel` inherits from `UiElementModel`, so you can read about basic properties in it’s [docs](UiElement.md).
+`ButtonModel` inherits from `UIElementModel`, so you can read about basic properties in it’s [docs](UIElement.md).
 
 `Buttons` can be stored in your `json` files inside of `Grid.Children` element.
 
@@ -21,7 +21,7 @@ Use `dotnet try` tool to see the contents of the code block below.
 <details>
   <summary>ButtonModel.cs</summary>
 
-``` cs --source-file ../Models/UiElementModels/ButtonModel.cs --project ../Jaml.Wpf.csproj
+``` cs --source-file ../Models/UIElementModels/ButtonModel.cs --project ../Jaml.Wpf.csproj
 
 ```
 

@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using Jaml.Wpf.Models.UiElementModels;
+using Jaml.Wpf.Models.UIElementModels;
 
 namespace Jaml.Wpf.Models.StyleModels
 {

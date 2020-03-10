@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.ChildModels;
@@ -12,14 +11,14 @@ using Jaml.Wpf.Providers.StyleProvider;
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
-namespace Jaml.Wpf.Models.UiElementModels
+namespace Jaml.Wpf.Models.UIElementModels
 {
     // ReSharper disable once ClassNeverInstantiated.Global
 
     /// <summary>
     /// Model of Grid
     /// </summary>
-    public class GridModel : UiElementModel
+    public class GridModel : FrameworkElementModel
     {
         #region Json Properties
 
@@ -49,14 +48,17 @@ namespace Jaml.Wpf.Models.UiElementModels
 
         #endregion
 
-        /// <inheritdoc />
-        public override T ToUiElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider)
+        /// <summary>
+        /// Creates grid from model
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="Grid"/></typeparam>
+        /// <param name="grid">Target grid</param>
+        /// <param name="commandProvider">Command provider</param>
+        /// <param name="styleProvider">Style provider</param>
+        public void ToGrid<T>(ref T grid, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Grid
         {
-            Grid grid = new Grid
-            {
-                VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment),
-                HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment)
-            };
+            grid.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
+            grid.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
 
             foreach (RowDefinitionModel rowDefinitionModel in RowDefinitions)
                 grid.RowDefinitions.Add(rowDefinitionModel.ToRowDefinition());
@@ -70,8 +72,6 @@ namespace Jaml.Wpf.Models.UiElementModels
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
             styleModel?.BindStyle(grid);
-
-            return (T) Convert.ChangeType(grid, typeof(T));
         }
     }
 }

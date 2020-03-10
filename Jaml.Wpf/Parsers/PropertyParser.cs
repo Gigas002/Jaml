@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 using Jaml.Wpf.Helpers;
-using Jaml.Wpf.Models.UiElementModels;
+using Jaml.Wpf.Models.UIElementModels;
 
 namespace Jaml.Wpf.Parsers
 {

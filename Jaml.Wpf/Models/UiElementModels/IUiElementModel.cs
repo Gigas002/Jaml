@@ -5,14 +5,15 @@ using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
 
+// ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMemberInSuper.Global
 
-namespace Jaml.Wpf.Models.UiElementModels
+namespace Jaml.Wpf.Models.UIElementModels
 {
     /// <summary>
     /// Base interface for all <see cref="UIElement"/> on page
     /// </summary>
-    public interface IUiElementModel
+    public interface IUIElementModel
     {
         /// <summary>
         /// Name of element
@@ -67,11 +68,11 @@ namespace Jaml.Wpf.Models.UiElementModels
         /// <summary>
         /// Converts this model to one of <see cref="UIElement"/>'s children
         /// </summary>
-        /// <typeparam name="T">Chilren of <see cref="UIElement"/></typeparam>
+        /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
+        /// <param name="element">Element, where model will be converted</param>
         /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provideer</param>
-        /// <returns>Converted <see cref="UIElement"/></returns>
-        public T ToUiElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement;
+        /// <param name="styleProvider">Style provider</param>
+        public void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement;
 
         /// <summary>
         /// Checks if there is a style for this element

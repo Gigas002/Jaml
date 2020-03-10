@@ -1,5 +1,4 @@
-﻿using System;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.CommandModels;
@@ -8,16 +7,17 @@ using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
 
+// ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
-namespace Jaml.Wpf.Models.UiElementModels
+namespace Jaml.Wpf.Models.UIElementModels
 {
     // ReSharper disable once ClassNeverInstantiated.Global
 
     /// <summary>
     /// Window model
     /// </summary>
-    public class WindowModel : UiElementModel
+    public class WindowModel : FrameworkElementModel
     {
         /// <summary>
         /// Content of the window
@@ -25,22 +25,25 @@ namespace Jaml.Wpf.Models.UiElementModels
         [JsonPropertyName("Grid")]
         public GridModel GridModel { get; set; } = null;
 
-        /// <inheritdoc />
-        public override T ToUiElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider)
+        /// <summary>
+        /// Creates window from model
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="Window"/></typeparam>
+        /// <param name="window">Target window</param>
+        /// <param name="commandProvider">Command provider</param>
+        /// <param name="styleProvider">Style provider</param>
+        public void ToWindow<T>(ref T window, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Window
         {
-            Window window = new Window
-            {
-                Content = GridModel.ToUiElement<Grid>(commandProvider, styleProvider),
-                VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment),
-                HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment)
-            };
+            Grid contentGrid = new Grid();
+            GridModel.ToGrid(ref contentGrid, commandProvider, styleProvider);
+            window.Content = contentGrid;
+            window.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
+            window.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
 
             foreach (ICommandModel commandModel in Commands) commandModel.BindCommand(window, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
             styleModel?.BindStyle(window);
-
-            return (T)Convert.ChangeType(window, typeof(T));
         }
     }
 }

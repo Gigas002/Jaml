@@ -6,7 +6,7 @@ You can use this control as `MainWindow` of your application, in case you want t
 
 ## Contents
 
-`WindowModel` inherits from `UiElementModel`, so you can read about basic properties in it’s [docs](UiElement.md).
+`WindowModel` inherits from `UIElementModel`, so you can read about basic properties in it’s [docs](UIElement.md).
 
 `WindowModel` **must** contain a `GridModel` inside.
 
@@ -22,7 +22,7 @@ Use `dotnet try` tool to see the contents of the code block below.
   <summary>WindowModel.cs</summary>
 
 
-``` cs --source-file ../Models/UiElementModels/WindowModel.cs --project ../Jaml.Wpf.csproj
+``` cs --source-file ../Models/UIElementModels/WindowModel.cs --project ../Jaml.Wpf.csproj
 
 ```
 
