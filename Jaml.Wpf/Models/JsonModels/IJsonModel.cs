@@ -7,7 +7,7 @@ namespace Jaml.Wpf.Models.JsonModels
     public interface IJsonModel
     {
         /// <summary>
-        /// Parses the model into <see cref="T"/>
+        /// Parses the model into chosen type from <see cref="IJsonModel"/> children
         /// </summary>
         /// <typeparam name="T">Children of <see cref="IJsonModel"/></typeparam>
         /// <param name="filePath">Path to json file to parse</param>
