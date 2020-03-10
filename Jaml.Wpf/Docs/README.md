@@ -13,6 +13,7 @@ Here goes the TOC.
 - [Command](Command.md)
 - [Grid](Grid.md)
 - [Image](Image.md)
+- [MainWindow](MainWindow.md)
 - [MediaElement](MediaElement.md)
 - [Page](Page.md)
 - [Root](Root.md)
@@ -20,3 +21,5 @@ Here goes the TOC.
 - [Style](Style.md)
 - [Styles](Styles.md)
 - [UiElement](UiElement.md)
+- [Window](Window.md)
+

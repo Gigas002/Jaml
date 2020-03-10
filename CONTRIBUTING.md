@@ -1,28 +1,28 @@
 # Contributing
 
-The project is still on a very early state, of development. Some elements and overall logics are implemented, but it's too early to talk about using it in production.
+The project is still on a very early state of development. Some elements and overall logics are implemented, but it's too early to talk about using it in production.
 
 Current version is 0.1.0.x, which means, that EVERYTHING still can be changed. So everyone is welcome to contribute to the project. You're free to make issues, forks, etc, just please follow the following guidelines.
 
-I welcome programmers of any levels, just please be polite to each other.
+I welcome programmers of any levels, just please be polite to each other!
 
 ## Issues and PRs
 
-You're free to create any PR's you think are good, but please create **only one PR per one issue**!. That means, that PR should solve only the precise problems.
+You're free to create any PR's you think are good, but please create **only one PR per one issue**! That means, that PR should solve only the precise problem.
 
-If you don't see the issue, that you'd like to fix with your PR, than open the issue first and tell in it's text, that you'd like to work on this feature. Otherwise I'll grab it myself or add the **free-to-grab** badge. Also, please, don't forget to introduice a `Test` for your feature and add info in `Docs` if your PR changes the public API.
+If you don't see the issue, that you'd like to fix with your PR, than open the issue first and tell in it's text, that you'd like to work on this feature. Otherwise I'll grab it myself or add the **up-for-grabs** badge. Also, please, don't forget to introduce a `Test` for your feature and add info in `Docs` if your PR changes the public API.
 
-## How to extend root funtionality
+## How to extend root
 
-To add additional properties to the functionality of `Root.json`, change the `Jaml.Wpf/Models/JsonModels/RootModel`.
+To add additional properties to the `Root.json`, change the `Jaml.Wpf/Models/JsonModels/RootModel`, but you’ll most probably will need to add some other classes to models too.
 
-## How to extend styles functionality
+## How to extend styles
 
-To add additional properties to the functionality of `Styles.json`, change the `Jaml.Wpf/Models/StyleModels/IStyleModel` and `Jaml.Wpf/Models/StyleModels/StyleModel` interface and class.
+To add additional properties to the `Styles.json`, change the `Jaml.Wpf/Models/StyleModels/IStyleModel` and `Jaml.Wpf/Models/StyleModels/StyleModel` interface and class.
 
 ## Adding new properties to parse
 
-Not everything in the `json` file can be parsed straight to the WPF properties. If you'd like to add a new property, you should also introduce a parser for it. Property parsers are located in `Jaml.Wpf/Parsers/PropertyParser` static class. Just don't forget to create a separete issue for introducing a new parser (to prevent cases, when someone's already working for it).
+Not everything in the `json` file can be parsed straight to the WPF properties. If you'd like to add a new property, you should also introduce a parser for it. Property parsers are located in `Jaml.Wpf/Parsers/PropertyParser` static class. Just don't forget to create a separate issue for introducing a new parser (to prevent cases, when someone's already working for it).
 
 ## How to add a new control
 

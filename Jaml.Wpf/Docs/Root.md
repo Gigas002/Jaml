@@ -6,21 +6,15 @@ This entry refers to `Root.json` documentation.
 
 ## Contents
 
-`PageModel` inherits from `IJsonModel` interface.
+`RootModel` inherits from `IJsonModel` interface.
 
 Content of `Root.json` file should define paths for different files, used in your app.
 
-Required parameters:
-
-|    Name     |                         Description                          |                           Comment                            | Default value | Example                    |
-| :---------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :-----------: | -------------------------- |
-| `FirstPage` | Defines the path to entry page of your visual novel, `string` | If you don't specify this parameter, the application won't throw the exception, but load an empty page instead |    `null`     | `Resources/UI/OnLoad.json` |
-
-Optional parameters:
-
-|   Name   |                         Description                          |                  Comment                  | Default value | Example                    |
-| :------: | :----------------------------------------------------------: | :---------------------------------------: | :-----------: | -------------------------- |
-| `Styles` | Defines the path to the file with styles for your controls, `string` | Read [Styles](Styles.md) for more details |    `null`     | `Resources/UI/Styles.json` |
+|     Name     |                         Description                          |                      Comment                      | Default value | Example                     |
+| :----------: | :----------------------------------------------------------: | :-----------------------------------------------: | :-----------: | --------------------------- |
+| `FirstPage`  |     Defines the path to entry page of your app, `string`     |       Read [Page](Page.md) for more details       |    `null`     | `Resources/UI/OnLoad.json`  |
+|   `Styles`   | Defines the path to the file with styles for your controls, `string` |     Read [Styles](Styles.md) for more details     |    `null`     | `Resources/UI/Styles.json`  |
+| `MainWindow` |     Defines the path to main window of the app, `string`     | Read [MainWindow](MainWindow.md) for more details |    `null`     | `Resources/MainWindow.json` |
 
 ## Class
 

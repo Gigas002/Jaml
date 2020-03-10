@@ -20,6 +20,12 @@ namespace Jaml.Wpf.Models.JsonModels
         public RootModel Root { get; set; } = null;
 
         /// <summary>
+        /// Path to main window json
+        /// </summary>
+        [JsonPropertyName("MainWindow")]
+        public string MainWindow { get; set; } = null;
+
+        /// <summary>
         /// First loaded by Root page
         /// </summary>
         [JsonPropertyName("FirstPage")]
