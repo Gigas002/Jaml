@@ -29,12 +29,26 @@ namespace Jaml.Wpf.Models.UIElementModels
             //Explicitly initialized properties should override styles
 
             //Bind properties
-            image.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
-            image.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
-            image.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Content));
+            BindProperties(ref image);
 
             //Bind commands
             commandProvider.BindCommands(ref image, Commands);
+        }
+
+        /// <summary>
+        /// Binds model properies from model to passed element
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="Image"/></typeparam>
+        /// <param name="element">Element to take properties</param>
+        public void BindProperties<T>(ref T element) where T : Image
+        {
+            //todo move this method up, to UIElement or FrameworkElement
+            if (!string.IsNullOrWhiteSpace(Content))
+                element.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Content));
+            if (!string.IsNullOrWhiteSpace(VerticalAlignment))
+                element.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
+            if (!string.IsNullOrWhiteSpace(HorizontalAlignment))
+                element.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
         }
     }
 }

@@ -66,6 +66,7 @@ namespace Jaml.Wpf.Providers.StyleProvider
             IStyleModel styleModel = Styles.FirstOrDefault(kvp
                                                                => kvp.Key == styleId).Value;
 
+            //todo generic Style?
             Style style = new Style();
             styleModel.ToStyle(ref style);
             element.Style = style;

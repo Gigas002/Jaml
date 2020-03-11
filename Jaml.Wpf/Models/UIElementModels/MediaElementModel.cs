@@ -29,13 +29,27 @@ namespace Jaml.Wpf.Models.UIElementModels
             //Explicitly initialized properties should override styles
 
             //Bind properties
-            mediaElement.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
-            mediaElement.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
-            mediaElement.Source = PathsHelper.GetUriFromRelativePath(Content);
-            mediaElement.LoadedBehavior = MediaState.Manual;
+            BindProperties(ref mediaElement);
 
             //Bind commands
             commandProvider.BindCommands(ref mediaElement, Commands);
+        }
+
+        /// <summary>
+        /// Binds model properies from model to passed element
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="MediaElement"/></typeparam>
+        /// <param name="element">Element to take properties</param>
+        public void BindProperties<T>(ref T element) where T : MediaElement
+        {
+            //todo move this method up, to UIElement or FrameworkElement
+            if (!string.IsNullOrWhiteSpace(Content))
+                element.Source = PathsHelper.GetUriFromRelativePath(Content);
+            if (!string.IsNullOrWhiteSpace(VerticalAlignment))
+                element.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
+            if (!string.IsNullOrWhiteSpace(HorizontalAlignment))
+                element.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
+            element.LoadedBehavior = MediaState.Manual;
         }
     }
 }

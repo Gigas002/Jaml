@@ -61,19 +61,32 @@ namespace Jaml.Wpf.Models.UIElementModels
             //Explicitly initialized properties should override styles
 
             //Bind properties
-            grid.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
-            grid.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
-
-            foreach (RowDefinitionModel rowDefinitionModel in RowDefinitions)
-                grid.RowDefinitions.Add(rowDefinitionModel.ToRowDefinition());
-
-            foreach (ColumnDefinitionModel columnDefinitionModel in ColumnDefinitions)
-                grid.ColumnDefinitions.Add(columnDefinitionModel.ToColumnDefinition());
-
-            grid.Background = PropertyParser.ParseBackground(Background);
+            BindProperties(ref grid);
 
             //Bind commands
             commandProvider.BindCommands(ref grid, Commands);
+        }
+
+        /// <summary>
+        /// Binds model properies from model to passed element
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="Grid"/></typeparam>
+        /// <param name="element">Element to take properties</param>
+        public void BindProperties<T>(ref T element) where T : Grid
+        {
+            //todo move this method up, to UIElement or FrameworkElement
+            if (!string.IsNullOrWhiteSpace(VerticalAlignment))
+                element.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
+            if (!string.IsNullOrWhiteSpace(HorizontalAlignment))
+                element.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
+
+            foreach (RowDefinitionModel rowDefinitionModel in RowDefinitions)
+                element.RowDefinitions.Add(rowDefinitionModel.ToRowDefinition());
+
+            foreach (ColumnDefinitionModel columnDefinitionModel in ColumnDefinitions)
+                element.ColumnDefinitions.Add(columnDefinitionModel.ToColumnDefinition());
+
+            element.Background = PropertyParser.ParseBackground(Background);
         }
     }
 }

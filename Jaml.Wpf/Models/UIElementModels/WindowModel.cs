@@ -38,14 +38,27 @@ namespace Jaml.Wpf.Models.UIElementModels
             //Explicitly initialized properties should override styles
 
             //Bind properties
+            BindProperties(ref window);
             Grid contentGrid = new Grid();
             GridModel.ToGrid(ref contentGrid, commandProvider, styleProvider);
             window.Content = contentGrid;
-            window.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
-            window.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
 
             //Bind commands
             commandProvider.BindCommands(ref window, Commands);
+        }
+
+        /// <summary>
+        /// Binds model properies from model to passed element
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="Window"/></typeparam>
+        /// <param name="element">Element to take properties</param>
+        public void BindProperties<T>(ref T element) where T : Window
+        {
+            //todo move this method up, to UIElement or FrameworkElement
+            if (!string.IsNullOrWhiteSpace(VerticalAlignment))
+                element.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
+            if (!string.IsNullOrWhiteSpace(HorizontalAlignment))
+                element.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
         }
     }
 }
