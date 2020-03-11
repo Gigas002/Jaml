@@ -29,7 +29,8 @@ namespace Jaml.Wpf.Models.UIElementModels
             image.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
             image.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Content));
 
-            foreach (CommandModel commandModel in Commands) commandModel.BindCommand(ref image, commandProvider);
+            foreach (ICommandModel commandModel in Commands)
+                commandModel.BindCommand(ref image, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
             styleModel?.BindStyle(image);
