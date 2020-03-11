@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Windows;
 using Jaml.Wpf.Models.StyleModels;
 
 namespace Jaml.Wpf.Providers.StyleProvider
@@ -49,5 +50,13 @@ namespace Jaml.Wpf.Providers.StyleProvider
         /// <param name="styleId">Id of style to get</param>
         /// <returns>Command's <see cref="IStyleModel"/></returns>
         public IStyleModel GetStyle(int styleId);
+
+        /// <summary>
+        /// Bind style to element
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="FrameworkElement"/></typeparam>
+        /// <param name="element">Target element to bind the style</param>
+        /// <param name="styleId">Id of style to bind to element</param>
+        public void BindStyle<T>(ref T element, int styleId) where T : FrameworkElement;
     }
 }

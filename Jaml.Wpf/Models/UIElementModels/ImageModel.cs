@@ -1,7 +1,6 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Jaml.Wpf.Helpers;
-using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
@@ -25,8 +24,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         public void ToImage<T>(ref T image, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Image
         {
             //Bind styles
-            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(ref image);
+            styleProvider.BindStyle(ref image, StyleId);
 
             //Explicitly initialized properties should override styles
 

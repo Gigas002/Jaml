@@ -1,7 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
-using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
@@ -34,8 +33,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         public void ToWindow<T>(ref T window, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Window
         {
             //Bind styles
-            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(ref window);
+            styleProvider.BindStyle(ref window, StyleId);
 
             //Explicitly initialized properties should override styles
 

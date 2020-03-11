@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 using Jaml.Wpf.Models.StyleModels;
 
 namespace Jaml.Wpf.Providers.StyleProvider
@@ -53,6 +55,20 @@ namespace Jaml.Wpf.Providers.StyleProvider
             Styles.TryGetValue(styleId, out IStyleModel styleModel);
 
             return styleModel;
+        }
+
+        /// <inheritdoc />
+        public void BindStyle<T>(ref T element, int styleId = -1) where T : FrameworkElement
+        {
+            if (styleId == -1) return;
+
+            //todo check styleModel
+            IStyleModel styleModel = Styles.FirstOrDefault(kvp
+                                                               => kvp.Key == styleId).Value;
+
+            Style style = new Style();
+            styleModel.ToStyle(ref style);
+            element.Style = style;
         }
 
         #endregion

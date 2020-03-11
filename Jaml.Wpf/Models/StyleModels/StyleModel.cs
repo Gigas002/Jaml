@@ -85,13 +85,5 @@ namespace Jaml.Wpf.Models.StyleModels
                 Value = new FontFamily(PathsHelper.GetUriFromRelativePath(FontFamily), string.Empty)
             });
         }
-
-        /// <inheritdoc />
-        public void BindStyle<T>(ref T element) where T : FrameworkElement
-        {
-            Style style = new Style();
-            ToStyle(ref style);
-            element.Style = style;
-        }
     }
 }

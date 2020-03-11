@@ -1,5 +1,4 @@
 ﻿using System.Windows.Controls.Primitives;
-using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
@@ -23,8 +22,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         public void ToButton<T>(ref T button, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : ButtonBase
         {
             //Bind styles
-            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(ref button);
+            styleProvider.BindStyle(ref button, StyleId);
 
             //Explicitly initialized properties should override styles
 

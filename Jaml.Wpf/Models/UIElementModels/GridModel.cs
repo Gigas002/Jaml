@@ -2,7 +2,6 @@
 using System.Text.Json.Serialization;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.ChildModels;
-using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
@@ -57,8 +56,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         public void ToGrid<T>(ref T grid, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Grid
         {
             //Bind styles
-            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(ref grid);
+            styleProvider.BindStyle(ref grid, StyleId);
 
             //Explicitly initialized properties should override styles
 
