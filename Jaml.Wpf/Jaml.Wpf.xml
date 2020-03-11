@@ -387,8 +387,17 @@
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel">
             <summary>
-            todo
+            Base FrameworkElement model
             </summary>
+        </member>
+        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.ToFrameworkElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Converts this model to one of <see cref="T:System.Windows.FrameworkElement"/>'s children
+            </summary>
+            <typeparam name="T">Children of <see cref="T:System.Windows.FrameworkElement"/></typeparam>
+            <param name="element">Element, where model will be converted</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.GridModel">
             <summary>
@@ -507,21 +516,13 @@
             Collection of commands, associated with this element
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
             <summary>
             Converts this model to one of <see cref="T:System.Windows.UIElement"/>'s children
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.UIElement"/></typeparam>
             <param name="element">Element, where model will be converted</param>
             <param name="commandProvider">Command provider</param>
-            <param name="styleProvider">Style provider</param>
-        </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.GetCorrespondingStyle(Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
-            <summary>
-            Checks if there is a style for this element
-            </summary>
-            <param name="styleProvider">Style provider</param>
-            <returns>Corresponding style model or <see langword="null"/></returns>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.MediaElementModel">
             <summary>
@@ -595,11 +596,58 @@
         <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Commands">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.GetCorrespondingStyle(Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
-            <inheritdoc />
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.AllowDrop">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.ClipToBounds">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Focusable">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.IsEnabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.IsHitTestVisible">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.IsManipulationEnabled">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Opacity">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.SnapsToDevicePixels">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Uid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Visibility">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.WindowModel">
             <summary>

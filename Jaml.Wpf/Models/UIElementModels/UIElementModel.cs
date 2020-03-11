@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows;
 using Jaml.Wpf.Models.CommandModels;
-using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProvider;
-using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
@@ -62,19 +58,84 @@ namespace Jaml.Wpf.Models.UIElementModels
         #endregion
 
         /// <inheritdoc />
-        public void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement =>
-            throw new NotImplementedException();
-
-        /// <inheritdoc />
-        public IStyleModel GetCorrespondingStyle(IStyleProvider styleProvider)
+        public void ToUIElement<T>(ref T element, ICommandProvider commandProvider) where T : UIElement
         {
-            if (!styleProvider.Styles.Any()) return null;
+            //Bind properties
+            //todo
+            element.AllowDrop = AllowDrop;
+            element.CacheMode = default;
+            element.ClipToBounds = ClipToBounds;
+            element.Clip = default; //default null
+            element.Effect = default;
+            element.Focusable = Focusable;
+            element.IsEnabled = IsEnabled;
+            element.IsHitTestVisible = IsHitTestVisible;
+            element.IsManipulationEnabled = IsManipulationEnabled;
+            element.Opacity = Opacity;
+            element.OpacityMask = default;
+            element.RenderSize = default;
+            element.RenderTransform = default;
+            element.RenderTransformOrigin = default;
+            element.SnapsToDevicePixels = SnapsToDevicePixels;
+            element.Uid = Uid;
+            element.Visibility = Parsers.PropertyParser.ParseVisibility(Visibility);
 
-            foreach ((int styleId, IStyleModel styleModel) in styleProvider.Styles)
-                if (styleId == StyleId)
-                    return styleModel;
-
-            return null;
+            //Bind commands
+            commandProvider.BindCommands(ref element, Commands);
         }
+
+        #region New props
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool AllowDrop { get; set; } = false;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool ClipToBounds { get; set; } = false;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool Focusable { get; set; } = false;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsEnabled { get; set; } = true;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsHitTestVisible { get; set; } = true;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool IsManipulationEnabled { get; set; } = false;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public double Opacity { get; set; } = 1.0;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool SnapsToDevicePixels { get; set; } = false;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Uid { get; set; } = null;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Visibility { get; set; } = null;
+
+        #endregion
     }
 }

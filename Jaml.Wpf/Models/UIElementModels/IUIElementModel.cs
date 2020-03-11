@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using Jaml.Wpf.Models.CommandModels;
-using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProvider;
-using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMemberInSuper.Global
@@ -71,14 +69,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
         /// <param name="element">Element, where model will be converted</param>
         /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
-        public void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement;
-
-        /// <summary>
-        /// Checks if there is a style for this element
-        /// </summary>
-        /// <param name="styleProvider">Style provider</param>
-        /// <returns>Corresponding style model or <see langword="null"/></returns>
-        public IStyleModel GetCorrespondingStyle(IStyleProvider styleProvider);
+        public void ToUIElement<T>(ref T element, ICommandProvider commandProvider) where T : UIElement;
     }
 }
