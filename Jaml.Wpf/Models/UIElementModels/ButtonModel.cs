@@ -30,7 +30,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             foreach (ICommandModel commandModel in Commands) commandModel.BindCommand(ref button, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(button);
+            styleModel?.BindStyle(ref button);
         }
     }
 }

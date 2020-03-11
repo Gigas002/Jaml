@@ -44,7 +44,7 @@ namespace Jaml.Wpf.Models.UIElementModels
                 commandModel.BindCommand(ref window, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(window);
+            styleModel?.BindStyle(ref window);
         }
     }
 }

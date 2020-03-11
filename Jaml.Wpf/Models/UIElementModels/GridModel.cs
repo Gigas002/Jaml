@@ -72,7 +72,7 @@ namespace Jaml.Wpf.Models.UIElementModels
                 commandModel.BindCommand(ref grid, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(grid);
+            styleModel?.BindStyle(ref grid);
         }
     }
 }

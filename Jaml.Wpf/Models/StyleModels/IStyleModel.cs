@@ -61,9 +61,10 @@ namespace Jaml.Wpf.Models.StyleModels
         public Style ToStyle();
 
         /// <summary>
-        /// Bind style to <see cref="FrameworkElement"/>
+        /// Bind style to element
         /// </summary>
+        /// <typeparam name="T">Children of <see cref="FrameworkElement"/></typeparam>
         /// <param name="element">Target element to bind the style</param>
-        public void BindStyle(FrameworkElement element);
+        public void BindStyle<T>(ref T element) where T : FrameworkElement;
     }
 }

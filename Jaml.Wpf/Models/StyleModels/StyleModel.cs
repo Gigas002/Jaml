@@ -92,6 +92,7 @@ namespace Jaml.Wpf.Models.StyleModels
         }
 
         /// <inheritdoc />
-        public void BindStyle(FrameworkElement element) => element.Style = ToStyle();
+        public void BindStyle<T>(ref T element) where T : FrameworkElement
+            => element.Style = ToStyle();
     }
 }

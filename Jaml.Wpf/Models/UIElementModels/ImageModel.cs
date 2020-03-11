@@ -33,7 +33,7 @@ namespace Jaml.Wpf.Models.UIElementModels
                 commandModel.BindCommand(ref image, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(image);
+            styleModel?.BindStyle(ref image);
         }
     }
 }
