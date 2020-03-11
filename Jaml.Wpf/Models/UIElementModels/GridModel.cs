@@ -2,7 +2,6 @@
 using System.Text.Json.Serialization;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.ChildModels;
-using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
@@ -57,6 +56,13 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public void ToGrid<T>(ref T grid, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Grid
         {
+            //Bind styles
+            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
+            styleModel?.BindStyle(ref grid);
+
+            //Explicitly initialized properties should override styles
+
+            //Bind properties
             grid.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
             grid.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
 
@@ -68,11 +74,8 @@ namespace Jaml.Wpf.Models.UIElementModels
 
             grid.Background = PropertyParser.ParseBackground(Background);
 
-            foreach (ICommandModel commandModel in Commands)
-                commandModel.BindCommand(ref grid, commandProvider);
-
-            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(ref grid);
+            //Bind commands
+            commandProvider.BindCommands(ref grid, Commands);
         }
     }
 }

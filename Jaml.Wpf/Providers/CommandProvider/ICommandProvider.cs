@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
+using Jaml.Wpf.Models.CommandModels;
 
 namespace Jaml.Wpf.Providers.CommandProvider
 {
@@ -71,5 +73,21 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// <param name="commandName">Name of command to get</param>
         /// <returns>Command's <see cref="Delegate"/></returns>
         public Delegate GetCommand(string commandName);
+
+        /// <summary>
+        /// Binds command to passed element
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
+        /// <param name="element">Target element to bind the command</param>
+        /// <param name="commandModel">Model of command for element</param>
+        public void BindCommand<T>(ref T element, ICommandModel commandModel) where T : UIElement;
+
+        /// <summary>
+        /// Binds commands to passed element
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
+        /// <param name="element">Target element to bind the command</param>
+        /// <param name="commandModels">Collection of models of command for element</param>
+        public void BindCommands<T>(ref T element, IEnumerable<ICommandModel> commandModels) where T : UIElement;
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Jaml.Wpf.Helpers;
-using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
@@ -25,15 +24,19 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public void ToImage<T>(ref T image, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Image
         {
+            //Bind styles
+            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
+            styleModel?.BindStyle(ref image);
+
+            //Explicitly initialized properties should override styles
+
+            //Bind properties
             image.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
             image.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
             image.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Content));
 
-            foreach (ICommandModel commandModel in Commands)
-                commandModel.BindCommand(ref image, commandProvider);
-
-            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(ref image);
+            //Bind commands
+            commandProvider.BindCommands(ref image, Commands);
         }
     }
 }

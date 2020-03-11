@@ -32,4 +32,4 @@ The final step is to add your control to the `Jaml.Wpf/Models/ChildModels/ChildM
 
 ## How to add a new event
 
-First, write your event's name into `Jaml.Wpf/Constants/EventNames` class. Then add some code to the `Jaml.Wpf/Models/CommandModels/CommandModel.BindCommand` method. It's pretty easy to understand what to write, when you'll see the method's content.
+First, write your event's name into `Jaml.Wpf/Constants/EventNames` class. Then add some code to the `Jaml.Wpf/Providers/CommandProvider/ICommandProvider.BindCommand` method. It's pretty easy to understand what to write, when you'll see the method's content.

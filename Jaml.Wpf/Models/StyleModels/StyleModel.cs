@@ -1,12 +1,10 @@
-﻿using System.Linq;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Jaml.Wpf.Helpers;
 using Jaml.Wpf.Models.UIElementModels;
 using Jaml.Wpf.Parsers;
-using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
@@ -93,19 +91,6 @@ namespace Jaml.Wpf.Models.StyleModels
         {
             Style style = new Style();
             ToStyle(ref style);
-            element.Style = style;
-        }
-
-        public static void BindStyle<T>(ref T element, IStyleProvider styleProvider, int styleId) where T : FrameworkElement
-        {
-            if (styleId == -1) return;
-
-            //todo check styleModel
-            IStyleModel styleModel = styleProvider.Styles.FirstOrDefault(s
-                                                                        => s.Key == styleId).Value;
-
-            Style style = new Style();
-            styleModel.ToStyle(ref style);
             element.Style = style;
         }
     }

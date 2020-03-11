@@ -1,6 +1,5 @@
 ﻿using System.Windows.Controls;
 using Jaml.Wpf.Helpers;
-using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
@@ -25,16 +24,20 @@ namespace Jaml.Wpf.Models.UIElementModels
         public void ToMediaElement<T>(ref T mediaElement, ICommandProvider commandProvider,
                                       IStyleProvider styleProvider) where T : MediaElement
         {
+            //Bind styles
+            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
+            styleModel?.BindStyle(ref mediaElement);
+
+            //Explicitly initialized properties should override styles
+
+            //Bind properties
             mediaElement.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
             mediaElement.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
             mediaElement.Source = PathsHelper.GetUriFromRelativePath(Content);
             mediaElement.LoadedBehavior = MediaState.Manual;
 
-            foreach (ICommandModel commandModel in Commands)
-                commandModel.BindCommand(ref mediaElement, commandProvider);
-
-            IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
-            styleModel?.BindStyle(ref mediaElement);
+            //Bind commands
+            commandProvider.BindCommands(ref mediaElement, Commands);
         }
     }
 }

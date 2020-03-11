@@ -1,5 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using Jaml.Wpf.Constants;
+using Jaml.Wpf.Models.CommandModels;
 
 namespace Jaml.Wpf.Providers.CommandProvider
 {
@@ -68,7 +73,7 @@ namespace Jaml.Wpf.Providers.CommandProvider
         }
 
         /// <inheritdoc />
-        public void RunCommand(string commandName, object sender = null, string args = null)
+        public void RunCommand(string commandName, object sender, string args)
         {
             if (string.IsNullOrWhiteSpace(commandName)) return;
             if (!Commands.ContainsKey(commandName)) return;
@@ -85,6 +90,73 @@ namespace Jaml.Wpf.Providers.CommandProvider
             Commands.TryGetValue(commandName, out Delegate value);
 
             return value;
+        }
+
+        /// <inheritdoc />
+        public void BindCommand<T>(ref T element, ICommandModel commandModel) where T : UIElement
+        {
+            //todo use reflection, this is ugly
+
+            string eventName = commandModel.Event;
+            string methodName = commandModel.Method;
+            string methodArgs = commandModel.Args;
+
+            switch (eventName)
+            {
+                case EventNames.Initialized:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.Initialized += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case EventNames.Click:
+                    {
+                        if (element is ButtonBase button)
+                            button.Click += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case EventNames.MouseLeftButtonUp:
+                    {
+                        element.MouseLeftButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case EventNames.PreviewMouseLeftButtonUp:
+                    {
+                        element.PreviewMouseLeftButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case EventNames.MouseRightButtonUp:
+                    {
+                        element.MouseRightButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case EventNames.MediaEnded:
+                    {
+                        if (element is MediaElement mediaElement)
+                            mediaElement.MediaEnded += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case EventNames.Loaded:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.Loaded += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                default: { throw new NotSupportedException($"Event {eventName} is not supported."); }
+            }
+        }
+
+        /// <inheritdoc />
+        public void BindCommands<T>(ref T element, IEnumerable<ICommandModel> commandModels) where T : UIElement
+        {
+            foreach (ICommandModel commandModel in commandModels) BindCommand(ref element, commandModel);
         }
 
         #endregion
