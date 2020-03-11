@@ -1,10 +1,12 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Linq;
+using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Jaml.Wpf.Helpers;
 using Jaml.Wpf.Models.UIElementModels;
 using Jaml.Wpf.Parsers;
+using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
@@ -58,11 +60,9 @@ namespace Jaml.Wpf.Models.StyleModels
         #endregion
 
         /// <inheritdoc />
-        public Style ToStyle()
+        public void ToStyle<T>(ref T style) where T : Style
         {
             //todo improve this ugly code?
-
-            Style style = new Style();
 
             FontWeight fontWeight = PropertyParser.ParseFontWeight(FontWeight);
             FontStyle fontStyle = PropertyParser.ParseFontStyle(FontStyle);
@@ -70,7 +70,6 @@ namespace Jaml.Wpf.Models.StyleModels
             Brush background = PropertyParser.ParseBackground(Background);
             Thickness borderThickness = PropertyParser.ParseThickness(BorderThickness);
             Visibility visibility = PropertyParser.ParseVisibility(Visibility);
-
 
             style.Setters.Add(new Setter { Property = Control.FontWeightProperty, Value = fontWeight });
             style.Setters.Add(new Setter { Property = Control.FontStyleProperty, Value = fontStyle });
@@ -80,19 +79,34 @@ namespace Jaml.Wpf.Models.StyleModels
             style.Setters.Add(new Setter { Property = Control.BorderThicknessProperty, Value = borderThickness });
             style.Setters.Add(new Setter { Property = UIElement.VisibilityProperty, Value = visibility });
 
-            if (string.IsNullOrWhiteSpace(FontFamily)) return style;
+            if (string.IsNullOrWhiteSpace(FontFamily)) return;
 
             style.Setters.Add(new Setter
             {
                 Property = Control.FontFamilyProperty,
                 Value = new FontFamily(PathsHelper.GetUriFromRelativePath(FontFamily), string.Empty)
             });
-
-            return style;
         }
 
         /// <inheritdoc />
         public void BindStyle<T>(ref T element) where T : FrameworkElement
-            => element.Style = ToStyle();
+        {
+            Style style = new Style();
+            ToStyle(ref style);
+            element.Style = style;
+        }
+
+        public static void BindStyle<T>(ref T element, IStyleProvider styleProvider, int styleId) where T : FrameworkElement
+        {
+            if (styleId == -1) return;
+
+            //todo check styleModel
+            IStyleModel styleModel = styleProvider.Styles.FirstOrDefault(s
+                                                                        => s.Key == styleId).Value;
+
+            Style style = new Style();
+            styleModel.ToStyle(ref style);
+            element.Style = style;
+        }
     }
 }
