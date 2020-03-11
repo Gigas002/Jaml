@@ -40,7 +40,8 @@ namespace Jaml.Wpf.Models.UIElementModels
             window.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
             window.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
 
-            foreach (ICommandModel commandModel in Commands) commandModel.BindCommand(window, commandProvider);
+            foreach (ICommandModel commandModel in Commands)
+                commandModel.BindCommand(ref window, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
             styleModel?.BindStyle(window);

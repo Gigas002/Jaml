@@ -26,10 +26,11 @@ namespace Jaml.Wpf.Models.CommandModels
         public string Args { get; }
 
         /// <summary>
-        /// Binds command to passed <see cref="UIElement"/>
+        /// Binds command to passed element
         /// </summary>
+        /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
         /// <param name="element">Target element to bind the command</param>
         /// <param name="commandProvider">Provider of commands</param>
-        public void BindCommand(UIElement element, ICommandProvider commandProvider);
+        public void BindCommand<T>(ref T element, ICommandProvider commandProvider) where T : UIElement;
     }
 }

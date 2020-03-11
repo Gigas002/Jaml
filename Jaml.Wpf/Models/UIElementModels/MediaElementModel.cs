@@ -30,7 +30,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             mediaElement.Source = PathsHelper.GetUriFromRelativePath(Content);
             mediaElement.LoadedBehavior = MediaState.Manual;
 
-            foreach (CommandModel commandModel in Commands) commandModel.BindCommand(mediaElement, commandProvider);
+            foreach (CommandModel commandModel in Commands) commandModel.BindCommand(ref mediaElement, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
             styleModel?.BindStyle(mediaElement);

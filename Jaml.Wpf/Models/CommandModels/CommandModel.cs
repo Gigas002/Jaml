@@ -34,50 +34,58 @@ namespace Jaml.Wpf.Models.CommandModels
         #endregion
 
         /// <inheritdoc />
-        public void BindCommand(UIElement element, ICommandProvider commandProvider)
+        public void BindCommand<T>(ref T element, ICommandProvider commandProvider) where T : UIElement
         {
             //todo use reflection, this is ugly
+
             switch (Event)
             {
                 case EventNames.Initialized:
-                {
-                    if (element is FrameworkElement frameworkElement)
-                        frameworkElement.Initialized += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
-                    break;
-                }
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.Initialized += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
+
+                        break;
+                    }
                 case EventNames.Click:
-                {
-                    if (element is ButtonBase button)
-                        button.Click += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
-                    break;
-                }
+                    {
+                        if (element is ButtonBase button)
+                            button.Click += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
+
+                        break;
+                    }
                 case EventNames.MouseLeftButtonUp:
-                {
-                    element.MouseLeftButtonUp += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
-                    break;
-                }
+                    {
+                        element.MouseLeftButtonUp += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
+
+                        break;
+                    }
                 case EventNames.PreviewMouseLeftButtonUp:
-                {
-                    element.PreviewMouseLeftButtonUp += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
-                    break;
-                }
+                    {
+                        element.PreviewMouseLeftButtonUp += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
+
+                        break;
+                    }
                 case EventNames.MouseRightButtonUp:
-                {
-                    element.MouseRightButtonUp += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
-                    break;
-                }
+                    {
+                        element.MouseRightButtonUp += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
+
+                        break;
+                    }
                 case EventNames.MediaEnded:
-                {
-                    if (element is MediaElement mediaElement)
-                        mediaElement.MediaEnded += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
-                    break;
-                }
+                    {
+                        if (element is MediaElement mediaElement)
+                            mediaElement.MediaEnded += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
+
+                        break;
+                    }
                 case EventNames.Loaded:
-                {
-                    if (element is FrameworkElement frameworkElement)
-                        frameworkElement.Loaded += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
-                    break;
-                }
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.Loaded += (sender, args) => commandProvider.RunCommand(Method, sender, Args);
+
+                        break;
+                    }
                 default: { throw new NotSupportedException($"Event {Event} is not supported."); }
             }
         }

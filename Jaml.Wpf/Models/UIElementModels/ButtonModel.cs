@@ -27,7 +27,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             button.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
             button.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
 
-            foreach (ICommandModel commandModel in Commands) commandModel.BindCommand(button, commandProvider);
+            foreach (ICommandModel commandModel in Commands) commandModel.BindCommand(ref button, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
             styleModel?.BindStyle(button);

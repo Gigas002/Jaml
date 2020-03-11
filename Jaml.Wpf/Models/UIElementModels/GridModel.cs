@@ -68,7 +68,7 @@ namespace Jaml.Wpf.Models.UIElementModels
 
             grid.Background = PropertyParser.ParseBackground(Background);
 
-            foreach (CommandModel commandModel in Commands) commandModel.BindCommand(grid, commandProvider);
+            foreach (CommandModel commandModel in Commands) commandModel.BindCommand(ref grid, commandProvider);
 
             IStyleModel styleModel = GetCorrespondingStyle(styleProvider);
             styleModel?.BindStyle(grid);
