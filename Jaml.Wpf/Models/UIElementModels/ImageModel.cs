@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Text.Json.Serialization;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Jaml.Wpf.Helpers;
 using Jaml.Wpf.Parsers;
@@ -14,6 +15,16 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// </summary>
     public class ImageModel : FrameworkElementModel
     {
+        #region Properties
+
+        /// <summary>
+        /// Element's content
+        /// </summary>
+        [JsonPropertyName("Content")]
+        public string Content { get; set; } = null;
+
+        #endregion
+
         /// <summary>
         /// Creates image from model
         /// </summary>
@@ -40,15 +51,12 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// </summary>
         /// <typeparam name="T">Children of <see cref="Image"/></typeparam>
         /// <param name="element">Element to take properties</param>
-        public void BindProperties<T>(ref T element) where T : Image
+        public new void BindProperties<T>(ref T element) where T : Image
         {
             //todo move this method up, to UIElement or FrameworkElement
+            base.BindProperties(ref element);
             if (!string.IsNullOrWhiteSpace(Content))
                 element.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Content));
-            if (!string.IsNullOrWhiteSpace(VerticalAlignment))
-                element.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
-            if (!string.IsNullOrWhiteSpace(HorizontalAlignment))
-                element.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
         }
     }
 }

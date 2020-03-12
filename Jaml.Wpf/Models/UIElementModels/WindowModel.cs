@@ -52,13 +52,10 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// </summary>
         /// <typeparam name="T">Children of <see cref="Window"/></typeparam>
         /// <param name="element">Element to take properties</param>
-        public void BindProperties<T>(ref T element) where T : Window
+        public new void BindProperties<T>(ref T element) where T : Window
         {
-            //todo move this method up, to UIElement or FrameworkElement
-            if (!string.IsNullOrWhiteSpace(VerticalAlignment))
-                element.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
-            if (!string.IsNullOrWhiteSpace(HorizontalAlignment))
-                element.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
+            //todo
+            base.BindProperties(ref element);
         }
     }
 }

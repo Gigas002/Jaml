@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls.Primitives;
+﻿using System.Text.Json.Serialization;
+using System.Windows.Controls.Primitives;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
@@ -12,6 +13,16 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// </summary>
     public class ButtonModel : FrameworkElementModel
     {
+        #region Properties
+
+        /// <summary>
+        /// Element's content
+        /// </summary>
+        [JsonPropertyName("Content")]
+        public string Content { get; set; } = null;
+
+        #endregion
+
         /// <summary>
         /// Creates button from model
         /// </summary>
@@ -38,14 +49,11 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// </summary>
         /// <typeparam name="T">Children of <see cref="ButtonBase"/></typeparam>
         /// <param name="element">Element to take properties</param>
-        public void BindProperties<T>(ref T element) where T : ButtonBase
+        public new void BindProperties<T>(ref T element) where T : ButtonBase
         {
-            //todo move this method up, to UIElement or FrameworkElement
+            //todo
+            base.BindProperties(ref element);
             if (!string.IsNullOrWhiteSpace(Content)) element.Content = Content;
-            if (!string.IsNullOrWhiteSpace(VerticalAlignment))
-                element.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
-            if (!string.IsNullOrWhiteSpace(HorizontalAlignment))
-                element.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
         }
     }
 }

@@ -14,31 +14,6 @@ namespace Jaml.Wpf.Models.UIElementModels
     public interface IUIElementModel
     {
         /// <summary>
-        /// Name of element
-        /// </summary>
-        public string Name { get; }
-
-        /// <summary>
-        /// Vertical alignment
-        /// </summary>
-        public string VerticalAlignment { get; }
-
-        /// <summary>
-        /// Horizontal alignment
-        /// </summary>
-        public string HorizontalAlignment { get; }
-
-        /// <summary>
-        /// Element's content
-        /// </summary>
-        public string Content { get; }
-
-        /// <summary>
-        /// Style id to use on this element
-        /// </summary>
-        public int StyleId { get; }
-
-        /// <summary>
         /// Row position in parent grid
         /// </summary>
         public int ParentRow { get; }
@@ -70,5 +45,12 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="element">Element, where model will be converted</param>
         /// <param name="commandProvider">Command provider</param>
         public void ToUIElement<T>(ref T element, ICommandProvider commandProvider) where T : UIElement;
+
+        /// <summary>
+        /// Bind this model properties to the target <see cref="UIElement"/>
+        /// </summary>
+        /// <typeparam name="T">Children of<see cref="UIElement"/></typeparam>
+        /// <param name="element">Target element</param>
+        public void BindProperties<T>(ref T element) where T : UIElement;
     }
 }

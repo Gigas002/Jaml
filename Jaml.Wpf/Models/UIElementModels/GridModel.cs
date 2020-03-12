@@ -72,13 +72,10 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// </summary>
         /// <typeparam name="T">Children of <see cref="Grid"/></typeparam>
         /// <param name="element">Element to take properties</param>
-        public void BindProperties<T>(ref T element) where T : Grid
+        public new void BindProperties<T>(ref T element) where T : Grid
         {
-            //todo move this method up, to UIElement or FrameworkElement
-            if (!string.IsNullOrWhiteSpace(VerticalAlignment))
-                element.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
-            if (!string.IsNullOrWhiteSpace(HorizontalAlignment))
-                element.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
+            //todo
+            base.BindProperties(ref element);
 
             foreach (RowDefinitionModel rowDefinitionModel in RowDefinitions)
                 element.RowDefinitions.Add(rowDefinitionModel.ToRowDefinition());

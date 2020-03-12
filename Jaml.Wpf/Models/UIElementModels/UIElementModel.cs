@@ -16,26 +16,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         #region Json Properties
 
         /// <inheritdoc />
-        [JsonPropertyName("Name")]
-        public string Name { get; set; } = null;
-
-        /// <inheritdoc />
-        [JsonPropertyName("VerticalAlignment")]
-        public string VerticalAlignment { get; set; } = null;
-
-        /// <inheritdoc />
-        [JsonPropertyName("HorizontalAlignment")]
-        public string HorizontalAlignment { get; set; } = null;
-
-        /// <inheritdoc />
-        [JsonPropertyName("Content")]
-        public string Content { get; set; } = null;
-
-        /// <inheritdoc />
-        [JsonPropertyName("StyleId")]
-        public int StyleId { get; set; } = -1;
-
-        /// <inheritdoc />
         [JsonPropertyName("ParentRow")]
         public int ParentRow { get; set; } = 0;
 
@@ -58,9 +38,18 @@ namespace Jaml.Wpf.Models.UIElementModels
         #endregion
 
         /// <inheritdoc />
-        public void ToUIElement<T>(ref T element, ICommandProvider commandProvider) where T : UIElement
+        public virtual void ToUIElement<T>(ref T element, ICommandProvider commandProvider) where T : UIElement
         {
             //Bind properties
+            BindProperties(ref element);
+
+            //Bind commands
+            commandProvider.BindCommands(ref element, Commands);
+        }
+
+        /// <inheritdoc />
+        public virtual void BindProperties<T>(ref T element) where T : UIElement
+        {
             //todo
             element.AllowDrop = AllowDrop;
             element.CacheMode = default;
@@ -79,9 +68,6 @@ namespace Jaml.Wpf.Models.UIElementModels
             element.SnapsToDevicePixels = SnapsToDevicePixels;
             element.Uid = Uid;
             element.Visibility = Parsers.PropertyParser.ParseVisibility(Visibility);
-
-            //Bind commands
-            commandProvider.BindCommands(ref element, Commands);
         }
 
         #region New props
