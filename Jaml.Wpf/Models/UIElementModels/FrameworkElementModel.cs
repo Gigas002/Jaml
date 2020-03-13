@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 using System.Windows;
-using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
 
@@ -65,8 +65,63 @@ namespace Jaml.Wpf.Models.UIElementModels
             //todo
             base.BindProperties(ref element);
             element.Name = Name;
-            element.VerticalAlignment = PropertyParser.ParseVerticalAlignment(VerticalAlignment);
-            element.HorizontalAlignment = PropertyParser.ParseHorizontalAlignment(HorizontalAlignment);
+
+            Enum.TryParse(VerticalAlignment, out VerticalAlignment verticalAlignment);
+            Enum.TryParse(HorizontalAlignment, out HorizontalAlignment horizontalAlignment);
+            element.VerticalAlignment = verticalAlignment;
+            element.HorizontalAlignment = horizontalAlignment;
+
+            element.BindingGroup = default;
+            element.ContextMenu = default;
+            element.Cursor = default;
+
+            ////element.DataContext =
+
+            Enum.TryParse(FlowDirection, out FlowDirection flowDirection);
+            element.FlowDirection = flowDirection;
+            ////element.FocusVisualStyle =
+            element.ForceCursor = ForceCursor;
+            //element.Height = Height;
+            ////element.InputScope
+            ////element.Language = XmlLanguage.GetLanguage(Language);
+            ////element.LayoutTransform = Transform.Parse(LayoutTransform);
+            element.Margin = new Thickness(Margin);
+            //element.MaxHeight = MaxHeight;
+            //element.MaxWidth = MaxWidth;
+            //element.MinHeight = MinHeight;
+            //element.MinWidth = MinWidth;
+            element.OverridesDefaultStyle = OverridesDefaultStyle;
+            ////element.Resources;
+            ////element.Tag;
+            ////element.ToolTip;
+            element.UseLayoutRounding = UseLayoutRounding;
+            //element.Width = Width;
         }
+
+        public bool ForceCursor { get; set; }
+
+        public double Height { get; set; } = 500;
+
+        public string FlowDirection { get; set; }
+
+        public string Language { get; set; }
+
+        public string LayoutTransform { get; set; }
+
+        public bool UseLayoutRounding { get; set; }
+
+        public double Margin { get; set; }
+
+        public double MaxHeight { get; set; } = 500;
+
+        public double MaxWidth { get; set; } = 500;
+
+        public double MinHeight { get; set; } = 500;
+
+        public double MinWidth { get; set; } = 500;
+
+        public bool OverridesDefaultStyle { get; set; }
+
+        public double Width { get; set; } = 500;
     }
 }

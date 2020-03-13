@@ -66,7 +66,7 @@ namespace Jaml.Wpf.Models.StyleModels
             FontStyle fontStyle = PropertyParser.ParseFontStyle(FontStyle);
             Brush foreground = PropertyParser.ConvertArgbToBrush(Foreground);
             Brush background = PropertyParser.ParseBackground(Background);
-            Thickness borderThickness = PropertyParser.ParseThickness(BorderThickness);
+            Thickness borderThickness = new Thickness(BorderThickness);
             Visibility visibility = PropertyParser.ParseVisibility(Visibility);
 
             style.Setters.Add(new Setter { Property = Control.FontWeightProperty, Value = fontWeight });

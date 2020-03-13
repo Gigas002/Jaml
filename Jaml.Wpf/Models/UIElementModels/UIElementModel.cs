@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows;
+using System.Windows.Media;
+using System.Windows.Media.Effects;
 using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Providers.CommandProvider;
 
@@ -54,7 +57,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             element.AllowDrop = AllowDrop;
             element.CacheMode = default;
             element.ClipToBounds = ClipToBounds;
-            element.Clip = default; //default null
+            //element.Clip = Geometry.Parse(Clip);
             element.Effect = default;
             element.Focusable = Focusable;
             element.IsEnabled = IsEnabled;
@@ -62,12 +65,13 @@ namespace Jaml.Wpf.Models.UIElementModels
             element.IsManipulationEnabled = IsManipulationEnabled;
             element.Opacity = Opacity;
             element.OpacityMask = default;
-            element.RenderSize = default;
-            element.RenderTransform = default;
-            element.RenderTransformOrigin = default;
+            //element.RenderSize = Size.Parse(RenderSize);
+            //element.RenderTransform = Transform.Parse(RenderTransform);
+            //element.RenderTransformOrigin = Point.Parse(RenderTransformOrigin);
             element.SnapsToDevicePixels = SnapsToDevicePixels;
             element.Uid = Uid;
-            element.Visibility = Parsers.PropertyParser.ParseVisibility(Visibility);
+            Enum.TryParse(Visibility, out Visibility visibility);
+            element.Visibility = visibility;
         }
 
         #region New props
@@ -76,6 +80,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// 
         /// </summary>
         public bool AllowDrop { get; set; } = false;
+
+        public string Clip { get; set; } = null;
 
         /// <summary>
         /// 
@@ -106,6 +112,12 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// 
         /// </summary>
         public double Opacity { get; set; } = 1.0;
+
+        public string RenderSize { get; set; } = null;
+
+        public string RenderTransform { get; set; } = null;
+
+        public string RenderTransformOrigin { get; set; } = null;
 
         /// <summary>
         /// 
