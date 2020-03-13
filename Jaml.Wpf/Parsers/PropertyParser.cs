@@ -104,13 +104,6 @@ namespace Jaml.Wpf.Parsers
         }
 
         /// <summary>
-        /// Converts the thickness string to <see cref="Thickness"/>
-        /// </summary>
-        /// <param name="thickness">Thickenss string</param>
-        /// <returns>Parsed <see cref="Thickness"/></returns>
-        public static Thickness ParseThickness(double thickness) => new Thickness(thickness);
-
-        /// <summary>
         /// Converts the visibility string to <see cref="Visibility"/>
         /// </summary>
         /// <param name="visibility">Visibility string</param>
