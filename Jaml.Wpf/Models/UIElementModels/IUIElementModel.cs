@@ -13,6 +13,8 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// </summary>
     public interface IUIElementModel
     {
+        #region Properties
+
         /// <summary>
         /// Row position in parent grid
         /// </summary>
@@ -39,6 +41,88 @@ namespace Jaml.Wpf.Models.UIElementModels
         public IEnumerable<CommandModel> Commands { get; }
 
         /// <summary>
+        /// Allow drop
+        /// </summary>
+        public bool AllowDrop { get; }
+
+        /// <summary>
+        /// Clip
+        /// </summary>
+        public string Clip { get; }
+
+        /// <summary>
+        /// Clip to bounds
+        /// </summary>
+        public bool ClipToBounds { get; }
+
+        /// <summary>
+        /// Focusable
+        /// </summary>
+        public bool Focusable { get; }
+
+        /// <summary>
+        /// Is enabled
+        /// </summary>
+        public bool IsEnabled { get; }
+
+        /// <summary>
+        /// Is hit test visible
+        /// </summary>
+        public bool IsHitTestVisible { get; }
+
+        /// <summary>
+        /// Is manipulation enabled
+        /// </summary>
+        public bool IsManipulationEnabled { get; }
+
+        /// <summary>
+        /// Opacity
+        /// </summary>
+        public double Opacity { get; }
+
+        /// <summary>
+        /// Render size
+        /// </summary>
+        public string RenderSize { get; }
+
+        /// <summary>
+        /// Render transform
+        /// </summary>
+        public string RenderTransform { get; }
+
+        /// <summary>
+        /// Render transform origin
+        /// </summary>
+        public string RenderTransformOrigin { get; }
+
+        /// <summary>
+        /// Snaps to device pixels
+        /// </summary>
+        public bool SnapsToDevicePixels { get; }
+
+        /// <summary>
+        /// Uid
+        /// </summary>
+        public string Uid { get; }
+
+        /// <summary>
+        /// Visibility
+        /// </summary>
+        public string Visibility { get; }
+
+        #region TODO
+
+        public object CacheMode { get; }
+        public object Effect { get; }
+        public object OpacityMask { get; }
+
+        #endregion
+
+        #endregion
+
+        #region Methods
+
+        /// <summary>
         /// Converts this model to one of <see cref="UIElement"/>'s children
         /// </summary>
         /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
@@ -52,5 +136,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <typeparam name="T">Children of<see cref="UIElement"/></typeparam>
         /// <param name="element">Target element</param>
         public void BindProperties<T>(ref T element) where T : UIElement;
+
+        #endregion
     }
 }

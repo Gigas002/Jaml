@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Media;
-using System.Windows.Media.Effects;
 using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Providers.CommandProvider;
 
@@ -38,6 +37,75 @@ namespace Jaml.Wpf.Models.UIElementModels
         [JsonPropertyName("Commands")]
         public IEnumerable<CommandModel> Commands { get; set; } = new List<CommandModel>();
 
+        /// <inheritdoc />
+        [JsonPropertyName("AllowDrop")]
+        public bool AllowDrop { get; set; } = false;
+
+        /// <inheritdoc />
+        [JsonPropertyName("Clip")]
+        public string Clip { get; set; } = null;
+
+        /// <inheritdoc />
+        [JsonPropertyName("ClipToBounds")]
+        public bool ClipToBounds { get; set; } = false;
+
+        /// <inheritdoc />
+        [JsonPropertyName("Focusable")]
+        public bool Focusable { get; set; } = false;
+
+        /// <inheritdoc />
+        [JsonPropertyName("IsEnabled")]
+        public bool IsEnabled { get; set; } = true;
+
+        /// <inheritdoc />
+        [JsonPropertyName("IsHitTestVisible")]
+        public bool IsHitTestVisible { get; set; } = true;
+
+        /// <inheritdoc />
+        [JsonPropertyName("IsManipulationEnabled")]
+        public bool IsManipulationEnabled { get; set; } = false;
+
+        /// <inheritdoc />
+        [JsonPropertyName("Opacity")]
+        public double Opacity { get; set; } = 1.0;
+
+        /// <inheritdoc />
+        [JsonPropertyName("RenderSize")]
+        public string RenderSize { get; set; } = null;
+
+        /// <inheritdoc />
+        [JsonPropertyName("RenderTransform")]
+        public string RenderTransform { get; set; } = null;
+
+        /// <inheritdoc />
+        [JsonPropertyName("RenderTransformOrigin")]
+        public string RenderTransformOrigin { get; set; } = null;
+
+        /// <inheritdoc />
+        [JsonPropertyName("SnapsToDevicePixels")]
+        public bool SnapsToDevicePixels { get; set; } = false;
+
+        /// <inheritdoc />
+        [JsonPropertyName("Uid")]
+        public string Uid { get; set; } = null;
+
+        /// <inheritdoc />
+        [JsonPropertyName("Visibility")]
+        public string Visibility { get; set; } = null;
+
+        #region TODO
+
+        /// <inheritdoc />
+        public object CacheMode { get; set; }
+
+        /// <inheritdoc />
+        public object Effect { get; set; }
+
+        /// <inheritdoc />
+        public object OpacityMask { get; set; }
+
+        #endregion
+
         #endregion
 
         /// <inheritdoc />
@@ -55,85 +123,27 @@ namespace Jaml.Wpf.Models.UIElementModels
         {
             //todo
             element.AllowDrop = AllowDrop;
-            element.CacheMode = default;
+            //element.CacheMode = default;
+            if (!string.IsNullOrWhiteSpace(Clip))
+                element.Clip = Geometry.Parse(Clip);
             element.ClipToBounds = ClipToBounds;
-            //element.Clip = Geometry.Parse(Clip);
-            element.Effect = default;
+            //element.Effect = default;
             element.Focusable = Focusable;
             element.IsEnabled = IsEnabled;
             element.IsHitTestVisible = IsHitTestVisible;
             element.IsManipulationEnabled = IsManipulationEnabled;
             element.Opacity = Opacity;
-            element.OpacityMask = default;
-            //element.RenderSize = Size.Parse(RenderSize);
-            //element.RenderTransform = Transform.Parse(RenderTransform);
-            //element.RenderTransformOrigin = Point.Parse(RenderTransformOrigin);
+            //element.OpacityMask = default;
+            if (!string.IsNullOrWhiteSpace(RenderSize))
+                element.RenderSize = Size.Parse(RenderSize);
+            if (!string.IsNullOrWhiteSpace(RenderTransform))
+                element.RenderTransform = Transform.Parse(RenderTransform);
+            if (!string.IsNullOrWhiteSpace(RenderTransformOrigin))
+                element.RenderTransformOrigin = Point.Parse(RenderTransformOrigin);
             element.SnapsToDevicePixels = SnapsToDevicePixels;
             element.Uid = Uid;
             Enum.TryParse(Visibility, out Visibility visibility);
             element.Visibility = visibility;
         }
-
-        #region New props
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool AllowDrop { get; set; } = false;
-
-        public string Clip { get; set; } = null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool ClipToBounds { get; set; } = false;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool Focusable { get; set; } = false;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool IsEnabled { get; set; } = true;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool IsHitTestVisible { get; set; } = true;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool IsManipulationEnabled { get; set; } = false;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public double Opacity { get; set; } = 1.0;
-
-        public string RenderSize { get; set; } = null;
-
-        public string RenderTransform { get; set; } = null;
-
-        public string RenderTransformOrigin { get; set; } = null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public bool SnapsToDevicePixels { get; set; } = false;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Uid { get; set; } = null;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public string Visibility { get; set; } = null;
-
-        #endregion
     }
 }
