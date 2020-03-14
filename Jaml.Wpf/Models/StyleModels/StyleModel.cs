@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -67,7 +68,7 @@ namespace Jaml.Wpf.Models.StyleModels
             Brush foreground = PropertyParser.ConvertArgbToBrush(Foreground);
             Brush background = PropertyParser.ParseBackground(Background);
             Thickness borderThickness = new Thickness(BorderThickness);
-            Visibility visibility = PropertyParser.ParseVisibility(Visibility);
+            Enum.TryParse(Visibility, out Visibility visibility);
 
             style.Setters.Add(new Setter { Property = Control.FontWeightProperty, Value = fontWeight });
             style.Setters.Add(new Setter { Property = Control.FontStyleProperty, Value = fontStyle });

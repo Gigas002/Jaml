@@ -6,6 +6,10 @@ using System.Windows.Media;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
 
+// ReSharper disable MemberCanBeProtected.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
+
 namespace Jaml.Wpf.Models.UIElementModels
 {
     /// <summary>

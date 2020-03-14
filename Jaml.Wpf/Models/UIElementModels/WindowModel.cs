@@ -17,6 +17,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// </summary>
     public class WindowModel : FrameworkElementModel
     {
+        //todo bind grid as childmodel?
         /// <summary>
         /// Content of the window
         /// </summary>

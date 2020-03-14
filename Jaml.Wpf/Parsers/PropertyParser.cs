@@ -12,32 +12,6 @@ namespace Jaml.Wpf.Parsers
     public static class PropertyParser
     {
         /// <summary>
-        /// Parse the <see cref="HorizontalAlignment"/> from string
-        /// </summary>
-        /// <param name="horizontalAlignment">Horizontal alignment string</param>
-        /// <returns>Parsed <see cref="HorizontalAlignment"/></returns>
-        public static HorizontalAlignment ParseHorizontalAlignment(string horizontalAlignment) => horizontalAlignment switch
-        {
-            "Stretch" => HorizontalAlignment.Stretch,
-            "Left" => HorizontalAlignment.Left,
-            "Right" => HorizontalAlignment.Right,
-            _ => HorizontalAlignment.Center
-        };
-
-        /// <summary>
-        /// Parse the <see cref="VerticalAlignment"/> from string
-        /// </summary>
-        /// <param name="verticalAlignment">Vertical alignment string</param>
-        /// <returns>Parsed <see cref="VerticalAlignment"/></returns>
-        public static VerticalAlignment ParseVerticalAlignment(string verticalAlignment) => verticalAlignment switch
-        {
-            "Stretch" => VerticalAlignment.Stretch,
-            "Bottom" => VerticalAlignment.Bottom,
-            "Top" => VerticalAlignment.Top,
-            _ => VerticalAlignment.Center
-        };
-
-        /// <summary>
         /// Parse the <see cref="FontWeight"/> from string
         /// </summary>
         /// <param name="fontWeight">Font weight string</param>
@@ -102,17 +76,5 @@ namespace Jaml.Wpf.Parsers
 
             return background.IsImage ? UIHelper.GetBrushFromImage(background.Value) : ConvertArgbToBrush(background.Value);
         }
-
-        /// <summary>
-        /// Converts the visibility string to <see cref="Visibility"/>
-        /// </summary>
-        /// <param name="visibility">Visibility string</param>
-        /// <returns>Parsed <see cref="Visibility"/></returns>
-        public static Visibility ParseVisibility(string visibility) => visibility switch
-        {
-            "Hidden" => Visibility.Hidden,
-            "Collapsed" => Visibility.Collapsed,
-            _ => Visibility.Visible
-        };
     }
 }

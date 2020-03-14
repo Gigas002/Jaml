@@ -20,7 +20,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Element's content
         /// </summary>
         [JsonPropertyName("Content")]
-        public string Content { get; set; } = null;
+        public string Content { get; set; } = string.Empty;
 
         #endregion
 

@@ -19,7 +19,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Element's content
         /// </summary>
         [JsonPropertyName("Content")]
-        public string Content { get; set; } = null;
+        public string Content { get; set; } = string.Empty;
 
         #endregion
 
@@ -53,7 +53,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         {
             //todo
             base.BindProperties(ref element);
-            if (!string.IsNullOrWhiteSpace(Content)) element.Content = Content;
+            element.Content = Content;
         }
     }
 }
