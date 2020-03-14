@@ -103,52 +103,630 @@ namespace Jaml.Wpf.Providers.CommandProvider
 
             switch (eventName)
             {
-                case EventNames.Initialized:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.Initialized += (sender, args) => RunCommand(methodName, sender, methodArgs);
+                #region UIElement
 
-                        break;
-                    }
-                case EventNames.Click:
-                    {
-                        if (element is ButtonBase button)
-                            button.Click += (sender, args) => RunCommand(methodName, sender, methodArgs);
+                case EventNames.DragEnter:
+                {
+                    element.DragEnter += (sender, args) => RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
+                case EventNames.DragLeave:
+                {
+                    element.DragLeave += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.DragOver:
+                {
+                    element.DragOver += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.Drop:
+                {
+                    element.Drop += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.FocusableChanged:
+                {
+                    element.FocusableChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.GiveFeedback:
+                {
+                    element.GiveFeedback += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.GotFocus:
+                {
+                    element.GotFocus += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.GotKeyboardFocus:
+                {
+                    element.GotKeyboardFocus += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.GotMouseCapture:
+                {
+                    element.GotMouseCapture += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.GotStylusCapture:
+                {
+                    element.GotStylusCapture += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.GotTouchCapture:
+                {
+                    element.GotTouchCapture += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsEnabledChanged:
+                {
+                    element.IsEnabledChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsHitTestVisibleChanged:
+                {
+                    element.IsHitTestVisibleChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsKeyboardFocusedChanged:
+                {
+                    element.IsKeyboardFocusedChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsKeyboardFocusWithinChanged:
+                {
+                    element.IsKeyboardFocusWithinChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsMouseCapturedChanged:
+                {
+                    element.IsMouseCapturedChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsMouseCaptureWithinChanged:
+                {
+                    element.IsMouseCaptureWithinChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsMouseDirectlyOverChanged:
+                {
+                    element.IsMouseDirectlyOverChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsStylusCapturedChanged:
+                {
+                    element.IsStylusCapturedChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsStylusCaptureWithinChanged:
+                {
+                    element.IsStylusCaptureWithinChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsStylusDirectlyOverChanged:
+                {
+                    element.IsStylusDirectlyOverChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.IsVisibleChanged:
+                {
+                    element.IsVisibleChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.KeyDown:
+                {
+                    element.KeyDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.KeyUp:
+                {
+                    element.KeyUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.LayoutUpdated:
+                {
+                    element.LayoutUpdated += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.LostFocus:
+                {
+                    element.LostFocus += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.LostKeyboardFocus:
+                {
+                    element.LostKeyboardFocus += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.LostMouseCapture:
+                {
+                    element.LostMouseCapture += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.LostStylusCapture:
+                {
+                    element.LostStylusCapture += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.LostTouchCapture:
+                {
+                    element.LostTouchCapture += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.ManipulationBoundaryFeedback:
+                {
+                    element.ManipulationBoundaryFeedback += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.ManipulationCompleted:
+                {
+                    element.ManipulationCompleted += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.ManipulationDelta:
+                {
+                    element.ManipulationDelta += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.ManipulationInertiaStarting:
+                {
+                    element.ManipulationInertiaStarting += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.ManipulationStarted:
+                {
+                    element.ManipulationStarted += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.ManipulationStarting:
+                {
+                    element.ManipulationStarting += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.MouseDown:
+                {
+                    element.MouseDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.MouseEnter:
+                {
+                    element.MouseEnter += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.MouseLeave:
+                {
+                    element.MouseLeave += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.MouseLeftButtonDown:
+                {
+                    element.MouseLeftButtonDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
                 case EventNames.MouseLeftButtonUp:
-                    {
-                        element.MouseLeftButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseLeftButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
-                case EventNames.PreviewMouseLeftButtonUp:
-                    {
-                        element.PreviewMouseLeftButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+                    break;
+                }
+                case EventNames.MouseMove:
+                {
+                    element.MouseMove += (sender, args) => RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
+                case EventNames.MouseRightButtonDown:
+                {
+                    element.MouseRightButtonDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
                 case EventNames.MouseRightButtonUp:
-                    {
-                        element.MouseRightButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseRightButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
-                case EventNames.MediaEnded:
-                    {
-                        if (element is MediaElement mediaElement)
-                            mediaElement.MediaEnded += (sender, args) => RunCommand(methodName, sender, methodArgs);
+                    break;
+                }
+                case EventNames.MouseUp:
+                {
+                    element.MouseUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
+                case EventNames.MouseWheel:
+                {
+                    element.MouseWheel += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewDragEnter:
+                {
+                    element.PreviewDragEnter += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewDragLeave:
+                {
+                    element.PreviewDragLeave += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewDragOver:
+                {
+                    element.PreviewDragOver += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewDrop:
+                {
+                    element.PreviewDrop += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewGiveFeedback:
+                {
+                    element.PreviewGiveFeedback += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewGotKeyboardFocus:
+                {
+                    element.PreviewGotKeyboardFocus += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewKeyDown:
+                {
+                    element.PreviewKeyDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewKeyUp:
+                {
+                    element.PreviewKeyUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewLostKeyboardFocus:
+                {
+                    element.PreviewLostKeyboardFocus += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewMouseDown:
+                {
+                    element.PreviewMouseDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewMouseLeftButtonDown:
+                {
+                    element.PreviewMouseLeftButtonDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewMouseLeftButtonUp:
+                {
+                    element.PreviewMouseLeftButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewMouseMove:
+                {
+                    element.PreviewMouseMove += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewMouseRightButtonDown:
+                {
+                    element.PreviewMouseRightButtonDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewMouseRightButtonUp:
+                {
+                    element.PreviewMouseRightButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewMouseUp:
+                {
+                    element.PreviewMouseUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewMouseWheel:
+                {
+                    element.PreviewMouseWheel += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewQueryContinueDrag:
+                {
+                    element.PreviewQueryContinueDrag += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewStylusButtonDown:
+                {
+                    element.PreviewStylusButtonDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewStylusButtonUp:
+                {
+                    element.PreviewStylusButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewStylusDown:
+                {
+                    element.PreviewStylusDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewStylusInAirMove:
+                {
+                    element.PreviewStylusInAirMove += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewStylusInRange:
+                {
+                    element.PreviewStylusInRange += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewStylusMove:
+                {
+                    element.PreviewStylusMove += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewStylusOutOfRange:
+                {
+                    element.PreviewStylusOutOfRange += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewStylusSystemGesture:
+                {
+                    element.PreviewStylusSystemGesture += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewStylusUp:
+                {
+                    element.PreviewStylusUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewTextInput:
+                {
+                    element.PreviewTextInput += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewTouchDown:
+                {
+                    element.PreviewTouchDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewTouchMove:
+                {
+                    element.PreviewTouchMove += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.PreviewTouchUp:
+                {
+                    element.PreviewTouchUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.QueryContinueDrag:
+                {
+                    element.QueryContinueDrag += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.QueryCursor:
+                {
+                    element.QueryCursor += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusButtonDown:
+                {
+                    element.StylusButtonDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusButtonUp:
+                {
+                    element.StylusButtonUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusDown:
+                {
+                    element.StylusDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusEnter:
+                {
+                    element.StylusEnter += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusInAirMove:
+                {
+                    element.StylusInAirMove += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusInRange:
+                {
+                    element.StylusInRange += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusLeave:
+                {
+                    element.StylusLeave += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusMove:
+                {
+                    element.StylusMove += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusOutOfRange:
+                {
+                    element.StylusOutOfRange += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusSystemGesture:
+                {
+                    element.StylusSystemGesture += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.StylusUp:
+                {
+                    element.StylusUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.TextInput:
+                {
+                    element.TextInput += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.TouchDown:
+                {
+                    element.TouchDown += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.TouchEnter:
+                {
+                    element.TouchEnter += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.TouchLeave:
+                {
+                    element.TouchLeave += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.TouchMove:
+                {
+                    element.TouchMove += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.TouchUp:
+                {
+                    element.TouchUp += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+
+                #endregion
+
+                #region FrameworkElement
+
+                case EventNames.Initialized:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.Initialized += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
                 case EventNames.Loaded:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.Loaded += (sender, args) => RunCommand(methodName, sender, methodArgs);
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.Loaded += (sender, args) => RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
+
+                #endregion
+
+                #region ButtonBase
+
+                case EventNames.Click:
+                {
+                    if (element is ButtonBase button)
+                        button.Click += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+
+                #endregion
+
+                #region MediaElement
+
+                case EventNames.MediaEnded:
+                {
+                    if (element is MediaElement mediaElement)
+                        mediaElement.MediaEnded += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+
+                #endregion
+
                 default: { throw new NotSupportedException($"Event {eventName} is not supported."); }
             }
         }
