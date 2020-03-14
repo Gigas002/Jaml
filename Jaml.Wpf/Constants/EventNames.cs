@@ -3,134 +3,134 @@
     /// <summary>
     /// Supported event names
     /// </summary>
-    public static class EventNames
+    internal static class EventNames
     {
         #region UIElement
 
-        public const string DragEnter = nameof(DragEnter);
-        public const string DragLeave = nameof(DragLeave);
-        public const string DragOver = nameof(DragOver);
-        public const string Drop = nameof(Drop);
-        public const string FocusableChanged = nameof(FocusableChanged);
-        public const string GiveFeedback = nameof(GiveFeedback);
-        public const string GotFocus = nameof(GotFocus);
-        public const string GotKeyboardFocus = nameof(GotKeyboardFocus);
-        public const string GotMouseCapture = nameof(GotMouseCapture);
-        public const string GotStylusCapture = nameof(GotStylusCapture);
-        public const string GotTouchCapture = nameof(GotTouchCapture);
-        public const string IsEnabledChanged = nameof(IsEnabledChanged);
-        public const string IsHitTestVisibleChanged = nameof(IsHitTestVisibleChanged);
-        public const string IsKeyboardFocusedChanged = nameof(IsKeyboardFocusedChanged);
-        public const string IsKeyboardFocusWithinChanged = nameof(IsKeyboardFocusWithinChanged);
-        public const string IsMouseCapturedChanged = nameof(IsMouseCapturedChanged);
-        public const string IsMouseCaptureWithinChanged = nameof(IsMouseCaptureWithinChanged);
-        public const string IsMouseDirectlyOverChanged = nameof(IsMouseDirectlyOverChanged);
-        public const string IsStylusCapturedChanged = nameof(IsStylusCapturedChanged);
-        public const string IsStylusCaptureWithinChanged = nameof(IsStylusCaptureWithinChanged);
-        public const string IsStylusDirectlyOverChanged = nameof(IsStylusDirectlyOverChanged);
-        public const string IsVisibleChanged = nameof(IsVisibleChanged);
-        public const string KeyDown = nameof(KeyDown);
-        public const string KeyUp = nameof(KeyUp);
-        public const string LayoutUpdated = nameof(LayoutUpdated);
-        public const string LostFocus = nameof(LostFocus);
-        public const string LostKeyboardFocus = nameof(LostKeyboardFocus);
-        public const string LostMouseCapture = nameof(LostMouseCapture);
-        public const string LostStylusCapture = nameof(LostStylusCapture);
-        public const string LostTouchCapture = nameof(LostTouchCapture);
-        public const string ManipulationBoundaryFeedback = nameof(ManipulationBoundaryFeedback);
-        public const string ManipulationCompleted = nameof(ManipulationCompleted);
-        public const string ManipulationDelta = nameof(ManipulationDelta);
-        public const string ManipulationInertiaStarting = nameof(ManipulationInertiaStarting);
-        public const string ManipulationStarted = nameof(ManipulationStarted);
-        public const string ManipulationStarting = nameof(ManipulationStarting);
-        public const string MouseDown = nameof(MouseDown);
-        public const string MouseEnter = nameof(MouseEnter);
-        public const string MouseLeave = nameof(MouseLeave);
-        public const string MouseLeftButtonDown = nameof(MouseLeftButtonDown);
-        public const string MouseLeftButtonUp = nameof(MouseLeftButtonUp);
-        public const string MouseMove = nameof(MouseMove);
-        public const string MouseRightButtonDown = nameof(MouseRightButtonDown);
-        public const string MouseRightButtonUp = nameof(MouseRightButtonUp);
-        public const string MouseUp = nameof(MouseUp);
-        public const string MouseWheel = nameof(MouseWheel);
-        public const string PreviewDragEnter = nameof(PreviewDragEnter);
-        public const string PreviewDragLeave = nameof(PreviewDragLeave);
-        public const string PreviewDragOver = nameof(PreviewDragOver);
-        public const string PreviewDrop = nameof(PreviewDrop);
-        public const string PreviewGiveFeedback = nameof(PreviewGiveFeedback);
-        public const string PreviewGotKeyboardFocus = nameof(PreviewGotKeyboardFocus);
-        public const string PreviewKeyDown = nameof(PreviewKeyDown);
-        public const string PreviewKeyUp = nameof(PreviewKeyUp);
-        public const string PreviewLostKeyboardFocus = nameof(PreviewLostKeyboardFocus);
-        public const string PreviewMouseDown = nameof(PreviewMouseDown);
-        public const string PreviewMouseLeftButtonDown = nameof(PreviewMouseLeftButtonDown);
-        public const string PreviewMouseLeftButtonUp = nameof(PreviewMouseLeftButtonUp);
-        public const string PreviewMouseMove = nameof(PreviewMouseMove);
-        public const string PreviewMouseRightButtonDown = nameof(PreviewMouseRightButtonDown);
-        public const string PreviewMouseRightButtonUp = nameof(PreviewMouseRightButtonUp);
-        public const string PreviewMouseUp = nameof(PreviewMouseUp);
-        public const string PreviewMouseWheel = nameof(PreviewMouseWheel);
-        public const string PreviewQueryContinueDrag = nameof(PreviewQueryContinueDrag);
-        public const string PreviewStylusButtonDown = nameof(PreviewStylusButtonDown);
-        public const string PreviewStylusButtonUp = nameof(PreviewStylusButtonUp);
-        public const string PreviewStylusDown = nameof(PreviewStylusDown);
-        public const string PreviewStylusInAirMove = nameof(PreviewStylusInAirMove);
-        public const string PreviewStylusInRange = nameof(PreviewStylusInRange);
-        public const string PreviewStylusMove = nameof(PreviewStylusMove);
-        public const string PreviewStylusOutOfRange = nameof(PreviewStylusOutOfRange);
-        public const string PreviewStylusSystemGesture = nameof(PreviewStylusSystemGesture);
-        public const string PreviewStylusUp = nameof(PreviewStylusUp);
-        public const string PreviewTextInput = nameof(PreviewTextInput);
-        public const string PreviewTouchDown = nameof(PreviewTouchDown);
-        public const string PreviewTouchMove = nameof(PreviewTouchMove);
-        public const string PreviewTouchUp = nameof(PreviewTouchUp);
-        public const string QueryContinueDrag = nameof(QueryContinueDrag);
-        public const string QueryCursor = nameof(QueryCursor);
-        public const string StylusButtonDown = nameof(StylusButtonDown);
-        public const string StylusButtonUp = nameof(StylusButtonUp);
-        public const string StylusDown = nameof(StylusDown);
-        public const string StylusEnter = nameof(StylusEnter);
-        public const string StylusInAirMove = nameof(StylusInAirMove);
-        public const string StylusInRange = nameof(StylusInRange);
-        public const string StylusLeave = nameof(StylusLeave);
-        public const string StylusMove = nameof(StylusMove);
-        public const string StylusOutOfRange = nameof(StylusOutOfRange);
-        public const string StylusSystemGesture = nameof(StylusSystemGesture);
-        public const string StylusUp = nameof(StylusUp);
-        public const string TextInput = nameof(TextInput);
-        public const string TouchDown = nameof(TouchDown);
-        public const string TouchEnter = nameof(TouchEnter);
-        public const string TouchLeave = nameof(TouchLeave);
-        public const string TouchMove = nameof(TouchMove);
-        public const string TouchUp = nameof(TouchUp);
+        internal const string DragEnter = nameof(DragEnter);
+        internal const string DragLeave = nameof(DragLeave);
+        internal const string DragOver = nameof(DragOver);
+        internal const string Drop = nameof(Drop);
+        internal const string FocusableChanged = nameof(FocusableChanged);
+        internal const string GiveFeedback = nameof(GiveFeedback);
+        internal const string GotFocus = nameof(GotFocus);
+        internal const string GotKeyboardFocus = nameof(GotKeyboardFocus);
+        internal const string GotMouseCapture = nameof(GotMouseCapture);
+        internal const string GotStylusCapture = nameof(GotStylusCapture);
+        internal const string GotTouchCapture = nameof(GotTouchCapture);
+        internal const string IsEnabledChanged = nameof(IsEnabledChanged);
+        internal const string IsHitTestVisibleChanged = nameof(IsHitTestVisibleChanged);
+        internal const string IsKeyboardFocusedChanged = nameof(IsKeyboardFocusedChanged);
+        internal const string IsKeyboardFocusWithinChanged = nameof(IsKeyboardFocusWithinChanged);
+        internal const string IsMouseCapturedChanged = nameof(IsMouseCapturedChanged);
+        internal const string IsMouseCaptureWithinChanged = nameof(IsMouseCaptureWithinChanged);
+        internal const string IsMouseDirectlyOverChanged = nameof(IsMouseDirectlyOverChanged);
+        internal const string IsStylusCapturedChanged = nameof(IsStylusCapturedChanged);
+        internal const string IsStylusCaptureWithinChanged = nameof(IsStylusCaptureWithinChanged);
+        internal const string IsStylusDirectlyOverChanged = nameof(IsStylusDirectlyOverChanged);
+        internal const string IsVisibleChanged = nameof(IsVisibleChanged);
+        internal const string KeyDown = nameof(KeyDown);
+        internal const string KeyUp = nameof(KeyUp);
+        internal const string LayoutUpdated = nameof(LayoutUpdated);
+        internal const string LostFocus = nameof(LostFocus);
+        internal const string LostKeyboardFocus = nameof(LostKeyboardFocus);
+        internal const string LostMouseCapture = nameof(LostMouseCapture);
+        internal const string LostStylusCapture = nameof(LostStylusCapture);
+        internal const string LostTouchCapture = nameof(LostTouchCapture);
+        internal const string ManipulationBoundaryFeedback = nameof(ManipulationBoundaryFeedback);
+        internal const string ManipulationCompleted = nameof(ManipulationCompleted);
+        internal const string ManipulationDelta = nameof(ManipulationDelta);
+        internal const string ManipulationInertiaStarting = nameof(ManipulationInertiaStarting);
+        internal const string ManipulationStarted = nameof(ManipulationStarted);
+        internal const string ManipulationStarting = nameof(ManipulationStarting);
+        internal const string MouseDown = nameof(MouseDown);
+        internal const string MouseEnter = nameof(MouseEnter);
+        internal const string MouseLeave = nameof(MouseLeave);
+        internal const string MouseLeftButtonDown = nameof(MouseLeftButtonDown);
+        internal const string MouseLeftButtonUp = nameof(MouseLeftButtonUp);
+        internal const string MouseMove = nameof(MouseMove);
+        internal const string MouseRightButtonDown = nameof(MouseRightButtonDown);
+        internal const string MouseRightButtonUp = nameof(MouseRightButtonUp);
+        internal const string MouseUp = nameof(MouseUp);
+        internal const string MouseWheel = nameof(MouseWheel);
+        internal const string PreviewDragEnter = nameof(PreviewDragEnter);
+        internal const string PreviewDragLeave = nameof(PreviewDragLeave);
+        internal const string PreviewDragOver = nameof(PreviewDragOver);
+        internal const string PreviewDrop = nameof(PreviewDrop);
+        internal const string PreviewGiveFeedback = nameof(PreviewGiveFeedback);
+        internal const string PreviewGotKeyboardFocus = nameof(PreviewGotKeyboardFocus);
+        internal const string PreviewKeyDown = nameof(PreviewKeyDown);
+        internal const string PreviewKeyUp = nameof(PreviewKeyUp);
+        internal const string PreviewLostKeyboardFocus = nameof(PreviewLostKeyboardFocus);
+        internal const string PreviewMouseDown = nameof(PreviewMouseDown);
+        internal const string PreviewMouseLeftButtonDown = nameof(PreviewMouseLeftButtonDown);
+        internal const string PreviewMouseLeftButtonUp = nameof(PreviewMouseLeftButtonUp);
+        internal const string PreviewMouseMove = nameof(PreviewMouseMove);
+        internal const string PreviewMouseRightButtonDown = nameof(PreviewMouseRightButtonDown);
+        internal const string PreviewMouseRightButtonUp = nameof(PreviewMouseRightButtonUp);
+        internal const string PreviewMouseUp = nameof(PreviewMouseUp);
+        internal const string PreviewMouseWheel = nameof(PreviewMouseWheel);
+        internal const string PreviewQueryContinueDrag = nameof(PreviewQueryContinueDrag);
+        internal const string PreviewStylusButtonDown = nameof(PreviewStylusButtonDown);
+        internal const string PreviewStylusButtonUp = nameof(PreviewStylusButtonUp);
+        internal const string PreviewStylusDown = nameof(PreviewStylusDown);
+        internal const string PreviewStylusInAirMove = nameof(PreviewStylusInAirMove);
+        internal const string PreviewStylusInRange = nameof(PreviewStylusInRange);
+        internal const string PreviewStylusMove = nameof(PreviewStylusMove);
+        internal const string PreviewStylusOutOfRange = nameof(PreviewStylusOutOfRange);
+        internal const string PreviewStylusSystemGesture = nameof(PreviewStylusSystemGesture);
+        internal const string PreviewStylusUp = nameof(PreviewStylusUp);
+        internal const string PreviewTextInput = nameof(PreviewTextInput);
+        internal const string PreviewTouchDown = nameof(PreviewTouchDown);
+        internal const string PreviewTouchMove = nameof(PreviewTouchMove);
+        internal const string PreviewTouchUp = nameof(PreviewTouchUp);
+        internal const string QueryContinueDrag = nameof(QueryContinueDrag);
+        internal const string QueryCursor = nameof(QueryCursor);
+        internal const string StylusButtonDown = nameof(StylusButtonDown);
+        internal const string StylusButtonUp = nameof(StylusButtonUp);
+        internal const string StylusDown = nameof(StylusDown);
+        internal const string StylusEnter = nameof(StylusEnter);
+        internal const string StylusInAirMove = nameof(StylusInAirMove);
+        internal const string StylusInRange = nameof(StylusInRange);
+        internal const string StylusLeave = nameof(StylusLeave);
+        internal const string StylusMove = nameof(StylusMove);
+        internal const string StylusOutOfRange = nameof(StylusOutOfRange);
+        internal const string StylusSystemGesture = nameof(StylusSystemGesture);
+        internal const string StylusUp = nameof(StylusUp);
+        internal const string TextInput = nameof(TextInput);
+        internal const string TouchDown = nameof(TouchDown);
+        internal const string TouchEnter = nameof(TouchEnter);
+        internal const string TouchLeave = nameof(TouchLeave);
+        internal const string TouchMove = nameof(TouchMove);
+        internal const string TouchUp = nameof(TouchUp);
 
         #endregion
 
         #region FrameworkElement
 
-        public const string ContextMenuClosing = nameof(ContextMenuClosing);
-        public const string ContextMenuOpening = nameof(ContextMenuOpening);
-        public const string DataContextChanged = nameof(DataContextChanged);
-        public const string Initialized = nameof(Initialized);
-        public const string Loaded = nameof(Loaded);
-        public const string RequestBringIntoView = nameof(RequestBringIntoView);
-        public const string SizeChanged = nameof(SizeChanged);
-        public const string SourceUpdated = nameof(SourceUpdated);
-        public const string TargetUpdated = nameof(TargetUpdated);
-        public const string ToolTipClosing = nameof(ToolTipClosing);
-        public const string ToolTipOpening = nameof(ToolTipOpening);
-        public const string Unloaded = nameof(Unloaded);
+        internal const string ContextMenuClosing = nameof(ContextMenuClosing);
+        internal const string ContextMenuOpening = nameof(ContextMenuOpening);
+        internal const string DataContextChanged = nameof(DataContextChanged);
+        internal const string Initialized = nameof(Initialized);
+        internal const string Loaded = nameof(Loaded);
+        internal const string RequestBringIntoView = nameof(RequestBringIntoView);
+        internal const string SizeChanged = nameof(SizeChanged);
+        internal const string SourceUpdated = nameof(SourceUpdated);
+        internal const string TargetUpdated = nameof(TargetUpdated);
+        internal const string ToolTipClosing = nameof(ToolTipClosing);
+        internal const string ToolTipOpening = nameof(ToolTipOpening);
+        internal const string Unloaded = nameof(Unloaded);
 
         #endregion
 
         /// <summary>
         /// MediaEnded
         /// </summary>
-        public const string MediaEnded = nameof(MediaEnded);
+        internal const string MediaEnded = nameof(MediaEnded);
 
         /// <summary>
         /// Click
         /// </summary>
-        public const string Click = nameof(Click);
+        internal const string Click = nameof(Click);
     }
 }

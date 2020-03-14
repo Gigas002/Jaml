@@ -112,8 +112,19 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         #region TODO
 
+        /// <summary>
+        /// 
+        /// </summary>
         public object CacheMode { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object Effect { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object OpacityMask { get; }
 
         #endregion

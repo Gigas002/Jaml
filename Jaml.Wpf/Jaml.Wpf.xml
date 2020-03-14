@@ -14,34 +14,9 @@
             MediaEnded
             </summary>
         </member>
-        <member name="F:Jaml.Wpf.Constants.EventNames.MouseLeftButtonUp">
-            <summary>
-            MouseLeftButtonUp
-            </summary>
-        </member>
-        <member name="F:Jaml.Wpf.Constants.EventNames.PreviewMouseLeftButtonUp">
-            <summary>
-            PreviewMouseLeftButtonUp
-            </summary>
-        </member>
-        <member name="F:Jaml.Wpf.Constants.EventNames.MouseRightButtonUp">
-            <summary>
-            MouseRightButtonUp
-            </summary>
-        </member>
         <member name="F:Jaml.Wpf.Constants.EventNames.Click">
             <summary>
             Click
-            </summary>
-        </member>
-        <member name="F:Jaml.Wpf.Constants.EventNames.Initialized">
-            <summary>
-            Initialized
-            </summary>
-        </member>
-        <member name="F:Jaml.Wpf.Constants.EventNames.Loaded">
-            <summary>
-            Loaded
             </summary>
         </member>
         <member name="T:Jaml.Wpf.Helpers.PathsHelper">
@@ -353,6 +328,11 @@
             Model of button
             </summary>
         </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.ButtonModel.Content">
+            <summary>
+            Element's content
+            </summary>
+        </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonModel.ToButton``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Creates button from model
@@ -390,6 +370,141 @@
             Base FrameworkElement model
             </summary>
         </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.StyleId">
+            <summary>
+            Style id to use on this element
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.FlowDirection">
+            <summary>
+            Flow direction (default left to right)
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.ForceCursor">
+            <summary>
+            Force cursor
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.Height">
+            <summary>
+            Height
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.HorizontalAlignment">
+            <summary>
+            Horizontal alignment
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.Language">
+            <summary>
+            Language
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.LayoutTransform">
+            <summary>
+            Layout transform
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.Margin">
+            <summary>
+            Margin
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.MaxHeight">
+            <summary>
+            Max height
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.MaxWidth">
+            <summary>
+            Max width
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.MinHeight">
+            <summary>
+            Min height
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.MinWidth">
+            <summary>
+            min width
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.Name">
+            <summary>
+            Name of element
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.OverridesDefaultStyle">
+            <summary>
+            Overrides default style
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.UseLayoutRounding">
+            <summary>
+            Use layout rounding
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.VerticalAlignment">
+            <summary>
+            Vertical alignment
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.Width">
+            <summary>
+            Width
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.BindingGroup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.ContextMenu">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.Cursor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.DataContext">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.FocusVisualStyle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.InputScope">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.Resources">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.Style">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.Tag">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.Tooltip">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.ToFrameworkElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Converts this model to one of <see cref="T:System.Windows.FrameworkElement"/>'s children
@@ -398,6 +513,13 @@
             <param name="element">Element, where model will be converted</param>
             <param name="commandProvider">Command provider</param>
             <param name="styleProvider">Style provider</param>
+        </member>
+        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.BindProperties``1(``0@)">
+            <summary>
+            Binds this element's properties
+            </summary>
+            <typeparam name="T">Children of <see cref="T:System.Windows.FrameworkElement"/></typeparam>
+            <param name="element">Target element to bind properties</param>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.GridModel">
             <summary>
@@ -445,6 +567,11 @@
             Image model
             </summary>
         </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.ImageModel.Content">
+            <summary>
+            Element's content
+            </summary>
+        </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.ImageModel.ToImage``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Creates image from model
@@ -464,31 +591,6 @@
         <member name="T:Jaml.Wpf.Models.UIElementModels.IUIElementModel">
             <summary>
             Base interface for all <see cref="T:System.Windows.UIElement"/> on page
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Name">
-            <summary>
-            Name of element
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.VerticalAlignment">
-            <summary>
-            Vertical alignment
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.HorizontalAlignment">
-            <summary>
-            Horizontal alignment
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Content">
-            <summary>
-            Element's content
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.StyleId">
-            <summary>
-            Style id to use on this element
             </summary>
         </member>
         <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ParentRow">
@@ -516,6 +618,91 @@
             Collection of commands, associated with this element
             </summary>
         </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.AllowDrop">
+            <summary>
+            Allow drop
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Clip">
+            <summary>
+            Clip
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ClipToBounds">
+            <summary>
+            Clip to bounds
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Focusable">
+            <summary>
+            Focusable
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.IsEnabled">
+            <summary>
+            Is enabled
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.IsHitTestVisible">
+            <summary>
+            Is hit test visible
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.IsManipulationEnabled">
+            <summary>
+            Is manipulation enabled
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Opacity">
+            <summary>
+            Opacity
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.RenderSize">
+            <summary>
+            Render size
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.RenderTransform">
+            <summary>
+            Render transform
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.RenderTransformOrigin">
+            <summary>
+            Render transform origin
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.SnapsToDevicePixels">
+            <summary>
+            Snaps to device pixels
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Uid">
+            <summary>
+            Uid
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Visibility">
+            <summary>
+            Visibility
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.CacheMode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.Effect">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.IUIElementModel.OpacityMask">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
             <summary>
             Converts this model to one of <see cref="T:System.Windows.UIElement"/>'s children
@@ -524,9 +711,21 @@
             <param name="element">Element, where model will be converted</param>
             <param name="commandProvider">Command provider</param>
         </member>
+        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.BindProperties``1(``0@)">
+            <summary>
+            Bind this model properties to the target <see cref="T:System.Windows.UIElement"/>
+            </summary>
+            <typeparam name="T">Children of<see cref="T:System.Windows.UIElement"/></typeparam>
+            <param name="element">Target element</param>
+        </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.MediaElementModel">
             <summary>
             Model of media elements, like video or audio
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.Content">
+            <summary>
+            Element's content
             </summary>
         </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel.ToMediaElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
@@ -566,21 +765,6 @@
             Base class, that implements <see cref="T:Jaml.Wpf.Models.UIElementModels.IUIElementModel"/>
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Name">
-            <inheritdoc />
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.VerticalAlignment">
-            <inheritdoc />
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.HorizontalAlignment">
-            <inheritdoc />
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Content">
-            <inheritdoc />
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.StyleId">
-            <inheritdoc />
-        </member>
         <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.ParentRow">
             <inheritdoc />
         </member>
@@ -596,58 +780,62 @@
         <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Commands">
             <inheritdoc />
         </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.AllowDrop">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Clip">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.ClipToBounds">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Focusable">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.IsEnabled">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.IsHitTestVisible">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.IsManipulationEnabled">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Opacity">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.RenderSize">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.RenderTransform">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.RenderTransformOrigin">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.SnapsToDevicePixels">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Uid">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Visibility">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.CacheMode">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Effect">
+            <inheritdoc />
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.OpacityMask">
+            <inheritdoc />
+        </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.AllowDrop">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.ClipToBounds">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Focusable">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.IsEnabled">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.IsHitTestVisible">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.IsManipulationEnabled">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Opacity">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.SnapsToDevicePixels">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Uid">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.Visibility">
-            <summary>
-            
-            </summary>
+        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.BindProperties``1(``0@)">
+            <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.WindowModel">
             <summary>
@@ -730,20 +918,6 @@
             Contains static method to parse different <see cref="T:System.Windows.UIElement"/>'s properties
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseHorizontalAlignment(System.String)">
-            <summary>
-            Parse the <see cref="T:System.Windows.HorizontalAlignment"/> from string
-            </summary>
-            <param name="horizontalAlignment">Horizontal alignment string</param>
-            <returns>Parsed <see cref="T:System.Windows.HorizontalAlignment"/></returns>
-        </member>
-        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseVerticalAlignment(System.String)">
-            <summary>
-            Parse the <see cref="T:System.Windows.VerticalAlignment"/> from string
-            </summary>
-            <param name="verticalAlignment">Vertical alignment string</param>
-            <returns>Parsed <see cref="T:System.Windows.VerticalAlignment"/></returns>
-        </member>
         <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseFontWeight(System.String)">
             <summary>
             Parse the <see cref="T:System.Windows.FontWeight"/> from string
@@ -769,20 +943,6 @@
             <summary>
             todo
             </summary>
-        </member>
-        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseThickness(System.Double)">
-            <summary>
-            Converts the thickness string to <see cref="T:System.Windows.Thickness"/>
-            </summary>
-            <param name="thickness">Thickenss string</param>
-            <returns>Parsed <see cref="T:System.Windows.Thickness"/></returns>
-        </member>
-        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseVisibility(System.String)">
-            <summary>
-            Converts the visibility string to <see cref="T:System.Windows.Visibility"/>
-            </summary>
-            <param name="visibility">Visibility string</param>
-            <returns>Parsed <see cref="T:System.Windows.Visibility"/></returns>
         </member>
         <member name="T:Jaml.Wpf.Providers.CommandProvider.CommandProvider">
             <inheritdoc />

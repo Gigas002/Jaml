@@ -123,15 +123,54 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         #region TODO
 
+        /// <summary>
+        /// 
+        /// </summary>
         public object BindingGroup { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object ContextMenu { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object Cursor { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object DataContext { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object FocusVisualStyle { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object InputScope { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object Resources { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object Style { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object Tag { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public object Tooltip { get; set; }
 
         #endregion
@@ -159,6 +198,11 @@ namespace Jaml.Wpf.Models.UIElementModels
             commandProvider.BindCommands(ref element, Commands);
         }
 
+        /// <summary>
+        /// Binds this element's properties
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="FrameworkElement"/></typeparam>
+        /// <param name="element">Target element to bind properties</param>
         public new void BindProperties<T>(ref T element) where T : FrameworkElement
         {
             //todo
