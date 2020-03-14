@@ -43,7 +43,7 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         /// <inheritdoc />
         [JsonPropertyName("Clip")]
-        public string Clip { get; set; } = null;
+        public string Clip { get; set; } = string.Empty;
 
         /// <inheritdoc />
         [JsonPropertyName("ClipToBounds")]
@@ -71,15 +71,15 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         /// <inheritdoc />
         [JsonPropertyName("RenderSize")]
-        public string RenderSize { get; set; } = null;
+        public string RenderSize { get; set; } = string.Empty;
 
         /// <inheritdoc />
         [JsonPropertyName("RenderTransform")]
-        public string RenderTransform { get; set; } = null;
+        public string RenderTransform { get; set; } = string.Empty;
 
         /// <inheritdoc />
         [JsonPropertyName("RenderTransformOrigin")]
-        public string RenderTransformOrigin { get; set; } = null;
+        public string RenderTransformOrigin { get; set; } = string.Empty;
 
         /// <inheritdoc />
         [JsonPropertyName("SnapsToDevicePixels")]
@@ -87,11 +87,11 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         /// <inheritdoc />
         [JsonPropertyName("Uid")]
-        public string Uid { get; set; } = null;
+        public string Uid { get; set; } = string.Empty;
 
         /// <inheritdoc />
         [JsonPropertyName("Visibility")]
-        public string Visibility { get; set; } = null;
+        public string Visibility { get; set; } = string.Empty;
 
         #region TODO
 
@@ -107,6 +107,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         #endregion
 
         #endregion
+
+        #region Methods
 
         /// <inheritdoc />
         public virtual void ToUIElement<T>(ref T element, ICommandProvider commandProvider) where T : UIElement
@@ -145,5 +147,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             Enum.TryParse(Visibility, out Visibility visibility);
             element.Visibility = visibility;
         }
+
+        #endregion
     }
 }
