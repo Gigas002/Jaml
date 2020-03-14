@@ -686,6 +686,27 @@ namespace Jaml.Wpf.Providers.CommandProvider
 
                 #region FrameworkElement
 
+                case EventNames.ContextMenuClosing:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.ContextMenuClosing += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.ContextMenuOpening:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.ContextMenuOpening += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.DataContextChanged:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.DataContextChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
                 case EventNames.Initialized:
                 {
                     if (element is FrameworkElement frameworkElement)
@@ -697,6 +718,56 @@ namespace Jaml.Wpf.Providers.CommandProvider
                 {
                     if (element is FrameworkElement frameworkElement)
                         frameworkElement.Loaded += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.RequestBringIntoView:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.RequestBringIntoView += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.SizeChanged:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.SizeChanged += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.SourceUpdated:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.SourceUpdated += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.TargetUpdated:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.TargetUpdated += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.ToolTipClosing:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.ToolTipClosing += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.ToolTipOpening:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.ToolTipOpening += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+
+                case EventNames.Unloaded:
+                {
+                    if (element is FrameworkElement frameworkElement)
+                        frameworkElement.Unloaded += (sender, args) => RunCommand(methodName, sender, methodArgs);
 
                     break;
                 }

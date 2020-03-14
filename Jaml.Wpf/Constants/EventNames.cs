@@ -106,6 +106,23 @@
 
         #endregion
 
+        #region FrameworkElement
+
+        public const string ContextMenuClosing = nameof(ContextMenuClosing);
+        public const string ContextMenuOpening = nameof(ContextMenuOpening);
+        public const string DataContextChanged = nameof(DataContextChanged);
+        public const string Initialized = nameof(Initialized);
+        public const string Loaded = nameof(Loaded);
+        public const string RequestBringIntoView = nameof(RequestBringIntoView);
+        public const string SizeChanged = nameof(SizeChanged);
+        public const string SourceUpdated = nameof(SourceUpdated);
+        public const string TargetUpdated = nameof(TargetUpdated);
+        public const string ToolTipClosing = nameof(ToolTipClosing);
+        public const string ToolTipOpening = nameof(ToolTipOpening);
+        public const string Unloaded = nameof(Unloaded);
+
+        #endregion
+
         /// <summary>
         /// MediaEnded
         /// </summary>
@@ -115,15 +132,5 @@
         /// Click
         /// </summary>
         public const string Click = nameof(Click);
-
-        /// <summary>
-        /// Initialized
-        /// </summary>
-        public const string Initialized = nameof(Initialized);
-
-        /// <summary>
-        /// Loaded
-        /// </summary>
-        public const string Loaded = nameof(Loaded);
     }
 }
