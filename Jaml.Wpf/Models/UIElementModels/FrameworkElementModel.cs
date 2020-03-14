@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 using System.Windows;
+using System.Windows.Markup;
+using System.Windows.Media;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
 
@@ -20,10 +22,88 @@ namespace Jaml.Wpf.Models.UIElementModels
         public int StyleId { get; set; } = -1;
 
         /// <summary>
+        /// Flow direction (default left to right)
+        /// </summary>
+        [JsonPropertyName("FlowDirection")]
+        public string FlowDirection { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Force cursor
+        /// </summary>
+        [JsonPropertyName("ForceCursor")]
+        public bool ForceCursor { get; set; } = false;
+
+        /// <summary>
+        /// Height
+        /// </summary>
+        [JsonPropertyName("Height")]
+        public double Height { get; set; } = double.NaN;
+
+        /// <summary>
+        /// Horizontal alignment
+        /// </summary>
+        [JsonPropertyName("HorizontalAlignment")]
+        public string HorizontalAlignment { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Language
+        /// </summary>
+        [JsonPropertyName("Language")]
+        public string Language { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Layout transform
+        /// </summary>
+        [JsonPropertyName("LayoutTransform")]
+        public string LayoutTransform { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Margin
+        /// </summary>
+        [JsonPropertyName("Margin")]
+        public double Margin { get; set; } = 0.0;
+
+        /// <summary>
+        /// Max height
+        /// </summary>
+        [JsonPropertyName("MaxHeight")]
+        public double MaxHeight { get; set; } = double.PositiveInfinity;
+
+        /// <summary>
+        /// Max width
+        /// </summary>
+        [JsonPropertyName("MaxWidth")]
+        public double MaxWidth { get; set; } = double.PositiveInfinity;
+
+        /// <summary>
+        /// Min height
+        /// </summary>
+        [JsonPropertyName("MinHeight")]
+        public double MinHeight { get; set; } = 0.0;
+
+        /// <summary>
+        /// min width
+        /// </summary>
+        [JsonPropertyName("MinWidth")]
+        public double MinWidth { get; set; } = 0.0;
+
+        /// <summary>
         /// Name of element
         /// </summary>
         [JsonPropertyName("Name")]
         public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Overrides default style
+        /// </summary>
+        [JsonPropertyName("OverridesDefaultStyle")]
+        public bool OverridesDefaultStyle { get; set; } = false;
+
+        /// <summary>
+        /// Use layout rounding
+        /// </summary>
+        [JsonPropertyName("UseLayoutRounding")]
+        public bool UseLayoutRounding { get; set; } = false;
 
         /// <summary>
         /// Vertical alignment
@@ -32,10 +112,25 @@ namespace Jaml.Wpf.Models.UIElementModels
         public string VerticalAlignment { get; set; } = string.Empty;
 
         /// <summary>
-        /// Horizontal alignment
+        /// Width
         /// </summary>
-        [JsonPropertyName("HorizontalAlignment")]
-        public string HorizontalAlignment { get; set; } = string.Empty;
+        [JsonPropertyName("Width")]
+        public double Width { get; set; } = double.NaN;
+
+        #region TODO
+
+        public object BindingGroup { get; set; }
+        public object ContextMenu { get; set; }
+        public object Cursor { get; set; }
+        public object DataContext { get; set; }
+        public object FocusVisualStyle { get; set; }
+        public object InputScope { get; set; }
+        public object Resources { get; set; }
+        public object Style { get; set; }
+        public object Tag { get; set; }
+        public object Tooltip { get; set; }
+
+        #endregion
 
         #endregion
 
@@ -64,64 +159,38 @@ namespace Jaml.Wpf.Models.UIElementModels
         {
             //todo
             base.BindProperties(ref element);
-            element.Name = Name;
 
-            Enum.TryParse(VerticalAlignment, out VerticalAlignment verticalAlignment);
-            Enum.TryParse(HorizontalAlignment, out HorizontalAlignment horizontalAlignment);
-            element.VerticalAlignment = verticalAlignment;
-            element.HorizontalAlignment = horizontalAlignment;
-
-            element.BindingGroup = default;
-            element.ContextMenu = default;
-            element.Cursor = default;
-
-            ////element.DataContext =
-
+            //element.BindingGroup = default;
+            //element.ContextMenu = default;
+            //element.Cursor = default;
+            //element.DataContext =
             Enum.TryParse(FlowDirection, out FlowDirection flowDirection);
             element.FlowDirection = flowDirection;
-            ////element.FocusVisualStyle =
+            //element.FocusVisualStyle =
             element.ForceCursor = ForceCursor;
-            //element.Height = Height;
-            ////element.InputScope
-            ////element.Language = XmlLanguage.GetLanguage(Language);
-            ////element.LayoutTransform = Transform.Parse(LayoutTransform);
+            element.Height = Height;
+            Enum.TryParse(HorizontalAlignment, out HorizontalAlignment horizontalAlignment);
+            element.HorizontalAlignment = horizontalAlignment;
+            //element.InputScope
+            if (!string.IsNullOrWhiteSpace(Language))
+                element.Language = XmlLanguage.GetLanguage(Language);
+            if (!string.IsNullOrWhiteSpace(LayoutTransform))
+                element.LayoutTransform = Transform.Parse(LayoutTransform);
             element.Margin = new Thickness(Margin);
-            //element.MaxHeight = MaxHeight;
-            //element.MaxWidth = MaxWidth;
-            //element.MinHeight = MinHeight;
-            //element.MinWidth = MinWidth;
+            element.MaxHeight = MaxHeight;
+            element.MaxWidth = MaxWidth;
+            element.MinHeight = MinHeight;
+            element.MinWidth = MinWidth;
+            element.Name = Name;
             element.OverridesDefaultStyle = OverridesDefaultStyle;
-            ////element.Resources;
-            ////element.Tag;
-            ////element.ToolTip;
+            //element.Resources;
+            //element.Style = style;
+            //element.Tag;
+            //element.ToolTip;
             element.UseLayoutRounding = UseLayoutRounding;
-            //element.Width = Width;
+            Enum.TryParse(VerticalAlignment, out VerticalAlignment verticalAlignment);
+            element.VerticalAlignment = verticalAlignment;
+            element.Width = Width;
         }
-
-        public bool ForceCursor { get; set; }
-
-        public double Height { get; set; } = 500;
-
-        public string FlowDirection { get; set; } = string.Empty;
-
-        public string Language { get; set; } = string.Empty;
-
-        public string LayoutTransform { get; set; } = string.Empty;
-
-        public bool UseLayoutRounding { get; set; }
-
-        public double Margin { get; set; }
-
-        public double MaxHeight { get; set; } = 500;
-
-        public double MaxWidth { get; set; } = 500;
-
-        public double MinHeight { get; set; } = 500;
-
-        public double MinWidth { get; set; } = 500;
-
-        public bool OverridesDefaultStyle { get; set; }
-
-        public double Width { get; set; } = 500;
     }
 }
