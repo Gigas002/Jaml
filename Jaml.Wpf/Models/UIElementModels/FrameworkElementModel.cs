@@ -14,28 +14,28 @@ namespace Jaml.Wpf.Models.UIElementModels
         #region Properties
 
         /// <summary>
+        /// Style id to use on this element
+        /// </summary>
+        [JsonPropertyName("StyleId")]
+        public int StyleId { get; set; } = -1;
+
+        /// <summary>
         /// Name of element
         /// </summary>
         [JsonPropertyName("Name")]
-        public string Name { get; set; } = null;
+        public string Name { get; set; } = string.Empty;
 
         /// <summary>
         /// Vertical alignment
         /// </summary>
         [JsonPropertyName("VerticalAlignment")]
-        public string VerticalAlignment { get; set; } = null;
+        public string VerticalAlignment { get; set; } = string.Empty;
 
         /// <summary>
         /// Horizontal alignment
         /// </summary>
         [JsonPropertyName("HorizontalAlignment")]
-        public string HorizontalAlignment { get; set; } = null;
-
-        /// <summary>
-        /// Style id to use on this element
-        /// </summary>
-        [JsonPropertyName("StyleId")]
-        public int StyleId { get; set; } = -1;
+        public string HorizontalAlignment { get; set; } = string.Empty;
 
         #endregion
 
@@ -102,11 +102,11 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         public double Height { get; set; } = 500;
 
-        public string FlowDirection { get; set; }
+        public string FlowDirection { get; set; } = string.Empty;
 
-        public string Language { get; set; }
+        public string Language { get; set; } = string.Empty;
 
-        public string LayoutTransform { get; set; }
+        public string LayoutTransform { get; set; } = string.Empty;
 
         public bool UseLayoutRounding { get; set; }
 
