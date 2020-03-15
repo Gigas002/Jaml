@@ -123,10 +123,16 @@
 
         #endregion
 
-        /// <summary>
-        /// MediaEnded
-        /// </summary>
+        #region MediaElement
+
+        internal const string BufferingEnded = nameof(BufferingEnded);
+        internal const string BufferingStarted = nameof(BufferingStarted);
         internal const string MediaEnded = nameof(MediaEnded);
+        internal const string MediaFailed = nameof(MediaFailed);
+        internal const string MediaOpened = nameof(MediaOpened);
+        internal const string ScriptCommand = nameof(ScriptCommand);
+
+        #endregion
 
         /// <summary>
         /// Click

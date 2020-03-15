@@ -788,10 +788,45 @@ namespace Jaml.Wpf.Providers.CommandProvider
 
                 #region MediaElement
 
+                case EventNames.BufferingEnded:
+                {
+                    if (element is MediaElement mediaElement)
+                        mediaElement.BufferingEnded += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.BufferingStarted:
+                {
+                    if (element is MediaElement mediaElement)
+                        mediaElement.BufferingStarted += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
                 case EventNames.MediaEnded:
                 {
                     if (element is MediaElement mediaElement)
                         mediaElement.MediaEnded += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.MediaFailed:
+                {
+                    if (element is MediaElement mediaElement)
+                        mediaElement.MediaFailed += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.MediaOpened:
+                {
+                    if (element is MediaElement mediaElement)
+                        mediaElement.MediaOpened += (sender, args) => RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                case EventNames.ScriptCommand:
+                {
+                    if (element is MediaElement mediaElement)
+                        mediaElement.ScriptCommand += (sender, args) => RunCommand(methodName, sender, methodArgs);
 
                     break;
                 }
