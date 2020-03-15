@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Text.Json.Serialization;
+using System.Windows;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.ChildModels;
 using Jaml.Wpf.Parsers;
@@ -30,7 +33,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Collection of column definitions
         /// </summary>
         [JsonPropertyName("ColumnDefinitions")]
-        public IEnumerable<ColumnDefinitionModel> ColumnDefinitions { get; set; } = new List<ColumnDefinitionModel>();
+        public IEnumerable<string> ColumnDefinitions { get; set; } = new List<string>();
 
         /// <summary>
         /// Collection of children, bound to this grid
@@ -80,8 +83,8 @@ namespace Jaml.Wpf.Models.UIElementModels
             foreach (RowDefinitionModel rowDefinitionModel in RowDefinitions)
                 element.RowDefinitions.Add(rowDefinitionModel.ToRowDefinition());
 
-            foreach (ColumnDefinitionModel columnDefinitionModel in ColumnDefinitions)
-                element.ColumnDefinitions.Add(columnDefinitionModel.ToColumnDefinition());
+            foreach (string columnDefinition in ColumnDefinitions)
+                element.ColumnDefinitions.Add(PropertyParser.ParseColumnDefinition(columnDefinition));
 
             element.Background = PropertyParser.ParseBackground(Background);
         }

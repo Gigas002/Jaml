@@ -1,8 +1,11 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using Jaml.Wpf.Helpers;
-using Jaml.Wpf.Models.UIElementModels;
 
 namespace Jaml.Wpf.Parsers
 {
@@ -76,6 +79,37 @@ namespace Jaml.Wpf.Parsers
             if (string.IsNullOrWhiteSpace(background)) return Brushes.Transparent;
 
             return File.Exists(Path.GetFullPath(background)) ? UIHelper.GetBrushFromImage(background) : ConvertArgbToBrush(background);
+        }
+
+        /// <summary>
+        /// Convert collection of strings to collection of column definitions
+        /// </summary>
+        /// <param name="columnDefinitions">Collection of column definition strings</param>
+        /// <returns>collection of column definitions</returns>
+        public static IEnumerable<ColumnDefinition> ParseColumnDefinitions(IEnumerable<string> columnDefinitions) =>
+            columnDefinitions.Select(ParseColumnDefinition);
+
+        /// <summary>
+        /// Convert the column definition string to column definition
+        /// </summary>
+        /// <param name="columnDefinition">Column definition string</param>
+        /// <returns>Column definition</returns>
+        public static ColumnDefinition ParseColumnDefinition(string columnDefinition)
+        {
+            GridLength gridLength;
+            if (double.TryParse(columnDefinition, NumberStyles.Any, CultureInfo.InvariantCulture, out double width))
+                gridLength = new GridLength(width);
+            else
+                gridLength = columnDefinition switch
+                {
+                    "*" => new GridLength(1, GridUnitType.Star),
+                    _ => new GridLength(1, GridUnitType.Auto)
+                };
+
+            return new ColumnDefinition
+            {
+                Width = gridLength
+            };
         }
     }
 }
