@@ -4,7 +4,7 @@
 
 The nearest plans are for **WPF** support (**Jaml.Wpf** library), but in future I'd like to support a cross-platform solution too (using **Avalonia UI** probably?).
 
-The demo app is WIP and will be published in different repo later.
+To see the possibilities of the **Jaml** you can take a look at the demo-app (*visual novel engine*), that I’m developing side-to-side with **Jaml**: [Lolita](https://github.com/Gigas002/Lolita).
 
 [![Build status](https://ci.appveyor.com/api/projects/status/0fvuk184rr4qgu8j?svg=true)](https://ci.appveyor.com/project/Gigas002/jaml) [![Actions Status](https://github.com/Gigas002/Jaml/workflows/.NET%20Core%20CI/badge.svg)](https://github.com/Gigas002/Jaml/actions)
 
@@ -34,9 +34,9 @@ If you want to learn, what've been done in previous releases, take a look at [CH
 
 ## Building
 
-Since this is a **WPF** project, you can only build and use it on **Windows** systems.
+This project uses `Microsoft.NET.Sdk.WindowsDesktop`, so you you can only build and use it on **Windows** systems.
 
-Solution can be build in **VS2019 (16.4.5+)**. You can also use **VSCode (1.42.1+)** with **omnisharp-vscode (1.21.13+)** extension.
+Solution can be build in **VS2019 (16.4.6+)**. You can also use **VSCode (1.43.0+)** with **omnisharp-vscode (1.21.14+)** extension.
 
 Project targets **.NET Core 3.1**, so you'll need **.NET Core 3.1.102 SDK**.
 
@@ -44,7 +44,7 @@ Project targets **.NET Core 3.1**, so you'll need **.NET Core 3.1.102 SDK**.
 
 Offline documentation is located inside of [Jaml.Wpf/Docs](Jaml.Wpf/Docs/README.md) directory.
 
-To browse the docs offline, it's recomended to use [dotnet try](https://github.com/dotnet/try) tool. Really, just give it a try! To see the docs, just run the `docs.ps1` script.
+To browse the docs offline, it's recommended to use [dotnet try](https://github.com/dotnet/try) tool. Really, just give it a try! To see the docs, just run the `docs.ps1` script.
 
 ## Contributing
 
