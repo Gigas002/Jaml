@@ -19,8 +19,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <summary>
         /// Element's content
         /// </summary>
-        [JsonPropertyName("Content")]
-        public string Content { get; set; } = string.Empty;
+        [JsonPropertyName("Source")]
+        public string Source { get; set; } = string.Empty;
 
         #endregion
 
@@ -55,8 +55,22 @@ namespace Jaml.Wpf.Models.UIElementModels
         {
             //todo move this method up, to UIElement or FrameworkElement
             base.BindProperties(ref element);
-            if (!string.IsNullOrWhiteSpace(Content))
-                element.Source = PathsHelper.GetUriFromRelativePath(Content);
+
+            //element.Balance;
+            //element.Clock;
+            //element.IsMuted;
+            //element.LoadedBehavior = MediaState.Manual;
+            //element.Position;
+            //element.ScrubbingEnabled;
+            //element.Source;
+            //element.SpeedRatio;
+            //element.Stretch;
+            //element.StretchDirection;
+            //element.UnloadedBehavior;
+            //element.Volume;
+
+            if (!string.IsNullOrWhiteSpace(Source))
+                element.Source = PathsHelper.GetUriFromRelativePath(Source);
             element.LoadedBehavior = MediaState.Manual;
         }
     }

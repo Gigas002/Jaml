@@ -20,8 +20,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <summary>
         /// Element's content
         /// </summary>
-        [JsonPropertyName("Content")]
-        public string Content { get; set; } = string.Empty;
+        [JsonPropertyName("Source")]
+        public string Source { get; set; } = string.Empty;
 
         #endregion
 
@@ -55,8 +55,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         {
             //todo move this method up, to UIElement or FrameworkElement
             base.BindProperties(ref element);
-            if (!string.IsNullOrWhiteSpace(Content))
-                element.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Content));
+            if (!string.IsNullOrWhiteSpace(Source))
+                element.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Source));
         }
     }
 }
