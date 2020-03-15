@@ -1,5 +1,7 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.Text.Json.Serialization;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Jaml.Wpf.Helpers;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
@@ -17,10 +19,64 @@ namespace Jaml.Wpf.Models.UIElementModels
         #region Properties
 
         /// <summary>
+        /// Balance
+        /// </summary>
+        [JsonPropertyName("Balance")]
+        public double Balance { get; set; } = 0.0;
+
+        /// <summary>
+        /// Is muted
+        /// </summary>
+        [JsonPropertyName("IsMuted")]
+        public bool IsMuted { get; set; } = false;
+
+        /// <summary>
+        /// Position
+        /// </summary>
+        [JsonPropertyName("Position")]
+        public string Position { get; set; } = "00:00:00";
+
+        /// <summary>
+        /// Scrubbing enabled
+        /// </summary>
+        [JsonPropertyName("ScrubbingEnabled")]
+        public bool ScrubbingEnabled { get; set; } = false;
+
+        /// <summary>
         /// Element's content
         /// </summary>
         [JsonPropertyName("Source")]
         public string Source { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Speed ratio
+        /// </summary>
+        [JsonPropertyName("SpeedRatio")]
+        public double SpeedRatio { get; set; } = 1.0;
+
+        /// <summary>
+        /// Volume
+        /// </summary>
+        [JsonPropertyName("Volume")]
+        public double Volume { get; set; } = 0.5;
+
+        #region WIP
+
+        public MediaClock Clock { get; } = null;
+
+        public Stretch Stretch { get; } = Stretch.Uniform;
+
+        public StretchDirection StretchDirection { get; } = StretchDirection.Both;
+
+        #endregion
+
+        #region Non-json properties
+
+        private MediaState LoadedBehavior { get; } = MediaState.Manual;
+
+        private MediaState UnloadedBehavior { get; } = MediaState.Close;
+
+        #endregion
 
         #endregion
 
@@ -53,25 +109,26 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="element">Element to take properties</param>
         public new void BindProperties<T>(ref T element) where T : MediaElement
         {
-            //todo move this method up, to UIElement or FrameworkElement
             base.BindProperties(ref element);
 
-            //element.Balance;
-            //element.Clock;
-            //element.IsMuted;
-            //element.LoadedBehavior = MediaState.Manual;
-            //element.Position;
-            //element.ScrubbingEnabled;
-            //element.Source;
-            //element.SpeedRatio;
-            //element.Stretch;
-            //element.StretchDirection;
-            //element.UnloadedBehavior;
-            //element.Volume;
+            element.Balance = Balance;
+            element.Clock = Clock;
+            element.IsMuted = IsMuted;
+            element.LoadedBehavior = LoadedBehavior;
+
+            TimeSpan.TryParse(Position, out TimeSpan positionTimeSpan);
+            element.Position = positionTimeSpan;
+
+            element.ScrubbingEnabled = ScrubbingEnabled;
 
             if (!string.IsNullOrWhiteSpace(Source))
                 element.Source = PathsHelper.GetUriFromRelativePath(Source);
-            element.LoadedBehavior = MediaState.Manual;
+
+            element.SpeedRatio = SpeedRatio;
+            element.Stretch = Stretch;
+            element.StretchDirection = StretchDirection;
+            element.UnloadedBehavior = UnloadedBehavior;
+            element.Volume = Volume;
         }
     }
 }
