@@ -27,7 +27,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Collection of row definitions
         /// </summary>
         [JsonPropertyName("RowDefinitions")]
-        public IEnumerable<RowDefinitionModel> RowDefinitions { get; set; } = new List<RowDefinitionModel>();
+        public IEnumerable<string> RowDefinitions { get; set; } = new List<string>();
 
         /// <summary>
         /// Collection of column definitions
@@ -80,8 +80,8 @@ namespace Jaml.Wpf.Models.UIElementModels
             //todo
             base.BindProperties(ref element);
 
-            foreach (RowDefinitionModel rowDefinitionModel in RowDefinitions)
-                element.RowDefinitions.Add(rowDefinitionModel.ToRowDefinition());
+            foreach (string rowDefinition in RowDefinitions)
+                element.RowDefinitions.Add(PropertyParser.ParseRowDefinition(rowDefinition));
 
             foreach (string columnDefinition in ColumnDefinitions)
                 element.ColumnDefinitions.Add(PropertyParser.ParseColumnDefinition(columnDefinition));

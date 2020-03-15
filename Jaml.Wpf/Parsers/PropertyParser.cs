@@ -111,5 +111,36 @@ namespace Jaml.Wpf.Parsers
                 Width = gridLength
             };
         }
+
+        /// <summary>
+        /// Convert collection of strings to collection of row definitions
+        /// </summary>
+        /// <param name="rowDefinitions">Collection of row definition strings</param>
+        /// <returns>collection of row definitions</returns>
+        public static IEnumerable<RowDefinition> ParseRowDefinitions(IEnumerable<string> rowDefinitions) =>
+            rowDefinitions.Select(ParseRowDefinition);
+
+        /// <summary>
+        /// Convert the row definition string to row definition
+        /// </summary>
+        /// <param name="rowDefinition">Row definition string</param>
+        /// <returns>Row definition</returns>
+        public static RowDefinition ParseRowDefinition(string rowDefinition)
+        {
+            GridLength gridLength;
+            if (double.TryParse(rowDefinition, NumberStyles.Any, CultureInfo.InvariantCulture, out double height))
+                gridLength = new GridLength(height);
+            else
+                gridLength = rowDefinition switch
+                {
+                    "*" => new GridLength(1, GridUnitType.Star),
+                    _ => new GridLength(1, GridUnitType.Auto)
+                };
+
+            return new RowDefinition
+            {
+                Height = gridLength
+            };
+        }
     }
 }
