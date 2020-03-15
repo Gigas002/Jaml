@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using System.Windows.Media;
 using Jaml.Wpf.Helpers;
 using Jaml.Wpf.Models.UIElementModels;
@@ -68,13 +69,13 @@ namespace Jaml.Wpf.Parsers
         }
 
         /// <summary>
-        /// todo
+        /// Convert background string to brush
         /// </summary>
-        public static Brush ParseBackground(BackgroundModel background)
+        public static Brush ParseBackground(string background)
         {
-            if (background == null) return Brushes.Transparent;
+            if (string.IsNullOrWhiteSpace(background)) return Brushes.Transparent;
 
-            return background.IsImage ? UIHelper.GetBrushFromImage(background.Value) : ConvertArgbToBrush(background.Value);
+            return File.Exists(Path.GetFullPath(background)) ? UIHelper.GetBrushFromImage(background) : ConvertArgbToBrush(background);
         }
     }
 }

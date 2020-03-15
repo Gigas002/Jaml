@@ -46,7 +46,7 @@ namespace Jaml.Wpf.Models.StyleModels
 
         /// <inheritdoc />
         [JsonPropertyName("Background")]
-        public BackgroundModel Background { get; set; } = null;
+        public string Background { get; set; } = null;
 
         /// <inheritdoc />
         [JsonPropertyName("BorderThickness")]

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -13,11 +14,25 @@ namespace Jaml.Wpf.Helpers
     public static class UIHelper
     {
         /// <summary>
-        /// Creates <see cref="ImageBrush"/> from image
+        /// Creates <see cref="Brush"/> from image
         /// </summary>
         /// <param name="imagePath">Path to image</param>
-        /// <returns><see cref="ImageBrush"/> from image</returns>
-        public static ImageBrush GetBrushFromImage(string imagePath) => new ImageBrush(new BitmapImage(PathsHelper.GetUriFromRelativePath(imagePath)));
+        /// <returns><see cref="Brush"/> from image</returns>
+        public static Brush GetBrushFromImage(string imagePath)
+        {
+            ImageBrush imageBrush;
+
+            try { imageBrush = new ImageBrush(new BitmapImage(PathsHelper.GetUriFromRelativePath(imagePath))); }
+            catch (Exception exception)
+            {
+                #if DEBUG
+                MessageBox.Show(exception.Message);
+                #endif
+                return Brushes.Transparent;
+            }
+
+            return imageBrush;
+        }
 
         /// <summary>
         /// Adds <see cref="UIElement"/> to <see cref="Grid"/>

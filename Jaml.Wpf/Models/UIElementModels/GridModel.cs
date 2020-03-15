@@ -42,7 +42,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Grid's background
         /// </summary>
         [JsonPropertyName("Background")]
-        public BackgroundModel Background { get; set; } = null;
+        public string Background { get; set; } = null;
 
         #endregion
 

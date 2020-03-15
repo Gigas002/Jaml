@@ -39,10 +39,9 @@ namespace Jaml.Wpf.Models.StyleModels
         public string Foreground { get; }
 
         /// <summary>
-        ///todo
         /// Background of the control
         /// </summary>
-        public BackgroundModel Background { get; }
+        public string Background { get; }
 
         /// <summary>
         /// Border thickness
