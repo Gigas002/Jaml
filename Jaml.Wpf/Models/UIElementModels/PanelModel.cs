@@ -46,11 +46,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public void ToPanel<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Panel
         {
-            //Bind style
-            styleProvider.BindStyle(ref element, StyleId);
-
-            //Explicitly initialized properties should override styles
-
             //Bind properties
             BindProperties(ref element, commandProvider, styleProvider);
         }

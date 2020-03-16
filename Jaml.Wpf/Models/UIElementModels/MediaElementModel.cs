@@ -98,11 +98,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         public void ToMediaElement<T>(ref T mediaElement, ICommandProvider commandProvider,
                                       IStyleProvider styleProvider) where T : MediaElement
         {
-            //Bind styles
-            styleProvider.BindStyle(ref mediaElement, StyleId);
-
-            //Explicitly initialized properties should override styles
-
             //Bind properties
             BindProperties(ref mediaElement, commandProvider, styleProvider);
         }

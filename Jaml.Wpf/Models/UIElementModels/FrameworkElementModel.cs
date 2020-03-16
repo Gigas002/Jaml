@@ -188,11 +188,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public void ToFrameworkElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : FrameworkElement
         {
-            //Bind style
-            styleProvider.BindStyle(ref element, StyleId);
-
-            //Explicitly initialized properties should override styles
-
             //Bind properties
             BindProperties(ref element, commandProvider, styleProvider);
         }
@@ -235,6 +230,8 @@ namespace Jaml.Wpf.Models.UIElementModels
 
             //todo bind style only here, not in children
             //element.Style = style;
+            //Bind style
+            styleProvider.BindStyle(ref element, StyleId);
 
             //element.Tag;
             //element.ToolTip;

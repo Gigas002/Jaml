@@ -31,11 +31,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public void ToButton<T>(ref T button, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : ButtonBase
         {
-            //Bind styles
-            styleProvider.BindStyle(ref button, StyleId);
-
-            //Explicitly initialized properties should override styles
-
             //Bind properties
             BindProperties(ref button, commandProvider, styleProvider);
         }

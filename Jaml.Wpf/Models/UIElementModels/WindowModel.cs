@@ -32,11 +32,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public void ToWindow<T>(ref T window, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Window
         {
-            //Bind styles
-            styleProvider.BindStyle(ref window, StyleId);
-
-            //Explicitly initialized properties should override styles
-
             //Bind properties
             BindProperties(ref window, commandProvider, styleProvider);
         }

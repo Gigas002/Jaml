@@ -42,11 +42,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public void ToGrid<T>(ref T grid, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Grid
         {
-            //Bind styles
-            styleProvider.BindStyle(ref grid, StyleId);
-
-            //Explicitly initialized properties should override styles
-
             //Bind properties
             BindProperties(ref grid, commandProvider, styleProvider);
         }
