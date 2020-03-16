@@ -27,13 +27,15 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Creates window from model
         /// </summary>
         /// <typeparam name="T">Children of <see cref="Window"/></typeparam>
-        /// <param name="window">Target window</param>
+        /// <param name="element">Target window</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        public void ToWindow<T>(ref T window, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Window
+        public new void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+            where T : Window
         {
-            //Bind properties
-            BindProperties(ref window, commandProvider, styleProvider);
+            base.ToUIElement(ref element, commandProvider, styleProvider);
+
+            BindProperties(ref element, commandProvider, styleProvider);
         }
 
         /// <summary>
@@ -45,11 +47,9 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public new void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Window
         {
-            base.BindProperties(ref element, commandProvider, styleProvider);
-
             //todo
             Grid contentGrid = new Grid();
-            GridModel.ToGrid(ref contentGrid, commandProvider, styleProvider);
+            GridModel.ToUIElement(ref contentGrid, commandProvider, styleProvider);
             element.Content = contentGrid;
         }
     }

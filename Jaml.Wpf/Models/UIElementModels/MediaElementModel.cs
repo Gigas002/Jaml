@@ -92,14 +92,15 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Creates media element from model
         /// </summary>
         /// <typeparam name="T">Children of <see cref="MediaElement"/></typeparam>
-        /// <param name="mediaElement">Target media element</param>
+        /// <param name="element">Target media element</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        public void ToMediaElement<T>(ref T mediaElement, ICommandProvider commandProvider,
-                                      IStyleProvider styleProvider) where T : MediaElement
+        public new void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+            where T : MediaElement
         {
-            //Bind properties
-            BindProperties(ref mediaElement, commandProvider, styleProvider);
+            base.ToUIElement(ref element, commandProvider, styleProvider);
+
+            BindProperties(ref element, commandProvider, styleProvider);
         }
 
         /// <summary>
@@ -111,8 +112,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public new void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : MediaElement
         {
-            base.BindProperties(ref element, commandProvider, styleProvider);
-
             element.Balance = Balance;
             element.Clock = Clock;
             element.IsMuted = IsMuted;

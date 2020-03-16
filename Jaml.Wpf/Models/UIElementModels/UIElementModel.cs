@@ -115,9 +115,11 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <inheritdoc />
         public virtual void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
         {
-            //todo slightly rewrite
             //Bind properties
             BindProperties(ref element, commandProvider, styleProvider);
+
+            //Bind commands
+            commandProvider.BindCommands(ref element, Commands);
 
             //todo support not only grid
             //Set positions in parent grid
@@ -152,9 +154,6 @@ namespace Jaml.Wpf.Models.UIElementModels
             element.Uid = Uid;
             Enum.TryParse(Visibility, out Visibility visibility);
             element.Visibility = visibility;
-
-            //Bind commands
-            commandProvider.BindCommands(ref element, Commands);
         }
 
         #endregion

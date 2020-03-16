@@ -26,13 +26,15 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Creates button from model
         /// </summary>
         /// <typeparam name="T">Children of <see cref="ButtonBase"/></typeparam>
-        /// <param name="button">Target button</param>
+        /// <param name="element">Target button</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        public void ToButton<T>(ref T button, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : ButtonBase
+        public new void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+            where T : ButtonBase
         {
-            //Bind properties
-            BindProperties(ref button, commandProvider, styleProvider);
+            base.ToUIElement(ref element, commandProvider, styleProvider);
+
+            BindProperties(ref element, commandProvider, styleProvider);
         }
 
         /// <summary>
@@ -44,7 +46,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public new void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : ButtonBase
         {
-            base.BindProperties(ref element, commandProvider, styleProvider);
             element.Content = Content;
         }
     }

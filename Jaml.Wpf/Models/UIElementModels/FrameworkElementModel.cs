@@ -186,9 +186,11 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="element">Element, where model will be converted</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        public void ToFrameworkElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : FrameworkElement
+        public new void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+            where T : FrameworkElement
         {
-            //Bind properties
+            base.ToUIElement(ref element, commandProvider, styleProvider);
+
             BindProperties(ref element, commandProvider, styleProvider);
         }
 
@@ -201,8 +203,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public new void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : FrameworkElement
         {
-            base.BindProperties(ref element, commandProvider, styleProvider);
-
             //element.BindingGroup = default;
             //element.ContextMenu = default;
             //element.Cursor = default;
@@ -228,7 +228,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             element.OverridesDefaultStyle = OverridesDefaultStyle;
             //element.Resources;
 
-            //todo bind style only here, not in children
+            //todo better style-binding + FocusVisulStyleSupport
             //element.Style = style;
             //Bind style
             styleProvider.BindStyle(ref element, StyleId);

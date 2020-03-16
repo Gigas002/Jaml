@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
+using System.Windows;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.UIElementModels;
 using Jaml.Wpf.Providers.CommandProvider;
@@ -80,29 +81,33 @@ namespace Jaml.Wpf.Models.ChildModels
                 if (type == typeof(MediaElementModel))
                 {
                     MediaElement me = new MediaElement();
-                    MediaElementModel mem = elementModel as MediaElementModel;;
-                    mem?.ToMediaElement(ref me, commandProvider, styleProvider);
+                    MediaElementModel mem = elementModel as MediaElementModel; ;
+                    mem?.ToUIElement(ref me, commandProvider, styleProvider);
                     elementCollection.Add(me);
+
+                    //UIElement element = new UIElement();
+                    //elementModel.ToUIElement(ref element, commandProvider, styleProvider);
+                    //elementCollection.Add(element);
                 }
                 else if (type == typeof(ButtonModel))
                 {
                     Button button = new Button();
                     ButtonModel buttonModel = elementModel as ButtonModel;
-                    buttonModel?.ToButton(ref button, commandProvider, styleProvider);
+                    buttonModel?.ToUIElement(ref button, commandProvider, styleProvider);
                     elementCollection.Add(button);
                 }
                 else if (type == typeof(ImageModel))
                 {
                     Image image = new Image();
                     ImageModel imageModel = elementModel as ImageModel;
-                    imageModel?.ToImage(ref image, commandProvider, styleProvider);
+                    imageModel?.ToUIElement(ref image, commandProvider, styleProvider);
                     elementCollection.Add(image);
                 }
                 else if (type == typeof(GridModel))
                 {
                     Grid grid = new Grid();
                     GridModel gridModel = elementModel as GridModel;
-                    gridModel?.ToGrid(ref grid, commandProvider, styleProvider);
+                    gridModel?.ToUIElement(ref grid, commandProvider, styleProvider);
                     elementCollection.Add(grid);
                 }
             }

@@ -28,13 +28,15 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Creates image from model
         /// </summary>
         /// <typeparam name="T">Children of <see cref="Image"/></typeparam>
-        /// <param name="image">Target image</param>
+        /// <param name="element">Target image</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        public void ToImage<T>(ref T image, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Image
+        public new void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+            where T : Image
         {
-            //Bind properties
-            BindProperties(ref image, commandProvider, styleProvider);
+            base.ToUIElement(ref element, commandProvider, styleProvider);
+
+            BindProperties(ref element, commandProvider, styleProvider);
         }
 
         /// <summary>
@@ -46,8 +48,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public new void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Image
         {
-            base.BindProperties(ref element, commandProvider, styleProvider);
-
             if (!string.IsNullOrWhiteSpace(Source))
                 element.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Source));
         }
