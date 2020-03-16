@@ -10,6 +10,8 @@ using Jaml.Wpf.Providers.StyleProvider;
 
 namespace Jaml.Wpf.Parsers
 {
+    //TODO: This class is temporary? obsolete. Functionality of parsing elements moves to models classes and ChildModel.
+
     /// <summary>
     /// Contains static method to parse different elements of the page
     /// </summary>

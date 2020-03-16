@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Providers.CommandProvider;
+using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
@@ -111,19 +113,16 @@ namespace Jaml.Wpf.Models.UIElementModels
         #region Methods
 
         /// <inheritdoc />
-        public virtual void ToUIElement<T>(ref T element, ICommandProvider commandProvider) where T : UIElement
+        public virtual void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
         {
+            //todo slightly rewrite
             //Bind properties
-            BindProperties(ref element);
-
-            //Bind commands
-            commandProvider.BindCommands(ref element, Commands);
+            BindProperties(ref element, commandProvider, styleProvider);
         }
 
         /// <inheritdoc />
-        public virtual void BindProperties<T>(ref T element) where T : UIElement
+        public virtual void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
         {
-            //todo
             element.AllowDrop = AllowDrop;
             //element.CacheMode = default;
             if (!string.IsNullOrWhiteSpace(Clip))
@@ -146,6 +145,16 @@ namespace Jaml.Wpf.Models.UIElementModels
             element.Uid = Uid;
             Enum.TryParse(Visibility, out Visibility visibility);
             element.Visibility = visibility;
+
+            //Bind commands
+            commandProvider.BindCommands(ref element, Commands);
+
+            //todo move to ToUIElement
+            //Set positions in parent grid
+            Grid.SetRow(element, ParentRow);
+            Grid.SetColumn(element, ParentColumn);
+            Grid.SetRowSpan(element, RowSpan);
+            Grid.SetColumnSpan(element, ColumnSpan);
         }
 
         #endregion

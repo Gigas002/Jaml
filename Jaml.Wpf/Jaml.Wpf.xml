@@ -74,6 +74,21 @@
             Grid
             </summary>
         </member>
+        <member name="M:Jaml.Wpf.Models.ChildModels.ChildModel.GetUIElementModel">
+            <summary>
+            Get the current <see cref="T:Jaml.Wpf.Models.UIElementModels.UIElementModel"/>
+            </summary>
+            <returns>Current <see cref="T:Jaml.Wpf.Models.UIElementModels.UIElementModel"/></returns>
+        </member>
+        <member name="M:Jaml.Wpf.Models.ChildModels.ChildModel.ToUIElementCollection(System.Windows.Controls.UIElementCollection@,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.ChildModels.ChildModel},Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Converts the collection of child models into the <see cref="T:System.Windows.Controls.UIElementCollection"/>
+            </summary>
+            <param name="elementCollection">Target collection</param>
+            <param name="childModels">Collection of elements to convert</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
+        </member>
         <member name="T:Jaml.Wpf.Models.CommandModels.CommandModel">
             <summary>
             Model of commands
@@ -321,12 +336,14 @@
             <param name="commandProvider">Command provider</param>
             <param name="styleProvider">Style provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonModel.BindProperties``1(``0@)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonModel.BindProperties``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Binds model properies from model to passed element
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Primitives.ButtonBase"/></typeparam>
             <param name="element">Element to take properties</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel">
             <summary>
@@ -477,12 +494,14 @@
             <param name="commandProvider">Command provider</param>
             <param name="styleProvider">Style provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.BindProperties``1(``0@)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel.BindProperties``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Binds this element's properties
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.FrameworkElement"/></typeparam>
             <param name="element">Target element to bind properties</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.GridModel">
             <summary>
@@ -499,16 +518,6 @@
             Collection of column definitions
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.GridModel.Children">
-            <summary>
-            Collection of children, bound to this grid
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.GridModel.Background">
-            <summary>
-            Grid's background
-            </summary>
-        </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.GridModel.ToGrid``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Creates grid from model
@@ -518,12 +527,14 @@
             <param name="commandProvider">Command provider</param>
             <param name="styleProvider">Style provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.GridModel.BindProperties``1(``0@)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.GridModel.BindProperties``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Binds model properies from model to passed element
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Grid"/></typeparam>
             <param name="element">Element to take properties</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.ImageModel">
             <summary>
@@ -544,12 +555,14 @@
             <param name="commandProvider">Command provider</param>
             <param name="styleProvider">Style provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ImageModel.BindProperties``1(``0@)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ImageModel.BindProperties``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Binds model properies from model to passed element
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Image"/></typeparam>
             <param name="element">Element to take properties</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.IUIElementModel">
             <summary>
@@ -666,20 +679,23 @@
             
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Converts this model to one of <see cref="T:System.Windows.UIElement"/>'s children
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.UIElement"/></typeparam>
             <param name="element">Element, where model will be converted</param>
             <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.BindProperties``1(``0@)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel.BindProperties``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Bind this model properties to the target <see cref="T:System.Windows.UIElement"/>
             </summary>
             <typeparam name="T">Children of<see cref="T:System.Windows.UIElement"/></typeparam>
             <param name="element">Target element</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.MediaElementModel">
             <summary>
@@ -721,6 +737,21 @@
             Volume
             </summary>
         </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.Clock">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.Stretch">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.StretchDirection">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel.ToMediaElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Creates media element from model
@@ -730,12 +761,52 @@
             <param name="commandProvider">Command provider</param>
             <param name="styleProvider">Style provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel.BindProperties``1(``0@)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel.BindProperties``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Binds model properies from model to passed element
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.Controls.MediaElement"/></typeparam>
             <param name="element">Element to take properties</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
+        </member>
+        <member name="T:Jaml.Wpf.Models.UIElementModels.PanelModel">
+            <summary>
+            Base class for panel models, like <see cref="T:Jaml.Wpf.Models.UIElementModels.GridModel"/>
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.PanelModel.Background">
+            <summary>
+            Panel's background
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.PanelModel.Children">
+            <summary>
+            Collection of children, bound to this panel
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.PanelModel.IsItemsHost">
+            <summary>
+            Is items host
+            </summary>
+        </member>
+        <member name="M:Jaml.Wpf.Models.UIElementModels.PanelModel.ToPanel``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Converts this model to one of <see cref="T:System.Windows.Controls.Panel"/>'s children
+            </summary>
+            <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Panel"/></typeparam>
+            <param name="element">Element, where model will be converted</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
+        </member>
+        <member name="M:Jaml.Wpf.Models.UIElementModels.PanelModel.BindProperties``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
+            <summary>
+            Binds this element's properties
+            </summary>
+            <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Panel"/></typeparam>
+            <param name="element">Target element to bind properties</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.UIElementModel">
             <summary>
@@ -808,10 +879,10 @@
         <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel.OpacityMask">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.ToUIElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.BindProperties``1(``0@)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel.BindProperties``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.WindowModel">
@@ -833,12 +904,14 @@
             <param name="commandProvider">Command provider</param>
             <param name="styleProvider">Style provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.WindowModel.BindProperties``1(``0@)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.WindowModel.BindProperties``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
             <summary>
             Binds model properies from model to passed element
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.Window"/></typeparam>
             <param name="element">Element to take properties</param>
+            <param name="commandProvider">Command provider</param>
+            <param name="styleProvider">Style provider</param>
         </member>
         <member name="T:Jaml.Wpf.Parsers.PageParser">
             <summary>

@@ -48,10 +48,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             //Explicitly initialized properties should override styles
 
             //Bind properties
-            BindProperties(ref grid);
-
-            //Bind commands
-            commandProvider.BindCommands(ref grid, Commands);
+            BindProperties(ref grid, commandProvider, styleProvider);
         }
 
         /// <summary>
@@ -59,17 +56,17 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// </summary>
         /// <typeparam name="T">Children of <see cref="Grid"/></typeparam>
         /// <param name="element">Element to take properties</param>
-        public new void BindProperties<T>(ref T element) where T : Grid
+        /// <param name="commandProvider">Command provider</param>
+        /// <param name="styleProvider">Style provider</param>
+        public new void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Grid
         {
-            base.BindProperties(ref element);
+            base.BindProperties(ref element, commandProvider, styleProvider);
 
             foreach (string rowDefinition in RowDefinitions)
                 element.RowDefinitions.Add(PropertyParser.ParseRowDefinition(rowDefinition));
 
             foreach (string columnDefinition in ColumnDefinitions)
                 element.ColumnDefinitions.Add(PropertyParser.ParseColumnDefinition(columnDefinition));
-
-            element.Background = PropertyParser.ParseBackground(Background);
         }
     }
 }

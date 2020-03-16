@@ -23,11 +23,11 @@ namespace Jaml.Wpf.Helpers
             ImageBrush imageBrush;
 
             try { imageBrush = new ImageBrush(new BitmapImage(PathsHelper.GetUriFromRelativePath(imagePath))); }
-            catch (Exception exception)
+            catch (Exception)
             {
-                #if DEBUG
-                MessageBox.Show(exception.Message);
-                #endif
+                //#if DEBUG
+                //MessageBox.Show(exception.Message);
+                //#endif
                 return Brushes.Transparent;
             }
 

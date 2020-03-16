@@ -38,13 +38,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             //Explicitly initialized properties should override styles
 
             //Bind properties
-            BindProperties(ref window);
-            Grid contentGrid = new Grid();
-            GridModel.ToGrid(ref contentGrid, commandProvider, styleProvider);
-            window.Content = contentGrid;
-
-            //Bind commands
-            commandProvider.BindCommands(ref window, Commands);
+            BindProperties(ref window, commandProvider, styleProvider);
         }
 
         /// <summary>
@@ -52,10 +46,16 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// </summary>
         /// <typeparam name="T">Children of <see cref="Window"/></typeparam>
         /// <param name="element">Element to take properties</param>
-        public new void BindProperties<T>(ref T element) where T : Window
+        /// <param name="commandProvider">Command provider</param>
+        /// <param name="styleProvider">Style provider</param>
+        public new void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Window
         {
+            base.BindProperties(ref element, commandProvider, styleProvider);
+
             //todo
-            base.BindProperties(ref element);
+            Grid contentGrid = new Grid();
+            GridModel.ToGrid(ref contentGrid, commandProvider, styleProvider);
+            element.Content = contentGrid;
         }
     }
 }

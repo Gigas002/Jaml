@@ -194,10 +194,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             //Explicitly initialized properties should override styles
 
             //Bind properties
-            BindProperties(ref element);
-
-            //Bind commands
-            commandProvider.BindCommands(ref element, Commands);
+            BindProperties(ref element, commandProvider, styleProvider);
         }
 
         /// <summary>
@@ -205,10 +202,11 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// </summary>
         /// <typeparam name="T">Children of <see cref="FrameworkElement"/></typeparam>
         /// <param name="element">Target element to bind properties</param>
-        public new void BindProperties<T>(ref T element) where T : FrameworkElement
+        /// <param name="commandProvider">Command provider</param>
+        /// <param name="styleProvider">Style provider</param>
+        public new void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : FrameworkElement
         {
-            //todo
-            base.BindProperties(ref element);
+            base.BindProperties(ref element, commandProvider, styleProvider);
 
             //element.BindingGroup = default;
             //element.ContextMenu = default;
@@ -234,7 +232,10 @@ namespace Jaml.Wpf.Models.UIElementModels
             element.Name = Name;
             element.OverridesDefaultStyle = OverridesDefaultStyle;
             //element.Resources;
+
+            //todo bind style only here, not in children
             //element.Style = style;
+
             //element.Tag;
             //element.ToolTip;
             element.UseLayoutRounding = UseLayoutRounding;

@@ -4,10 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x64</Platforms>
-    <AssemblyVersion>0.1.0.839</AssemblyVersion>
-    <FileVersion>0.1.0.839</FileVersion>
+    <AssemblyVersion>0.1.0.872</AssemblyVersion>
+    <FileVersion>0.1.0.872</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0-ci835</Version>
+    <Version>0.1.0-ci872</Version>
     <Authors>Gigas002</Authors>
     <Description>Jaml is an alternative to Xaml, that uses .json files instead</Description>
     <Copyright>Copyright © Gigas002 2020</Copyright>

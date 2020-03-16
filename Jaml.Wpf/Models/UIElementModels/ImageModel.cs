@@ -39,10 +39,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             //Explicitly initialized properties should override styles
 
             //Bind properties
-            BindProperties(ref image);
-
-            //Bind commands
-            commandProvider.BindCommands(ref image, Commands);
+            BindProperties(ref image, commandProvider, styleProvider);
         }
 
         /// <summary>
@@ -50,10 +47,12 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// </summary>
         /// <typeparam name="T">Children of <see cref="Image"/></typeparam>
         /// <param name="element">Element to take properties</param>
-        public new void BindProperties<T>(ref T element) where T : Image
+        /// <param name="commandProvider">Command provider</param>
+        /// <param name="styleProvider">Style provider</param>
+        public new void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Image
         {
-            //todo move this method up, to UIElement or FrameworkElement
-            base.BindProperties(ref element);
+            base.BindProperties(ref element, commandProvider, styleProvider);
+
             if (!string.IsNullOrWhiteSpace(Source))
                 element.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Source));
         }
