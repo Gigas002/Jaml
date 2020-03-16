@@ -177,6 +177,8 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         #endregion
 
+        #region Methods
+
         /// <summary>
         /// Converts this model to one of <see cref="FrameworkElement"/>'s children
         /// </summary>
@@ -240,5 +242,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             element.VerticalAlignment = verticalAlignment;
             element.Width = Width;
         }
+
+        #endregion
     }
 }

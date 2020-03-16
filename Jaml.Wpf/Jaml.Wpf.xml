@@ -9,11 +9,6 @@
             Supported event names
             </summary>
         </member>
-        <member name="F:Jaml.Wpf.Constants.EventNames.MediaEnded">
-            <summary>
-            MediaEnded
-            </summary>
-        </member>
         <member name="F:Jaml.Wpf.Constants.EventNames.Click">
             <summary>
             Click
@@ -38,10 +33,10 @@
         </member>
         <member name="M:Jaml.Wpf.Helpers.UIHelper.GetBrushFromImage(System.String)">
             <summary>
-            Creates <see cref="T:System.Windows.Media.ImageBrush"/> from image
+            Creates <see cref="T:System.Windows.Media.Brush"/> from image
             </summary>
             <param name="imagePath">Path to image</param>
-            <returns><see cref="T:System.Windows.Media.ImageBrush"/> from image</returns>
+            <returns><see cref="T:System.Windows.Media.Brush"/> from image</returns>
         </member>
         <member name="M:Jaml.Wpf.Helpers.UIHelper.AddElementToGrid(System.Windows.Controls.Grid,System.Windows.UIElement,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -251,10 +246,9 @@
             </summary>
         </member>
         <member name="P:Jaml.Wpf.Models.StyleModels.IStyleModel.Background">
-             <summary>
-            todo
-             Background of the control
-             </summary>
+            <summary>
+            Background of the control
+            </summary>
         </member>
         <member name="P:Jaml.Wpf.Models.StyleModels.IStyleModel.BorderThickness">
             <summary>
@@ -308,21 +302,6 @@
         <member name="M:Jaml.Wpf.Models.StyleModels.StyleModel.ToStyle``1(``0@)">
             <inheritdoc />
         </member>
-        <member name="T:Jaml.Wpf.Models.UIElementModels.BackgroundModel">
-            <summary>
-            todo
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.BackgroundModel.IsImage">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.BackgroundModel.Value">
-            <summary>
-            
-            </summary>
-        </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.ButtonModel">
             <summary>
             Model of button
@@ -348,22 +327,6 @@
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Primitives.ButtonBase"/></typeparam>
             <param name="element">Element to take properties</param>
-        </member>
-        <member name="T:Jaml.Wpf.Models.UIElementModels.ColumnDefinitionModel">
-            <summary>
-            Grid's column definition model
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.ColumnDefinitionModel.Width">
-            <summary>
-            Width of the column
-            </summary>
-        </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ColumnDefinitionModel.ToColumnDefinition">
-            <summary>
-            Converts this model to <see cref="T:System.Windows.Controls.ColumnDefinition"/>
-            </summary>
-            <returns>Converted <see cref="T:System.Windows.Controls.ColumnDefinition"/></returns>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel">
             <summary>
@@ -567,7 +530,7 @@
             Image model
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.ImageModel.Content">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.ImageModel.Source">
             <summary>
             Element's content
             </summary>
@@ -723,9 +686,39 @@
             Model of media elements, like video or audio
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.Content">
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.Balance">
+            <summary>
+            Balance
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.IsMuted">
+            <summary>
+            Is muted
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.Position">
+            <summary>
+            Position
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.ScrubbingEnabled">
+            <summary>
+            Scrubbing enabled
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.Source">
             <summary>
             Element's content
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.SpeedRatio">
+            <summary>
+            Speed ratio
+            </summary>
+        </member>
+        <member name="P:Jaml.Wpf.Models.UIElementModels.MediaElementModel.Volume">
+            <summary>
+            Volume
             </summary>
         </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel.ToMediaElement``1(``0@,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,Jaml.Wpf.Providers.StyleProvider.IStyleProvider)">
@@ -743,22 +736,6 @@
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.Controls.MediaElement"/></typeparam>
             <param name="element">Element to take properties</param>
-        </member>
-        <member name="T:Jaml.Wpf.Models.UIElementModels.RowDefinitionModel">
-            <summary>
-            Grid's row definition model
-            </summary>
-        </member>
-        <member name="P:Jaml.Wpf.Models.UIElementModels.RowDefinitionModel.Height">
-            <summary>
-            Height of the column
-            </summary>
-        </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.RowDefinitionModel.ToRowDefinition">
-            <summary>
-            Converts this model to <see cref="T:System.Windows.Controls.RowDefinition"/>
-            </summary>
-            <returns>Converted <see cref="T:System.Windows.Controls.RowDefinition"/></returns>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.UIElementModel">
             <summary>
@@ -939,10 +916,38 @@
             <param name="argbString">argb string (e.g. 255,100,100,100)</param>
             <returns>Parsed <see cref="T:System.Windows.Media.Brush"/></returns>
         </member>
-        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseBackground(Jaml.Wpf.Models.UIElementModels.BackgroundModel)">
+        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseBackground(System.String)">
             <summary>
-            todo
+            Convert background string to brush
             </summary>
+        </member>
+        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseColumnDefinitions(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Convert collection of strings to collection of column definitions
+            </summary>
+            <param name="columnDefinitions">Collection of column definition strings</param>
+            <returns>collection of column definitions</returns>
+        </member>
+        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseColumnDefinition(System.String)">
+            <summary>
+            Convert the column definition string to column definition
+            </summary>
+            <param name="columnDefinition">Column definition string</param>
+            <returns>Column definition</returns>
+        </member>
+        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseRowDefinitions(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Convert collection of strings to collection of row definitions
+            </summary>
+            <param name="rowDefinitions">Collection of row definition strings</param>
+            <returns>collection of row definitions</returns>
+        </member>
+        <member name="M:Jaml.Wpf.Parsers.PropertyParser.ParseRowDefinition(System.String)">
+            <summary>
+            Convert the row definition string to row definition
+            </summary>
+            <param name="rowDefinition">Row definition string</param>
+            <returns>Row definition</returns>
         </member>
         <member name="T:Jaml.Wpf.Providers.CommandProvider.CommandProvider">
             <inheritdoc />

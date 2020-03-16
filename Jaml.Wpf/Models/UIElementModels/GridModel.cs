@@ -1,10 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Text.Json.Serialization;
-using System.Windows;
 using System.Windows.Controls;
-using Jaml.Wpf.Models.ChildModels;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
@@ -19,7 +15,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Model of Grid
     /// </summary>
-    public class GridModel : FrameworkElementModel
+    public class GridModel : PanelModel
     {
         #region Json Properties
 
@@ -34,18 +30,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// </summary>
         [JsonPropertyName("ColumnDefinitions")]
         public IEnumerable<string> ColumnDefinitions { get; set; } = new List<string>();
-
-        /// <summary>
-        /// Collection of children, bound to this grid
-        /// </summary>
-        [JsonPropertyName("Children")]
-        public IEnumerable<ChildModel> Children { get; set; } = new List<ChildModel>();
-
-        /// <summary>
-        /// Grid's background
-        /// </summary>
-        [JsonPropertyName("Background")]
-        public string Background { get; set; } = null;
 
         #endregion
 
@@ -77,7 +61,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="element">Element to take properties</param>
         public new void BindProperties<T>(ref T element) where T : Grid
         {
-            //todo
             base.BindProperties(ref element);
 
             foreach (string rowDefinition in RowDefinitions)
