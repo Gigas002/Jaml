@@ -118,6 +118,13 @@ namespace Jaml.Wpf.Models.UIElementModels
             //todo slightly rewrite
             //Bind properties
             BindProperties(ref element, commandProvider, styleProvider);
+
+            //todo support not only grid
+            //Set positions in parent grid
+            Grid.SetRow(element, ParentRow);
+            Grid.SetColumn(element, ParentColumn);
+            Grid.SetRowSpan(element, RowSpan);
+            Grid.SetColumnSpan(element, ColumnSpan);
         }
 
         /// <inheritdoc />
@@ -148,13 +155,6 @@ namespace Jaml.Wpf.Models.UIElementModels
 
             //Bind commands
             commandProvider.BindCommands(ref element, Commands);
-
-            //todo move to ToUIElement
-            //Set positions in parent grid
-            Grid.SetRow(element, ParentRow);
-            Grid.SetColumn(element, ParentColumn);
-            Grid.SetRowSpan(element, RowSpan);
-            Grid.SetColumnSpan(element, ColumnSpan);
         }
 
         #endregion
