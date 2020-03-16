@@ -43,6 +43,7 @@ namespace Jaml.Wpf.Helpers
         /// <param name="parentColumn">Element's column in grid</param>
         /// <param name="rowSpan">Element's RowSpan in grid</param>
         /// <param name="columnSpan">Element's ColumnSpan in grid</param>
+        [Obsolete]
         public static void AddElementToGrid(Grid parentGrid, UIElement elementToAdd, int parentRow, int parentColumn,
                                             int rowSpan, int columnSpan)
         {

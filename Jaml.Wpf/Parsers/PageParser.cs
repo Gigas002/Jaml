@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Controls;
 using Jaml.Wpf.Helpers;
 using Jaml.Wpf.Models.ChildModels;
@@ -15,6 +16,7 @@ namespace Jaml.Wpf.Parsers
     /// <summary>
     /// Contains static method to parse different elements of the page
     /// </summary>
+    [Obsolete]
     public static class PageParser
     {
         /// <summary>
@@ -24,6 +26,7 @@ namespace Jaml.Wpf.Parsers
         /// <param name="imageModel">Model to parse and bind</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
+        [Obsolete]
         public static void ParseAndAddImage(Grid parentGrid, ImageModel imageModel, ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             Image image = new Image();
@@ -40,6 +43,7 @@ namespace Jaml.Wpf.Parsers
         /// <param name="buttonModel">Model to parse and bind</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
+        [Obsolete]
         public static void ParseAndAddButton(Grid parentGrid, ButtonModel buttonModel, ICommandProvider commandProvider,
                                              IStyleProvider styleProvider)
         {
@@ -56,6 +60,7 @@ namespace Jaml.Wpf.Parsers
         /// <param name="mediaElementModel">Model to parse and bind</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
+        [Obsolete]
         public static void ParseAndAddMediaElement(Grid parentGrid, MediaElementModel mediaElementModel,
                                                    ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
@@ -73,6 +78,7 @@ namespace Jaml.Wpf.Parsers
         /// <param name="gridModel">Model to parse and bind</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
+        [Obsolete]
         public static void ParseAndAddGrid(Grid parentGrid, GridModel gridModel, ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             Grid grid = new Grid();
@@ -92,6 +98,7 @@ namespace Jaml.Wpf.Parsers
         /// <param name="children">Collection of grid's child controls</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
+        [Obsolete]
         public static void ParseChildren(Grid parentGrid, IEnumerable<ChildModel> children, ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             //Initialize all children
