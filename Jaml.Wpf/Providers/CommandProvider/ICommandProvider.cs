@@ -13,13 +13,13 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// <summary>
         /// Dictionary of commands. Key is name, and Value is action to run
         /// </summary>
-        public Dictionary<string, Action<object, string>> Commands { get; }
+        public Dictionary<string, Action<object, IEnumerable<CommandArgModel>>> Commands { get; }
 
         /// <summary>
         /// Registers all commands from dictionary
         /// </summary>
         /// <param name="commands">Dictionary to register</param>
-        public void RegisterCommands(Dictionary<string, Action<object, string>> commands);
+        public void RegisterCommands(Dictionary<string, Action<object, IEnumerable<CommandArgModel>>> commands);
 
         /// <summary>
         /// Delete collection of commands with specified keys
@@ -37,7 +37,7 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// </summary>
         /// <param name="commandName">Name of command</param>
         /// <param name="action">Action to run</param>
-        public void RegisterCommand(string commandName, Action<object, string> action);
+        public void RegisterCommand(string commandName, Action<object, IEnumerable<CommandArgModel>> action);
 
         /// <summary>
         /// Delete the specified command from dictionary
@@ -51,14 +51,14 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// <param name="commandName">Name of command to start</param>
         /// <param name="sender">Sender of command</param>
         /// <param name="args">Arguments for command</param>
-        public void RunCommand(string commandName, object sender = null, string args = null);
+        public void RunCommand(string commandName, object sender, IEnumerable<CommandArgModel> args);
 
         /// <summary>
         /// Gets command by name
         /// </summary>
         /// <param name="commandName">Name of command to get</param>
         /// <returns>Command's <see cref="Action{T}"/></returns>
-        public Action<object, string> GetCommand(string commandName);
+        public Action<object, IEnumerable<CommandArgModel>> GetCommand(string commandName);
 
         /// <summary>
         /// Binds command to passed element

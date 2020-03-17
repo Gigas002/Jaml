@@ -1,6 +1,6 @@
-﻿
+﻿// ReSharper disable UnusedMemberInSuper.Global
 
-// ReSharper disable UnusedMemberInSuper.Global
+using System.Collections.Generic;
 
 namespace Jaml.Wpf.Models.CommandModels
 {
@@ -22,6 +22,6 @@ namespace Jaml.Wpf.Models.CommandModels
         /// <summary>
         /// Arguments, passed to the method
         /// </summary>
-        public string Args { get; }
+        public IEnumerable<CommandArgModel> Args { get; }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -17,7 +16,7 @@ namespace Jaml.Wpf.Providers.CommandProvider
         #region Properties
 
         /// <inheritdoc />
-        public Dictionary<string, Action<object, string>> Commands { get; }
+        public Dictionary<string, Action<object, IEnumerable<CommandArgModel>>> Commands { get; }
 
         #endregion
 
@@ -27,21 +26,21 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// Creates a new <see cref="CommandProvider"/> with specified commands
         /// </summary>
         /// <param name="commands">Commands for this provider</param>
-        public CommandProvider(Dictionary<string, Action<object, string>> commands) => Commands = commands;
+        public CommandProvider(Dictionary<string, Action<object, IEnumerable<CommandArgModel>>> commands) => Commands = commands;
 
         /// <summary>
         /// Creates a new <see cref="CommandProvider"/> with empty dictionary of commands
         /// </summary>
-        public CommandProvider() => Commands = new Dictionary<string, Action<object, string>>();
+        public CommandProvider() => Commands = new Dictionary<string, Action<object, IEnumerable<CommandArgModel>>>();
 
         #endregion
 
         #region Methods
 
         /// <inheritdoc />
-        public void RegisterCommands(Dictionary<string, Action<object, string>> commands)
+        public void RegisterCommands(Dictionary<string, Action<object, IEnumerable<CommandArgModel>>> commands)
         {
-            foreach ((string commandName, Action<object, string> command) in commands)
+            foreach ((string commandName, Action<object, IEnumerable<CommandArgModel>> command) in commands)
                 RegisterCommand(commandName, command);
         }
 
@@ -55,14 +54,14 @@ namespace Jaml.Wpf.Providers.CommandProvider
         public void ClearCommands() => Commands.Clear();
 
         /// <inheritdoc />
-        public void RegisterCommand(string commandName, Action<object, string> command) =>
+        public void RegisterCommand(string commandName, Action<object, IEnumerable<CommandArgModel>> command) =>
             Commands.TryAdd(commandName, command);
 
         /// <inheritdoc />
         public void UnregisterCommand(string commandName) => Commands.Remove(commandName);
 
         /// <inheritdoc />
-        public void RunCommand(string commandName, object sender, string args)
+        public void RunCommand(string commandName, object sender, IEnumerable<CommandArgModel> args)
         {
             if (string.IsNullOrWhiteSpace(commandName)) return;
             if (!Commands.ContainsKey(commandName)) return;
@@ -72,9 +71,9 @@ namespace Jaml.Wpf.Providers.CommandProvider
         }
 
         /// <inheritdoc />
-        public Action<object, string> GetCommand(string commandName)
+        public Action<object, IEnumerable<CommandArgModel>> GetCommand(string commandName)
         {
-            Commands.TryGetValue(commandName, out Action<object, string> value);
+            Commands.TryGetValue(commandName, out Action<object, IEnumerable<CommandArgModel>> value);
 
             return value;
         }
@@ -86,7 +85,7 @@ namespace Jaml.Wpf.Providers.CommandProvider
 
             string eventName = commandModel.Event;
             string methodName = commandModel.Method;
-            string methodArgs = commandModel.Args;
+            IEnumerable<CommandArgModel> methodArgs = commandModel.Args;
 
             switch (eventName)
             {

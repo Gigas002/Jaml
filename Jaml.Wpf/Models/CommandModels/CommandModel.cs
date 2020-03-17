@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
@@ -23,7 +24,7 @@ namespace Jaml.Wpf.Models.CommandModels
 
         /// <inheritdoc />
         [JsonPropertyName("Args")]
-        public string Args { get; set; } = null;
+        public IEnumerable<CommandArgModel> Args { get; set; } = null;
 
         #endregion
     }
