@@ -82,7 +82,7 @@ namespace Jaml.Wpf.Models.ChildModels
                 {
                     MediaElement me = new MediaElement();
                     MediaElementModel mem = elementModel as MediaElementModel; ;
-                    mem?.ToUIElement(ref me, commandProvider, styleProvider);
+                    mem?.ToUIElement(me, commandProvider, styleProvider);
                     elementCollection.Add(me);
 
                     //UIElement element = new UIElement();
@@ -93,21 +93,21 @@ namespace Jaml.Wpf.Models.ChildModels
                 {
                     Button button = new Button();
                     ButtonModel buttonModel = elementModel as ButtonModel;
-                    buttonModel?.ToUIElement(ref button, commandProvider, styleProvider);
+                    buttonModel?.ToUIElement(button, commandProvider, styleProvider);
                     elementCollection.Add(button);
                 }
                 else if (type == typeof(ImageModel))
                 {
                     Image image = new Image();
                     ImageModel imageModel = elementModel as ImageModel;
-                    imageModel?.ToUIElement(ref image, commandProvider, styleProvider);
+                    imageModel?.ToUIElement(image, commandProvider, styleProvider);
                     elementCollection.Add(image);
                 }
                 else if (type == typeof(GridModel))
                 {
                     Grid grid = new Grid();
                     GridModel gridModel = elementModel as GridModel;
-                    gridModel?.ToUIElement(ref grid, commandProvider, styleProvider);
+                    gridModel?.ToUIElement(grid, commandProvider, styleProvider);
                     elementCollection.Add(grid);
                 }
             }

@@ -29,12 +29,12 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="element">Target button</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        public new void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public new void ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
             where T : ButtonBase
         {
-            base.ToUIElement(ref element, commandProvider, styleProvider);
+            base.ToUIElement(element, commandProvider, styleProvider);
 
-            BindProperties(ref element, commandProvider, styleProvider);
+            BindProperties(element, commandProvider, styleProvider);
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="element">Element to take properties</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        public new void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : ButtonBase
+        public new void BindProperties<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : ButtonBase
         {
             element.Content = Content;
         }

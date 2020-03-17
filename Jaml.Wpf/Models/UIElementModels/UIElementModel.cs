@@ -113,10 +113,10 @@ namespace Jaml.Wpf.Models.UIElementModels
         #region Methods
 
         /// <inheritdoc />
-        public virtual void ToUIElement<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
+        public virtual void ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
         {
             //Bind properties
-            BindProperties(ref element, commandProvider, styleProvider);
+            BindProperties(element, commandProvider, styleProvider);
 
             //Bind commands
             commandProvider.BindCommands(ref element, Commands);
@@ -130,7 +130,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         }
 
         /// <inheritdoc />
-        public virtual void BindProperties<T>(ref T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
+        public virtual void BindProperties<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
         {
             element.AllowDrop = AllowDrop;
             //element.CacheMode = default;
