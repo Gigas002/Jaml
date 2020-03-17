@@ -11,15 +11,15 @@ namespace Jaml.Wpf.Providers.CommandProvider
     public interface ICommandProvider
     {
         /// <summary>
-        /// Dictionary of commands. Key is name, and Value is delegate to run
+        /// Dictionary of commands. Key is name, and Value is action to run
         /// </summary>
-        public Dictionary<string, Delegate> Commands { get; }
+        public Dictionary<string, Action<object, string>> Commands { get; }
 
         /// <summary>
         /// Registers all commands from dictionary
         /// </summary>
         /// <param name="commands">Dictionary to register</param>
-        public void RegisterCommands(Dictionary<string, Delegate> commands);
+        public void RegisterCommands(Dictionary<string, Action<object, string>> commands);
 
         /// <summary>
         /// Delete collection of commands with specified keys
@@ -36,28 +36,14 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// Registers one command
         /// </summary>
         /// <param name="commandName">Name of command</param>
-        /// <param name="command">Delegate to run</param>
-        public void RegisterCommand(string commandName, Delegate command);
+        /// <param name="action">Action to run</param>
+        public void RegisterCommand(string commandName, Action<object, string> action);
 
         /// <summary>
         /// Delete the specified command from dictionary
         /// </summary>
-        /// <param name="commandName">Comamnd name to delete</param>
+        /// <param name="commandName">Command name to delete</param>
         public void UnregisterCommand(string commandName);
-
-        /// <summary>
-        /// Adds additional delegate to already existent command
-        /// </summary>
-        /// <param name="commandName">Command name, to which delegate will be added</param>
-        /// <param name="delegateToAdd">Delegate to add</param>
-        public void AddToExistentCommand(string commandName, Delegate delegateToAdd);
-
-        /// <summary>
-        /// Removes the delegate from alreade existent command
-        /// </summary>
-        /// <param name="commandName">Name of command, from which delegate will be removed</param>
-        /// <param name="delegateToRemove">Delegate to remove</param>
-        public void RemoveFromExistentCommand(string commandName, Delegate delegateToRemove);
 
         /// <summary>
         /// Starts the command
@@ -71,8 +57,8 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// Gets command by name
         /// </summary>
         /// <param name="commandName">Name of command to get</param>
-        /// <returns>Command's <see cref="Delegate"/></returns>
-        public Delegate GetCommand(string commandName);
+        /// <returns>Command's <see cref="Action{T}"/></returns>
+        public Action<object, string> GetCommand(string commandName);
 
         /// <summary>
         /// Binds command to passed element
