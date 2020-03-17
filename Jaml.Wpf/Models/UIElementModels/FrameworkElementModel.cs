@@ -26,6 +26,12 @@ namespace Jaml.Wpf.Models.UIElementModels
         public int StyleId { get; set; } = -1;
 
         /// <summary>
+        /// Focus visual style id to use on this element
+        /// </summary>
+        [JsonPropertyName("FocusVisualStyleId")]
+        public int FocusVisualStyleId { get; set; } = -1;
+
+        /// <summary>
         /// Flow direction (default left to right)
         /// </summary>
         [JsonPropertyName("FlowDirection")]
@@ -146,22 +152,12 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <summary>
         /// 
         /// </summary>
-        public object FocusVisualStyle { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public object InputScope { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         public object Resources { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public object Style { get; set; }
 
         /// <summary>
         /// 
@@ -209,7 +205,12 @@ namespace Jaml.Wpf.Models.UIElementModels
             //element.DataContext =
             Enum.TryParse(FlowDirection, out FlowDirection flowDirection);
             element.FlowDirection = flowDirection;
-            //element.FocusVisualStyle =
+
+            //Bind focus visual style
+            Style focusVisualStyle = new Style();
+            styleProvider.GetStyleModel(FocusVisualStyleId)?.ToStyle(ref focusVisualStyle);
+            element.FocusVisualStyle = focusVisualStyle;
+
             element.ForceCursor = ForceCursor;
             element.Height = Height;
             Enum.TryParse(HorizontalAlignment, out HorizontalAlignment horizontalAlignment);
@@ -228,10 +229,10 @@ namespace Jaml.Wpf.Models.UIElementModels
             element.OverridesDefaultStyle = OverridesDefaultStyle;
             //element.Resources;
 
-            //todo better style-binding + FocusVisulStyleSupport
-            //element.Style = style;
             //Bind style
-            styleProvider.BindStyle(ref element, StyleId);
+            Style style = new Style();
+            styleProvider.GetStyleModel(StyleId)?.ToStyle(ref style);
+            element.Style = style;
 
             //element.Tag;
             //element.ToolTip;

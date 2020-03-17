@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Windows;
 using Jaml.Wpf.Models.StyleModels;
 
@@ -9,7 +8,7 @@ namespace Jaml.Wpf.Providers.StyleProvider
     public class StyleProvider : IStyleProvider
     {
         /// <inheritdoc />
-        public Dictionary<int, IStyleModel> Styles { get; }
+        public Dictionary<int, IStyleModel> StyleModels { get; }
 
         #region Constructors
 
@@ -17,59 +16,46 @@ namespace Jaml.Wpf.Providers.StyleProvider
         /// Creates a new <see cref="StyleProvider"/> with specified styles
         /// </summary>
         /// <param name="styles">Styles for this provider</param>
-        public StyleProvider(Dictionary<int, IStyleModel> styles) => Styles = styles;
+        public StyleProvider(Dictionary<int, IStyleModel> styles) => StyleModels = styles;
 
         /// <summary>
         /// Creates a new <see cref="StyleProvider"/> with empty dictionary of styles
         /// </summary>
-        public StyleProvider() => Styles = new Dictionary<int, IStyleModel>();
+        public StyleProvider() => StyleModels = new Dictionary<int, IStyleModel>();
 
         #endregion
 
         #region Methods
 
         /// <inheritdoc />
-        public void RegisterStyles(Dictionary<int, IStyleModel> styles)
+        public void RegisterStyleModels(Dictionary<int, IStyleModel> styles)
         {
-            foreach ((int styleId, IStyleModel styleModel) in styles) RegisterStyle(styleId, styleModel);
+            foreach ((int styleId, IStyleModel styleModel) in styles) RegisterStyleModel(styleId, styleModel);
         }
 
         /// <inheritdoc />
-        public void UnregisterStyles(IEnumerable<int> styleIds)
+        public void UnregisterStyleModels(IEnumerable<int> styleIds)
         {
-            foreach (int styleId in styleIds) UnregisterStyle(styleId);
+            foreach (int styleId in styleIds) UnregisterStyleModel(styleId);
         }
 
         /// <inheritdoc />
-        public void ClearStyles() => Styles.Clear();
+        public void ClearStyleModels() => StyleModels.Clear();
 
         /// <inheritdoc />
-        public void RegisterStyle(int styleId, IStyleModel styleModel) => Styles.TryAdd(styleId, styleModel);
+        public void RegisterStyleModel(int styleId, IStyleModel styleModel) => StyleModels.TryAdd(styleId, styleModel);
 
         /// <inheritdoc />
-        public void UnregisterStyle(int styleId) => Styles.Remove(styleId);
+        public void UnregisterStyleModel(int styleId) => StyleModels.Remove(styleId);
 
         /// <inheritdoc />
-        public IStyleModel GetStyle(int styleId)
+        public IStyleModel GetStyleModel(int styleId)
         {
-            Styles.TryGetValue(styleId, out IStyleModel styleModel);
+            if (styleId == -1) return null;
+
+            StyleModels.TryGetValue(styleId, out IStyleModel styleModel);
 
             return styleModel;
-        }
-
-        /// <inheritdoc />
-        public void BindStyle<T>(ref T element, int styleId = -1) where T : FrameworkElement
-        {
-            if (styleId == -1) return;
-
-            //todo check styleModel
-            IStyleModel styleModel = Styles.FirstOrDefault(kvp
-                                                               => kvp.Key == styleId).Value;
-
-            //todo generic Style?
-            Style style = new Style();
-            styleModel.ToStyle(ref style);
-            element.Style = style;
         }
 
         #endregion
