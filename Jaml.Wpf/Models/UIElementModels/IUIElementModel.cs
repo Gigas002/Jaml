@@ -141,7 +141,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="element">Element, where model will be converted</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        public void ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement;
+        public T ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement;
 
         /// <summary>
         /// Bind this model properties to the target <see cref="UIElement"/>

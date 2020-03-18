@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
@@ -72,44 +73,18 @@ namespace Jaml.Wpf.Models.ChildModels
             //todo this is working, but it's ugly and bad. Temp solution of moving logics from Parsers.PageParser
             foreach (ChildModel childModel in childModels)
             {
-                UIElementModel elementModel = childModel.GetUIElementModel();
+                dynamic elementModel = childModel.GetUIElementModel();
 
                 if (elementModel == null) continue;
 
-                Type type = elementModel.GetType();
+                Type modelType = elementModel.GetType();
+                MethodInfo[] modelMethods = modelType.GetMethods();
+                MethodInfo genericMethod = modelMethods.Where(m => m.IsGenericMethod).First(m => m.Name == "ToUIElement").GetGenericMethodDefinition();
 
-                if (type == typeof(MediaElementModel))
-                {
-                    MediaElement me = new MediaElement();
-                    MediaElementModel mem = elementModel as MediaElementModel; ;
-                    mem?.ToUIElement(me, commandProvider, styleProvider);
-                    elementCollection.Add(me);
-
-                    //UIElement element = new UIElement();
-                    //elementModel.ToUIElement(ref element, commandProvider, styleProvider);
-                    //elementCollection.Add(element);
-                }
-                else if (type == typeof(ButtonModel))
-                {
-                    Button button = new Button();
-                    ButtonModel buttonModel = elementModel as ButtonModel;
-                    buttonModel?.ToUIElement(button, commandProvider, styleProvider);
-                    elementCollection.Add(button);
-                }
-                else if (type == typeof(ImageModel))
-                {
-                    Image image = new Image();
-                    ImageModel imageModel = elementModel as ImageModel;
-                    imageModel?.ToUIElement(image, commandProvider, styleProvider);
-                    elementCollection.Add(image);
-                }
-                else if (type == typeof(GridModel))
-                {
-                    Grid grid = new Grid();
-                    GridModel gridModel = elementModel as GridModel;
-                    gridModel?.ToUIElement(grid, commandProvider, styleProvider);
-                    elementCollection.Add(grid);
-                }
+                Type elemType = genericMethod.ReturnType.BaseType;
+                dynamic element = Activator.CreateInstance(elemType);
+                elementModel.ToUIElement(element, commandProvider, styleProvider);
+                elementCollection.Add(element);
             }
         }
     }

@@ -30,12 +30,14 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="element">Target window</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        public new void ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public new T ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
             where T : Window
         {
             base.ToUIElement(element, commandProvider, styleProvider);
 
             BindProperties(element, commandProvider, styleProvider);
+
+            return element;
         }
 
         /// <summary>

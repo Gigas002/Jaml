@@ -113,7 +113,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         #region Methods
 
         /// <inheritdoc />
-        public virtual void ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
+        public virtual T ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
         {
             //Bind properties
             BindProperties(element, commandProvider, styleProvider);
@@ -127,6 +127,8 @@ namespace Jaml.Wpf.Models.UIElementModels
             Grid.SetColumn(element, ParentColumn);
             Grid.SetRowSpan(element, RowSpan);
             Grid.SetColumnSpan(element, ColumnSpan);
+
+            return element;
         }
 
         /// <inheritdoc />
