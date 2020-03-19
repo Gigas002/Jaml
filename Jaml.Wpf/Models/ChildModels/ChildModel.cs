@@ -87,10 +87,30 @@ namespace Jaml.Wpf.Models.ChildModels
         public UIElement ToUIElement(ICommandProvider commandProvider,
                                      IStyleProvider styleProvider)
         {
-            //IUIElementModel<MediaElement> elementModel = GetUIElementModel<MediaElement>();
             dynamic elementModel = GetUIElementModel();
 
-            return elementModel.ToUIElement(commandProvider, styleProvider) as UIElement;
+            //var element = ToUIElement(elementModel, commandProvider, styleProvider);
+
+            return elementModel.ToUIElement(commandProvider, styleProvider);
+        }
+
+        public T ToUIElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement, new()
+        {
+            IUIElementModel<T> elementModel = GetUIElementModel<T>();
+
+            return elementModel.ToUIElement(commandProvider, styleProvider);
+        }
+
+        public static T ToUIElement<T>(IUIElementModel<T> elementModel, ICommandProvider commandProvider,
+                                       IStyleProvider styleProvider) where T : UIElement, new()
+        {
+            //T element = elementModel.ToUIElement(commandProvider, styleProvider);
+
+            //elementModel.BindProperties(element, commandProvider, styleProvider);
+
+            //return element;
+
+            return elementModel.ToUIElement(commandProvider, styleProvider);
         }
     }
 }
