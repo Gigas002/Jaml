@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Windows;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.ChildModels;
 using Jaml.Wpf.Parsers;
@@ -9,9 +11,9 @@ using Jaml.Wpf.Providers.StyleProvider;
 namespace Jaml.Wpf.Models.UIElementModels
 {
     /// <summary>
-    /// Base class for panel models, like <see cref="GridModel"/>
+    /// Base class for panel models
     /// </summary>
-    public class PanelModel : FrameworkElementModel
+    public class PanelModel<T> : FrameworkElementModel<T>, IUIElementModel<T> where T : Panel, new()
     {
         #region Properties
 
@@ -37,35 +39,26 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         #region Methods
 
-        /// <summary>
-        /// Converts this model to one of <see cref="Panel"/>'s children
-        /// </summary>
-        /// <typeparam name="T">Children of <see cref="Panel"/></typeparam>
-        /// <param name="element">Element, where model will be converted</param>
-        /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
-        public new void ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
-            where T : Panel
+        /// <inheritdoc />
+        public override T ToUIElement(ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
-            base.ToUIElement(element, commandProvider, styleProvider);
+            T element = base.ToUIElement(commandProvider, styleProvider);
 
             BindProperties(element, commandProvider, styleProvider);
+
+            return element;
         }
 
-        /// <summary>
-        /// Binds this element's properties
-        /// </summary>
-        /// <typeparam name="T">Children of <see cref="Panel"/></typeparam>
-        /// <param name="element">Target element to bind properties</param>
-        /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
-        public new void BindProperties<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Panel
+        /// <inheritdoc />
+        public new void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             element.Background = PropertyParser.ParseBackground(Background);
 
             //Bind panel's children
-            UIElementCollection collection = element.Children;
-            ChildModel.ToUIElementCollection(ref collection, Children, commandProvider, styleProvider);
+            foreach (ChildModel childModel in Children)
+            {
+                element.Children.Add(childModel.ToUIElement(commandProvider, styleProvider));
+            }
 
             element.IsItemsHost = IsItemsHost;
         }

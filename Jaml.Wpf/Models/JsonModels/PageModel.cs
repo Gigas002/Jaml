@@ -1,4 +1,5 @@
 ﻿using System.Text.Json.Serialization;
+using System.Windows.Controls;
 using Jaml.Wpf.Models.UIElementModels;
 
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
@@ -24,7 +25,7 @@ namespace Jaml.Wpf.Models.JsonModels
         /// Json's Grid element
         /// </summary>
         [JsonPropertyName("Grid")]
-        public GridModel GridModel { get; set; } = null;
+        public GridModel<Grid> GridModel { get; set; } = null;
 
         #endregion
     }

@@ -15,7 +15,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Base FrameworkElement model
     /// </summary>
-    public class FrameworkElementModel : UIElementModel
+    public class FrameworkElementModel<T> : UIElementModel<T>, IUIElementModel<T> where T : FrameworkElement, new()
     {
         #region Properties
 
@@ -175,29 +175,18 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         #region Methods
 
-        /// <summary>
-        /// Converts this model to one of <see cref="FrameworkElement"/>'s children
-        /// </summary>
-        /// <typeparam name="T">Children of <see cref="FrameworkElement"/></typeparam>
-        /// <param name="element">Element, where model will be converted</param>
-        /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
-        public new void ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
-            where T : FrameworkElement
+        /// <inheritdoc />
+        public override T ToUIElement(ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
-            base.ToUIElement(element, commandProvider, styleProvider);
+            T element = base.ToUIElement(commandProvider, styleProvider);
 
-            BindProperties(element, commandProvider, styleProvider);
+            BindProperties(element, null, styleProvider);
+
+            return element;
         }
 
-        /// <summary>
-        /// Binds this element's properties
-        /// </summary>
-        /// <typeparam name="T">Children of <see cref="FrameworkElement"/></typeparam>
-        /// <param name="element">Target element to bind properties</param>
-        /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
-        public new void BindProperties<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : FrameworkElement
+        /// <inheritdoc />
+        public new void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             //element.BindingGroup = default;
             //element.ContextMenu = default;

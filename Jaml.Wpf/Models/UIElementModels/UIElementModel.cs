@@ -13,9 +13,9 @@ using Jaml.Wpf.Providers.StyleProvider;
 namespace Jaml.Wpf.Models.UIElementModels
 {
     /// <summary>
-    /// Base class, that implements <see cref="IUIElementModel"/>
+    /// Base class, that implements <see cref="IUIElementModel{T}"/>
     /// </summary>
-    public class UIElementModel : IUIElementModel
+    public class UIElementModel<T> : IUIElementModel<T> where T : UIElement, new()
     {
         #region Json Properties
 
@@ -113,10 +113,11 @@ namespace Jaml.Wpf.Models.UIElementModels
         #region Methods
 
         /// <inheritdoc />
-        public virtual void ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
+        public virtual T ToUIElement(ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
+            T element = new T();
             //Bind properties
-            BindProperties(element, commandProvider, styleProvider);
+            BindProperties(element, null, null);
 
             //Bind commands
             commandProvider.BindCommands(ref element, Commands);
@@ -127,10 +128,12 @@ namespace Jaml.Wpf.Models.UIElementModels
             Grid.SetColumn(element, ParentColumn);
             Grid.SetRowSpan(element, RowSpan);
             Grid.SetColumnSpan(element, ColumnSpan);
+
+            return element;
         }
 
         /// <inheritdoc />
-        public virtual void BindProperties<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement
+        public virtual void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             element.AllowDrop = AllowDrop;
             //element.CacheMode = default;

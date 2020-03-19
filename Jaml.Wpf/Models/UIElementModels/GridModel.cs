@@ -15,7 +15,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Model of Grid
     /// </summary>
-    public class GridModel : PanelModel
+    public class GridModel<T> : PanelModel<T>, IUIElementModel<T> where T : Grid, new()
     {
         #region Json Properties
 
@@ -33,30 +33,18 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         #endregion
 
-        /// <summary>
-        /// Creates grid from model
-        /// </summary>
-        /// <typeparam name="T">Children of <see cref="Grid"/></typeparam>
-        /// <param name="element">Target grid</param>
-        /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
-        public new void ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
-            where T : Grid
+        /// <inheritdoc />
+        public override T ToUIElement(ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
-            base.ToUIElement(element, commandProvider, styleProvider);
+            T element = base.ToUIElement(commandProvider, styleProvider);
 
-            BindProperties(element, commandProvider, styleProvider);
+            BindProperties(element, null, null);
+
+            return element;
         }
 
-
-        /// <summary>
-        /// Binds model properies from model to passed element
-        /// </summary>
-        /// <typeparam name="T">Children of <see cref="Grid"/></typeparam>
-        /// <param name="element">Element to take properties</param>
-        /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
-        public new void BindProperties<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Grid
+        /// <inheritdoc />
+        public new void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             foreach (string rowDefinition in RowDefinitions)
                 element.RowDefinitions.Add(PropertyParser.ParseRowDefinition(rowDefinition));
