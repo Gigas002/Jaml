@@ -14,43 +14,31 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Window model
     /// </summary>
-    public class WindowModel : FrameworkElementModel
+    /// <typeparam name="T">Children of <see cref="Window"/></typeparam>
+    public class WindowModel<T> : FrameworkElementModel<T>, IUIElementModel<T> where T : Window, new()
     {
         //todo bind grid as childmodel?
         /// <summary>
         /// Content of the window
         /// </summary>
         [JsonPropertyName("Grid")]
-        public GridModel GridModel { get; set; } = null;
+        public GridModel<Grid> GridModel { get; set; } = null;
 
-        /// <summary>
-        /// Creates window from model
-        /// </summary>
-        /// <typeparam name="T">Children of <see cref="Window"/></typeparam>
-        /// <param name="element">Target window</param>
-        /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
-        public new void ToUIElement<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
-            where T : Window
+        /// <inheritdoc />
+        public override T ToUIElement(ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
-            base.ToUIElement(element, commandProvider, styleProvider);
+            T element = base.ToUIElement(commandProvider, styleProvider);
 
             BindProperties(element, commandProvider, styleProvider);
+
+            return element;
         }
 
-        /// <summary>
-        /// Binds model properies from model to passed element
-        /// </summary>
-        /// <typeparam name="T">Children of <see cref="Window"/></typeparam>
-        /// <param name="element">Element to take properties</param>
-        /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
-        public new void BindProperties<T>(T element, ICommandProvider commandProvider, IStyleProvider styleProvider) where T : Window
+        /// <inheritdoc />
+        public new void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
             //todo
-            Grid contentGrid = new Grid();
-            GridModel.ToUIElement(contentGrid, commandProvider, styleProvider);
-            element.Content = contentGrid;
+            element.Content = GridModel.ToUIElement(commandProvider, styleProvider);
         }
     }
 }

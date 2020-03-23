@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Reflection;
 using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,91 +24,86 @@ namespace Jaml.Wpf.Models.ChildModels
         /// Media element. Can be video or audio file
         /// </summary>
         [JsonPropertyName("MediaElement")]
-        public MediaElementModel MediaElementModel { get; set; } = null;
+        public MediaElementModel<MediaElement> MediaElementModel { get; set; } = null;
 
         /// <summary>
         /// Non-animated image
         /// </summary>
         [JsonPropertyName("Image")]
-        public ImageModel ImageModel { get; set; } = null;
+        public ImageModel<Image> ImageModel { get; set; } = null;
 
         /// <summary>
         /// Button
         /// </summary>
         [JsonPropertyName("Button")]
-        public ButtonModel ButtonModel { get; set; } = null;
+        public ButtonModel<Button> ButtonModel { get; set; } = null;
 
         /// <summary>
         /// Grid
         /// </summary>
         [JsonPropertyName("Grid")]
-        public GridModel GridModel { get; set; } = null;
+        public GridModel<Grid> GridModel { get; set; } = null;
 
         #endregion
 
         /// <summary>
-        /// Get the current <see cref="UIElementModel"/>
+        /// Get the current <see cref="IUIElementModel{T}"/>
         /// </summary>
-        /// <returns>Current <see cref="UIElementModel"/></returns>
-        public UIElementModel GetUIElementModel() => GetType()
-                                                     .GetProperties()
-                                                     .Select(propertyInfo => propertyInfo.GetValue(this, null))
-                                                     .Where(elementModel => elementModel != null)
-                                                     .Select(elementModel => elementModel as UIElementModel)
-                                                     .FirstOrDefault();
+        /// <returns>Current <see cref="IUIElementModel{T}"/> as object</returns>
+        public object GetUIElementModel()
+        {
+            foreach (PropertyInfo property in GetType().GetProperties())
+            {
+                var thisModel = property.GetValue(this, null);
+
+                if (thisModel != null) return thisModel;
+            }
+
+            return null;
+        }
 
         /// <summary>
-        /// Converts the collection of child models into the <see cref="UIElementCollection"/>
+        /// Get the current <see cref="IUIElementModel{T}"/>
         /// </summary>
-        /// <param name="elementCollection">Target collection</param>
-        /// <param name="childModels">Collection of elements to convert</param>
-        /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
-        public static void ToUIElementCollection(ref UIElementCollection elementCollection, IEnumerable<ChildModel> childModels,
-                                                 ICommandProvider commandProvider, IStyleProvider styleProvider)
+        /// <returns>Current <see cref="IUIElementModel{T}"/></returns>
+        public IUIElementModel<T> GetUIElementModel<T>() where T : UIElement, new()
         {
-            //todo this is working, but it's ugly and bad. Temp solution of moving logics from Parsers.PageParser
-            foreach (ChildModel childModel in childModels)
+            foreach (PropertyInfo property in GetType().GetProperties())
             {
-                UIElementModel elementModel = childModel.GetUIElementModel();
+                var thisModel = property.GetValue(this, null);
 
-                if (elementModel == null) continue;
-
-                Type type = elementModel.GetType();
-
-                if (type == typeof(MediaElementModel))
-                {
-                    MediaElement me = new MediaElement();
-                    MediaElementModel mem = elementModel as MediaElementModel; ;
-                    mem?.ToUIElement(me, commandProvider, styleProvider);
-                    elementCollection.Add(me);
-
-                    //UIElement element = new UIElement();
-                    //elementModel.ToUIElement(ref element, commandProvider, styleProvider);
-                    //elementCollection.Add(element);
-                }
-                else if (type == typeof(ButtonModel))
-                {
-                    Button button = new Button();
-                    ButtonModel buttonModel = elementModel as ButtonModel;
-                    buttonModel?.ToUIElement(button, commandProvider, styleProvider);
-                    elementCollection.Add(button);
-                }
-                else if (type == typeof(ImageModel))
-                {
-                    Image image = new Image();
-                    ImageModel imageModel = elementModel as ImageModel;
-                    imageModel?.ToUIElement(image, commandProvider, styleProvider);
-                    elementCollection.Add(image);
-                }
-                else if (type == typeof(GridModel))
-                {
-                    Grid grid = new Grid();
-                    GridModel gridModel = elementModel as GridModel;
-                    gridModel?.ToUIElement(grid, commandProvider, styleProvider);
-                    elementCollection.Add(grid);
-                }
+                if (thisModel != null) return thisModel as IUIElementModel<T>;
             }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Convert this child to <see cref="UIElement"/>
+        /// </summary>
+        /// <param name="commandProvider"></param>
+        /// <param name="styleProvider"></param>
+        /// <returns>Converted <see cref="UIElement"/></returns>
+        public UIElement ToUIElement(ICommandProvider commandProvider,
+                                     IStyleProvider styleProvider)
+        {
+            dynamic elementModel = GetUIElementModel();
+
+            return elementModel.ToUIElement(commandProvider, styleProvider);
+        }
+
+        /// <summary>
+        /// Convert this child to <see cref="UIElement"/>
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
+        /// <param name="commandProvider"></param>
+        /// <param name="styleProvider"></param>
+        /// <returns>Converted <see cref="UIElement"/></returns>
+        public T ToUIElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement, new()
+        {
+            IUIElementModel<T> elementModel = GetUIElementModel<T>();
+
+            return elementModel.ToUIElement(commandProvider, styleProvider);
         }
     }
 }
