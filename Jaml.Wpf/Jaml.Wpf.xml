@@ -350,7 +350,7 @@
             <summary>
             Model of button
             </summary>
-            <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Primitives.ButtonBase"/></typeparam>
+            <typeparam name="T">Children of <see cref="T:System.Windows.Controls.Button"/></typeparam>
         </member>
         <member name="P:Jaml.Wpf.Models.UIElementModels.ButtonModel`1.Content">
             <summary>
