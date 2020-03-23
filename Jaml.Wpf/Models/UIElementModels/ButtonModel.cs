@@ -1,5 +1,5 @@
 ﻿using System.Text.Json.Serialization;
-using System.Windows.Controls.Primitives;
+using System.Windows.Controls;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
 
@@ -10,8 +10,8 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Model of button
     /// </summary>
-    /// <typeparam name="T">Children of <see cref="ButtonBase"/></typeparam>
-    public class ButtonModel<T> : FrameworkElementModel<T>, IUIElementModel<T> where T : ButtonBase, new()
+    /// <typeparam name="T">Children of <see cref="Button"/></typeparam>
+    public class ButtonModel<T> : FrameworkElementModel<T>, IUIElementModel<T> where T : Button, new()
     {
         #region Properties
 
