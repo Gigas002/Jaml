@@ -10,6 +10,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Model of button
     /// </summary>
+    /// <typeparam name="T">Children of <see cref="ButtonBase"/></typeparam>
     public class ButtonModel<T> : FrameworkElementModel<T>, IUIElementModel<T> where T : ButtonBase, new()
     {
         #region Properties

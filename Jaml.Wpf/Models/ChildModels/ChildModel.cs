@@ -47,9 +47,9 @@ namespace Jaml.Wpf.Models.ChildModels
         #endregion
 
         /// <summary>
-        /// Get the current UIElementModel
+        /// Get the current <see cref="IUIElementModel{T}"/>
         /// </summary>
-        /// <returns>Current UIElementModel as object</returns>
+        /// <returns>Current <see cref="IUIElementModel{T}"/> as object</returns>
         public object GetUIElementModel()
         {
             foreach (PropertyInfo property in GetType().GetProperties())
@@ -63,9 +63,9 @@ namespace Jaml.Wpf.Models.ChildModels
         }
 
         /// <summary>
-        /// Get the current UIElementModel
+        /// Get the current <see cref="IUIElementModel{T}"/>
         /// </summary>
-        /// <returns>Current UIElementModel</returns>
+        /// <returns>Current <see cref="IUIElementModel{T}"/></returns>
         public IUIElementModel<T> GetUIElementModel<T>() where T : UIElement, new()
         {
             foreach (PropertyInfo property in GetType().GetProperties())
@@ -79,36 +79,29 @@ namespace Jaml.Wpf.Models.ChildModels
         }
 
         /// <summary>
-        /// Convert this child to UIElement
+        /// Convert this child to <see cref="UIElement"/>
         /// </summary>
         /// <param name="commandProvider"></param>
         /// <param name="styleProvider"></param>
-        /// <returns></returns>
+        /// <returns>Converted <see cref="UIElement"/></returns>
         public UIElement ToUIElement(ICommandProvider commandProvider,
                                      IStyleProvider styleProvider)
         {
             dynamic elementModel = GetUIElementModel();
 
-            //var element = ToUIElement(elementModel, commandProvider, styleProvider);
-
             return elementModel.ToUIElement(commandProvider, styleProvider);
         }
 
+        /// <summary>
+        /// Convert this child to <see cref="UIElement"/>
+        /// </summary>
+        /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
+        /// <param name="commandProvider"></param>
+        /// <param name="styleProvider"></param>
+        /// <returns>Converted <see cref="UIElement"/></returns>
         public T ToUIElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement, new()
         {
             IUIElementModel<T> elementModel = GetUIElementModel<T>();
-
-            return elementModel.ToUIElement(commandProvider, styleProvider);
-        }
-
-        public static T ToUIElement<T>(IUIElementModel<T> elementModel, ICommandProvider commandProvider,
-                                       IStyleProvider styleProvider) where T : UIElement, new()
-        {
-            //T element = elementModel.ToUIElement(commandProvider, styleProvider);
-
-            //elementModel.BindProperties(element, commandProvider, styleProvider);
-
-            //return element;
 
             return elementModel.ToUIElement(commandProvider, styleProvider);
         }

@@ -15,6 +15,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Base FrameworkElement model
     /// </summary>
+    /// <typeparam name="T">Children of <see cref="FrameworkElement"/></typeparam>
     public class FrameworkElementModel<T> : UIElementModel<T>, IUIElementModel<T> where T : FrameworkElement, new()
     {
         #region Properties

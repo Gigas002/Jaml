@@ -12,6 +12,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Image model
     /// </summary>
+    /// <typeparam name="T">Children of <see cref="Image"/></typeparam>
     public class ImageModel<T> : FrameworkElementModel<T>, IUIElementModel<T> where T : Image, new()
     {
         #region Properties

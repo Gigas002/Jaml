@@ -13,6 +13,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Model of media elements, like video or audio
     /// </summary>
+    /// <typeparam name="T">Children of <see cref="MediaElement"/></typeparam>
     public class MediaElementModel<T> : FrameworkElementModel<T>, IUIElementModel<T> where T : MediaElement, new()
     {
         #region Properties

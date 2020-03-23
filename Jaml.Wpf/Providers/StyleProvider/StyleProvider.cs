@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Windows;
 using Jaml.Wpf.Models.StyleModels;
 
 namespace Jaml.Wpf.Providers.StyleProvider

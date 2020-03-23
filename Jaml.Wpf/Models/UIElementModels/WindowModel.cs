@@ -14,6 +14,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Window model
     /// </summary>
+    /// <typeparam name="T">Children of <see cref="Window"/></typeparam>
     public class WindowModel<T> : FrameworkElementModel<T>, IUIElementModel<T> where T : Window, new()
     {
         //todo bind grid as childmodel?

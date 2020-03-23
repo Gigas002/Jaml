@@ -12,6 +12,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Base interface for all <see cref="UIElement"/> on page
     /// </summary>
+    /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
     public interface IUIElementModel<T> where T : UIElement, new()
     {
         #region Properties
@@ -146,6 +147,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Bind this model properties to the target <see cref="UIElement"/>
         /// </summary>
         /// <param name="element">Target element</param>
+        /// <param name="commandProvider">Command provider</param>
+        /// <param name="styleProvider">Style provider</param>
         public void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider);
 
         #endregion

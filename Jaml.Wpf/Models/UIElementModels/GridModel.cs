@@ -15,6 +15,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Model of Grid
     /// </summary>
+    /// <typeparam name="T">Children of <see cref="Grid"/></typeparam>
     public class GridModel<T> : PanelModel<T>, IUIElementModel<T> where T : Grid, new()
     {
         #region Json Properties

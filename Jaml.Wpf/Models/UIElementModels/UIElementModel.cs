@@ -12,9 +12,9 @@ using Jaml.Wpf.Providers.StyleProvider;
 
 namespace Jaml.Wpf.Models.UIElementModels
 {
-    /// <summary>
-    /// Base class, that implements <see cref="IUIElementModel{T}"/>
-    /// </summary>
+    // ReSharper disable once InconsistentNaming
+
+    /// <inheritdoc />
     public class UIElementModel<T> : IUIElementModel<T> where T : UIElement, new()
     {
         #region Json Properties

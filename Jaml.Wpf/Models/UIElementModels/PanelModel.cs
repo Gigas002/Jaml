@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Windows;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.ChildModels;
 using Jaml.Wpf.Parsers;
@@ -13,6 +11,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// <summary>
     /// Base class for panel models
     /// </summary>
+    /// <typeparam name="T">Children of <see cref="Panel"/></typeparam>
     public class PanelModel<T> : FrameworkElementModel<T>, IUIElementModel<T> where T : Panel, new()
     {
         #region Properties
