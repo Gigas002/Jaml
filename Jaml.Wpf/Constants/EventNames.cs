@@ -134,9 +134,10 @@
 
         #endregion
 
-        /// <summary>
-        /// Click
-        /// </summary>
+        #region ButtonBase
+
         internal const string Click = nameof(Click);
+
+        #endregion
     }
 }

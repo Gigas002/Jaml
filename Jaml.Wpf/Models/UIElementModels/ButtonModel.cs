@@ -11,7 +11,7 @@ namespace Jaml.Wpf.Models.UIElementModels
     /// Model of button
     /// </summary>
     /// <typeparam name="T">Children of <see cref="Button"/></typeparam>
-    public class ButtonModel<T> : FrameworkElementModel<T>, IUIElementModel<T> where T : Button, new()
+    public class ButtonModel<T> : ButtonBaseModel<T>, IUIElementModel<T> where T : Button, new()
     {
         #region Properties
 
