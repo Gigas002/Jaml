@@ -4,8 +4,6 @@
 
 The nearest plans are for **WPF** support (**Jaml.Wpf** library), but in future I'd like to support a cross-platform solution too (using **Avalonia UI** probably?).
 
-To see the possibilities of the **Jaml** you can take a look at the demo-app (*visual novel engine*), that I’m developing side-to-side with **Jaml**: [Lolita](https://github.com/Gigas002/Lolita).
-
 [![Build status](https://ci.appveyor.com/api/projects/status/0fvuk184rr4qgu8j?svg=true)](https://ci.appveyor.com/project/Gigas002/jaml) [![Actions Status](https://github.com/Gigas002/Jaml/workflows/.NET%20Core%20CI/badge.svg)](https://github.com/Gigas002/Jaml/actions)
 
 ## Table of contents
