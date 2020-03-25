@@ -1,10 +1,11 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
+using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Models.UIElementModels;
 using Jaml.Wpf.Providers.CommandProvider;
-using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
@@ -84,12 +85,12 @@ namespace Jaml.Wpf.Models.ChildModels
         /// <param name="commandProvider"></param>
         /// <param name="styleProvider"></param>
         /// <returns>Converted <see cref="UIElement"/></returns>
-        public UIElement ToUIElement(ICommandProvider commandProvider,
-                                     IStyleProvider styleProvider)
+        public UIElement ToUIElement(ICommandProvider commandProvider = null,
+                                     IList<StyleModel> styleModels = null)
         {
             dynamic elementModel = GetUIElementModel();
 
-            return elementModel.ToUIElement(commandProvider, styleProvider);
+            return elementModel.ToUIElement(commandProvider, styleModels);
         }
 
         /// <summary>
@@ -99,11 +100,11 @@ namespace Jaml.Wpf.Models.ChildModels
         /// <param name="commandProvider"></param>
         /// <param name="styleProvider"></param>
         /// <returns>Converted <see cref="UIElement"/></returns>
-        public T ToUIElement<T>(ICommandProvider commandProvider, IStyleProvider styleProvider) where T : UIElement, new()
+        public T ToUIElement<T>(ICommandProvider commandProvider = null, IList<StyleModel> styleModels = null) where T : UIElement, new()
         {
             IUIElementModel<T> elementModel = GetUIElementModel<T>();
 
-            return elementModel.ToUIElement(commandProvider, styleProvider);
+            return elementModel.ToUIElement(commandProvider, styleModels);
         }
     }
 }

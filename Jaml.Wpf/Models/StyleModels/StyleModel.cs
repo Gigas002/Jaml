@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
@@ -58,9 +60,10 @@ namespace Jaml.Wpf.Models.StyleModels
         #endregion
 
         /// <inheritdoc />
-        public void ToStyle<T>(ref T style) where T : Style
+        public T ToStyle<T>() where T : Style, new()
         {
             //todo improve this ugly code?
+            T style = new T();
 
             FontWeight fontWeight = PropertyParser.ParseFontWeight(FontWeight);
             FontStyle fontStyle = PropertyParser.ParseFontStyle(FontStyle);
@@ -77,13 +80,21 @@ namespace Jaml.Wpf.Models.StyleModels
             style.Setters.Add(new Setter { Property = Control.BorderThicknessProperty, Value = borderThickness });
             style.Setters.Add(new Setter { Property = UIElement.VisibilityProperty, Value = visibility });
 
-            if (string.IsNullOrWhiteSpace(FontFamily)) return;
+            if (string.IsNullOrWhiteSpace(FontFamily)) return style;
 
             style.Setters.Add(new Setter
             {
                 Property = Control.FontFamilyProperty,
                 Value = new FontFamily(PathsHelper.GetUriFromRelativePath(FontFamily), string.Empty)
             });
+
+            return style;
         }
+
+        public static IStyleModel TryGetStyleModel(IEnumerable<StyleModel> styleModels, int styleId) =>
+            styleModels?.FirstOrDefault(sm => sm.Id == styleId);
+
+        public static T TryGetStyle<T>(IEnumerable<StyleModel> styleModels, int styleId) where T : Style, new() =>
+            TryGetStyleModel(styleModels, styleId)?.ToStyle<T>();
     }
 }

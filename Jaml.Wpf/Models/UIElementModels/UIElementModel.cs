@@ -5,8 +5,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Jaml.Wpf.Models.CommandModels;
+using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProvider;
-using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
 
@@ -214,7 +214,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         #region Methods
 
         /// <inheritdoc />
-        public virtual T ToUIElement(ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public virtual T ToUIElement(ICommandProvider commandProvider = null, IList<StyleModel> styleModels = null)
         {
             T element = new T();
             //Bind properties
@@ -235,7 +235,7 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         /// <inheritdoc />
         public virtual void BindProperties(T element, ICommandProvider commandProvider = null,
-                                           IStyleProvider styleProvider = null)
+                                           IList<StyleModel> styleModels = null)
         {
             element.AllowDrop = AllowDrop;
             //element.CacheMode = default;

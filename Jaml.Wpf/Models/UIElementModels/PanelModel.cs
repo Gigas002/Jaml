@@ -2,9 +2,9 @@
 using System.Text.Json.Serialization;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.ChildModels;
+using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
 using Jaml.Wpf.Providers.CommandProvider;
-using Jaml.Wpf.Providers.StyleProvider;
 
 namespace Jaml.Wpf.Models.UIElementModels
 {
@@ -39,24 +39,24 @@ namespace Jaml.Wpf.Models.UIElementModels
         #region Methods
 
         /// <inheritdoc />
-        public override T ToUIElement(ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public override T ToUIElement(ICommandProvider commandProvider = null, IList<StyleModel> styleModels = null)
         {
-            T element = base.ToUIElement(commandProvider, styleProvider);
+            T element = base.ToUIElement(commandProvider, styleModels);
 
-            BindProperties(element, commandProvider, styleProvider);
+            BindProperties(element, commandProvider, styleModels);
 
             return element;
         }
 
         /// <inheritdoc />
-        public new void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public new void BindProperties(T element, ICommandProvider commandProvider = null, IList<StyleModel> styleModels = null)
         {
             element.Background = PropertyParser.ParseBackground(Background);
 
             //Bind panel's children
             foreach (ChildModel childModel in Children)
             {
-                element.Children.Add(childModel.ToUIElement(commandProvider, styleProvider));
+                element.Children.Add(childModel.ToUIElement(commandProvider, styleModels));
             }
 
             element.IsItemsHost = IsItemsHost;

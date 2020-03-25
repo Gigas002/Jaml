@@ -1,8 +1,9 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
+using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProvider;
-using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
@@ -25,19 +26,19 @@ namespace Jaml.Wpf.Models.UIElementModels
         public GridModel<Grid> GridModel { get; set; } = null;
 
         /// <inheritdoc />
-        public override T ToUIElement(ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public override T ToUIElement(ICommandProvider commandProvider = null, IList<StyleModel> styleModels = null)
         {
-            T element = base.ToUIElement(commandProvider, styleProvider);
+            T element = base.ToUIElement(commandProvider, styleModels);
 
-            BindProperties(element, commandProvider, styleProvider);
+            BindProperties(element, commandProvider, styleModels);
 
             return element;
         }
 
         /// <inheritdoc />
-        public new void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public new void BindProperties(T element, ICommandProvider commandProvider = null, IList<StyleModel> styleModels = null)
         {
-            element.Content = GridModel.ToUIElement(commandProvider, styleProvider);
+            element.Content = GridModel.ToUIElement(commandProvider, styleModels);
         }
     }
 }

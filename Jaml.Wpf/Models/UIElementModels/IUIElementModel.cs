@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
 using Jaml.Wpf.Models.CommandModels;
+using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProvider;
-using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMemberInSuper.Global
@@ -141,7 +141,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
         /// <returns>Converted element</returns>
-        public T ToUIElement(ICommandProvider commandProvider, IStyleProvider styleProvider);
+        public T ToUIElement(ICommandProvider commandProvider, IList<StyleModel> styleModels);
 
         /// <summary>
         /// Bind this model properties to the target <see cref="UIElement"/>
@@ -149,7 +149,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="element">Target element</param>
         /// <param name="commandProvider">Command provider</param>
         /// <param name="styleProvider">Style provider</param>
-        public void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider);
+        public void BindProperties(T element, ICommandProvider commandProvider, IList<StyleModel> styleModels);
 
         /// <summary>
         /// Binds command to passed element

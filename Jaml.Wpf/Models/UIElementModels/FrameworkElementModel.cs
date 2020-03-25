@@ -5,8 +5,8 @@ using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
 using Jaml.Wpf.Models.CommandModels;
+using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProvider;
-using Jaml.Wpf.Providers.StyleProvider;
 
 // ReSharper disable MemberCanBeProtected.Global
 // ReSharper disable MemberCanBePrivate.Global
@@ -196,11 +196,11 @@ namespace Jaml.Wpf.Models.UIElementModels
         #region Methods
 
         /// <inheritdoc />
-        public override T ToUIElement(ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public override T ToUIElement(ICommandProvider commandProvider = null, IList<StyleModel> styleModels = null)
         {
-            T element = base.ToUIElement(commandProvider, styleProvider);
+            T element = base.ToUIElement(commandProvider, styleModels);
 
-            BindProperties(element, null, styleProvider);
+            BindProperties(element, null, styleModels);
 
             BindCommands(element, commandProvider);
 
@@ -209,7 +209,7 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         /// <inheritdoc />
         public new void BindProperties(T element, ICommandProvider commandProvider = null,
-                                       IStyleProvider styleProvider = null)
+                                       IList<StyleModel> styleModels = null)
         {
             //element.BindingGroup = default;
             //element.ContextMenu = default;
@@ -219,9 +219,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             element.FlowDirection = flowDirection;
 
             //Bind focus visual style
-            Style focusVisualStyle = new Style();
-            styleProvider.GetStyleModel(FocusVisualStyleId)?.ToStyle(ref focusVisualStyle);
-            element.FocusVisualStyle = focusVisualStyle;
+            element.FocusVisualStyle = StyleModel.TryGetStyle<Style>(styleModels, FocusVisualStyleId);
 
             element.ForceCursor = ForceCursor;
             element.Height = Height;
@@ -242,9 +240,7 @@ namespace Jaml.Wpf.Models.UIElementModels
             //element.Resources;
 
             //Bind style
-            Style style = new Style();
-            styleProvider.GetStyleModel(StyleId)?.ToStyle(ref style);
-            element.Style = style;
+            element.Style = StyleModel.TryGetStyle<Style>(styleModels, StyleId);
 
             //element.Tag;
             //element.ToolTip;
@@ -257,6 +253,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <inheritdoc />
         public new void BindCommand(T element, ICommandModel commandModel, ICommandProvider commandProvider)
         {
+            if (commandProvider == null) return;
+
             string eventName = commandModel.Event;
             string methodName = commandModel.Method;
             IEnumerable<ICommandArgModel> methodArgs = commandModel.Args;
