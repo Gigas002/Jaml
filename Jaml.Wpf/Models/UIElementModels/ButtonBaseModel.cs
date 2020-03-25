@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows.Controls.Primitives;
+using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
 
@@ -22,6 +24,12 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         #endregion
 
+        #region EventNames
+
+        internal const string Click = nameof(Click);
+
+        #endregion
+
         #region Methods
 
         /// <inheritdoc />
@@ -30,6 +38,8 @@ namespace Jaml.Wpf.Models.UIElementModels
             T element = base.ToUIElement(commandProvider, styleProvider);
 
             BindProperties(element, null, styleProvider);
+
+            BindCommands(element, commandProvider);
 
             return element;
         }
@@ -43,6 +53,37 @@ namespace Jaml.Wpf.Models.UIElementModels
             //element.Command;
             //element.CommandParameter;
             //element.CommandTarget;
+        }
+
+        /// <inheritdoc />
+        public new void BindCommand(T element, ICommandModel commandModel, ICommandProvider commandProvider)
+        {
+            string eventName = commandModel.Event;
+            string methodName = commandModel.Method;
+            IEnumerable<ICommandArgModel> methodArgs = commandModel.Args;
+
+            switch (eventName)
+            {
+                case Click:
+                {
+                    if (element is ButtonBase button)
+                        button.Click += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                    break;
+                }
+                default:
+                {
+                    break;
+                    //throw new NotSupportedException($"Event {eventName} is not supported.");
+                }
+            }
+        }
+
+        /// <inheritdoc />
+        public new void BindCommands(T element, ICommandProvider commandProvider)
+        {
+            foreach (ICommandModel commandModel in Commands)
+                BindCommand(element, commandModel, commandProvider);
         }
 
         #endregion

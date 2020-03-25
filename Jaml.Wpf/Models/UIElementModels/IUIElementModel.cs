@@ -151,6 +151,21 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <param name="styleProvider">Style provider</param>
         public void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider);
 
+        /// <summary>
+        /// Binds command to passed element
+        /// </summary>
+        /// <param name="element">Target element to bind the command</param>
+        /// <param name="commandModel">Model of command for element</param>
+        /// <param name="commandProvider">Command provider</param>
+        public void BindCommand(T element, ICommandModel commandModel, ICommandProvider commandProvider);
+
+        /// <summary>
+        /// Binds commands to passed element
+        /// </summary>
+        /// <param name="element">Target element to bind the command</param>
+        /// <param name="commandProvider">Command provider</param>
+        public void BindCommands(T element, ICommandProvider commandProvider);
+
         #endregion
     }
 }

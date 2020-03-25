@@ -39,13 +39,14 @@ namespace Jaml.Wpf.Models.UIElementModels
         {
             T element = base.ToUIElement(commandProvider, styleProvider);
 
-            BindProperties(element, null, null);
+            BindProperties(element);
 
             return element;
         }
 
         /// <inheritdoc />
-        public new void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public new void BindProperties(T element, ICommandProvider commandProvider = null,
+                                       IStyleProvider styleProvider = null)
         {
             foreach (string rowDefinition in RowDefinitions)
                 element.RowDefinitions.Add(PropertyParser.ParseRowDefinition(rowDefinition));

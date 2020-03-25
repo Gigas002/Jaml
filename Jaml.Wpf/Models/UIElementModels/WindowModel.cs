@@ -37,7 +37,6 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <inheritdoc />
         public new void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
         {
-            //todo
             element.Content = GridModel.ToUIElement(commandProvider, styleProvider);
         }
     }

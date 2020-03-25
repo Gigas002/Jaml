@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
+using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Providers.CommandProvider;
 using Jaml.Wpf.Providers.StyleProvider;
 
@@ -174,6 +176,23 @@ namespace Jaml.Wpf.Models.UIElementModels
 
         #endregion
 
+        #region EventNames
+
+        internal const string ContextMenuClosing = nameof(ContextMenuClosing);
+        internal const string ContextMenuOpening = nameof(ContextMenuOpening);
+        internal const string DataContextChanged = nameof(DataContextChanged);
+        internal const string Initialized = nameof(Initialized);
+        internal const string Loaded = nameof(Loaded);
+        internal const string RequestBringIntoView = nameof(RequestBringIntoView);
+        internal const string SizeChanged = nameof(SizeChanged);
+        internal const string SourceUpdated = nameof(SourceUpdated);
+        internal const string TargetUpdated = nameof(TargetUpdated);
+        internal const string ToolTipClosing = nameof(ToolTipClosing);
+        internal const string ToolTipOpening = nameof(ToolTipOpening);
+        internal const string Unloaded = nameof(Unloaded);
+
+        #endregion
+
         #region Methods
 
         /// <inheritdoc />
@@ -183,11 +202,14 @@ namespace Jaml.Wpf.Models.UIElementModels
 
             BindProperties(element, null, styleProvider);
 
+            BindCommands(element, commandProvider);
+
             return element;
         }
 
         /// <inheritdoc />
-        public new void BindProperties(T element, ICommandProvider commandProvider, IStyleProvider styleProvider)
+        public new void BindProperties(T element, ICommandProvider commandProvider = null,
+                                       IStyleProvider styleProvider = null)
         {
             //element.BindingGroup = default;
             //element.ContextMenu = default;
@@ -230,6 +252,116 @@ namespace Jaml.Wpf.Models.UIElementModels
             Enum.TryParse(VerticalAlignment, out VerticalAlignment verticalAlignment);
             element.VerticalAlignment = verticalAlignment;
             element.Width = Width;
+        }
+
+        /// <inheritdoc />
+        public new void BindCommand(T element, ICommandModel commandModel, ICommandProvider commandProvider)
+        {
+            string eventName = commandModel.Event;
+            string methodName = commandModel.Method;
+            IEnumerable<ICommandArgModel> methodArgs = commandModel.Args;
+
+            switch (eventName)
+            {
+                case ContextMenuClosing:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.ContextMenuClosing += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case ContextMenuOpening:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.ContextMenuOpening += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case DataContextChanged:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.DataContextChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case Initialized:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.Initialized += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case Loaded:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.Loaded += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case RequestBringIntoView:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.RequestBringIntoView += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case SizeChanged:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.SizeChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case SourceUpdated:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.SourceUpdated += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case TargetUpdated:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.TargetUpdated += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case ToolTipClosing:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.ToolTipClosing += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+                case ToolTipOpening:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.ToolTipOpening += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+
+                case Unloaded:
+                    {
+                        if (element is FrameworkElement frameworkElement)
+                            frameworkElement.Unloaded += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+
+                        break;
+                    }
+
+                default:
+                {
+                    break;
+                    //throw new NotSupportedException($"Event {eventName} is not supported.");
+                }
+            }
+        }
+
+        /// <inheritdoc />
+        public new void BindCommands(T element, ICommandProvider commandProvider)
+        {
+            foreach (ICommandModel commandModel in Commands)
+                BindCommand(element, commandModel, commandProvider);
         }
 
         #endregion

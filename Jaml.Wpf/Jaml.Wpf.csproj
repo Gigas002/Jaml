@@ -4,8 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <Platforms>AnyCPU;x64</Platforms>
-    <AssemblyVersion>0.1.0.928</AssemblyVersion>
-    <FileVersion>0.1.0.928</FileVersion>
+    <AssemblyVersion>0.1.0.938</AssemblyVersion>
+    <FileVersion>0.1.0.938</FileVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>0.1.0-ci925</Version>
     <Authors>Gigas002</Authors>
@@ -43,6 +43,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Constants\" />
   </ItemGroup>
 
 </Project>

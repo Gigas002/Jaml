@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows;
 using Jaml.Wpf.Models.CommandModels;
 
 namespace Jaml.Wpf.Providers.CommandProvider
@@ -13,13 +12,13 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// <summary>
         /// Dictionary of commands. Key is name, and Value is action to run
         /// </summary>
-        public Dictionary<string, Action<object, IEnumerable<CommandArgModel>>> Commands { get; }
+        public Dictionary<string, Action<object, IEnumerable<ICommandArgModel>>> Commands { get; }
 
         /// <summary>
         /// Registers all commands from dictionary
         /// </summary>
         /// <param name="commands">Dictionary to register</param>
-        public void RegisterCommands(Dictionary<string, Action<object, IEnumerable<CommandArgModel>>> commands);
+        public void RegisterCommands(Dictionary<string, Action<object, IEnumerable<ICommandArgModel>>> commands);
 
         /// <summary>
         /// Delete collection of commands with specified keys
@@ -37,7 +36,7 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// </summary>
         /// <param name="commandName">Name of command</param>
         /// <param name="action">Action to run</param>
-        public void RegisterCommand(string commandName, Action<object, IEnumerable<CommandArgModel>> action);
+        public void RegisterCommand(string commandName, Action<object, IEnumerable<ICommandArgModel>> action);
 
         /// <summary>
         /// Delete the specified command from dictionary
@@ -51,29 +50,13 @@ namespace Jaml.Wpf.Providers.CommandProvider
         /// <param name="commandName">Name of command to start</param>
         /// <param name="sender">Sender of command</param>
         /// <param name="args">Arguments for command</param>
-        public void RunCommand(string commandName, object sender, IEnumerable<CommandArgModel> args);
+        public void RunCommand(string commandName, object sender, IEnumerable<ICommandArgModel> args);
 
         /// <summary>
         /// Gets command by name
         /// </summary>
         /// <param name="commandName">Name of command to get</param>
         /// <returns>Command's <see cref="Action{T}"/></returns>
-        public Action<object, IEnumerable<CommandArgModel>> GetCommand(string commandName);
-
-        /// <summary>
-        /// Binds command to passed element
-        /// </summary>
-        /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
-        /// <param name="element">Target element to bind the command</param>
-        /// <param name="commandModel">Model of command for element</param>
-        public void BindCommand<T>(ref T element, ICommandModel commandModel) where T : UIElement;
-
-        /// <summary>
-        /// Binds commands to passed element
-        /// </summary>
-        /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
-        /// <param name="element">Target element to bind the command</param>
-        /// <param name="commandModels">Collection of models of command for element</param>
-        public void BindCommands<T>(ref T element, IEnumerable<ICommandModel> commandModels) where T : UIElement;
+        public Action<object, IEnumerable<ICommandArgModel>> GetCommand(string commandName);
     }
 }
