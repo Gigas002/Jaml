@@ -1,15 +1,12 @@
 name: .NET Core CI
 
-on:
-  push:
-    branches:
-    - master
+on: [push]
 
 jobs:
 
-# Build on windows
+# Build on Windows-AnyCPU
 
-  build-windows:
+  build-windows-anycpu:
 
     runs-on: windows-latest
     
@@ -21,37 +18,55 @@ jobs:
         dotnet-version: 5.0.101
     - name: Build with dotnet
       run: |
-        echo build start
+        echo Build AnyCPU start
         dotnet build -c Release
-        echo build complete
+        echo Build AnyCPU complete
         
-# Publish package to nuget
+# Build on Windows-x64
 
-  publish-nuget:
-    
+  build-windows-x64:
+
     runs-on: windows-latest
     
     steps:
-      - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v2.3.4
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1.7.2
+      with:
+        dotnet-version: 5.0.101
+    - name: Build with dotnet
+      run: |
+        echo Build x64 start
+        dotnet build -c Release /p:Platform=x64
+        echo Build x64 complete
+        
+# Publish package to nuget
 
-      # Required for a specific dotnet version that doesn't come with ubuntu-latest / windows-latest
-      # Visit bit.ly/2synnZl to see the list of SDKs that are pre-installed with ubuntu-latest / windows-latest
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v1.7.2
-        with:
-          dotnet-version: 5.0.101
+#   publish-nuget:
+    
+#     runs-on: windows-latest
+    
+#     steps:
+#       - uses: actions/checkout@v2.3.4
+
+#       # Required for a specific dotnet version that doesn't come with ubuntu-latest / windows-latest
+#       # Visit bit.ly/2synnZl to see the list of SDKs that are pre-installed with ubuntu-latest / windows-latest
+#       - name: Setup dotnet
+#         uses: actions/setup-dotnet@v1.7.2
+#         with:
+#           dotnet-version: 5.0.101
       
-      # Publish
-      - name: publish on version change
-        uses: brandedoutcast/publish-nuget@v2.5.5
-        with:
-          PROJECT_FILE_PATH: Jaml.Wpf/Jaml.Wpf.csproj # Relative to repository root
-          # VERSION_FILE_PATH: Directory.Build.props # Filepath with version info, relative to repository root. Defaults to project file
-          # VERSION_REGEX: <Version>(.*)<\/Version> # Regex pattern to extract version info in a capturing group
-          # TAG_COMMIT: true # Flag to enable / disalge git tagging
-          # TAG_FORMAT: v* # Format of the git tag, [*] gets replaced with version
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}} # nuget.org API key
-          PACKAGE_NAME: Jaml.Wpf
+#       # Publish
+#       - name: publish on version change
+#         uses: brandedoutcast/publish-nuget@v2.5.5
+#         with:
+#           PROJECT_FILE_PATH: Jaml.Wpf/Jaml.Wpf.csproj # Relative to repository root
+#           # VERSION_FILE_PATH: Directory.Build.props # Filepath with version info, relative to repository root. Defaults to project file
+#           # VERSION_REGEX: <Version>(.*)<\/Version> # Regex pattern to extract version info in a capturing group
+#           # TAG_COMMIT: true # Flag to enable / disalge git tagging
+#           # TAG_FORMAT: v* # Format of the git tag, [*] gets replaced with version
+#           NUGET_KEY: ${{secrets.NUGET_API_KEY}} # nuget.org API key
+#           PACKAGE_NAME: Jaml.Wpf
       
 # Unit tests on Windows
 # TODO
