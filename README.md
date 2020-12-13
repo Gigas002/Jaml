@@ -34,9 +34,15 @@ If you want to learn, what've been done in previous releases, take a look at [CH
 
 This project uses `Microsoft.NET.Sdk.WindowsDesktop`, so you you can only build and use it on **Windows** systems.
 
-Solution can be build in **VS2019 (16.4.6+)**. You can also use **VSCode (1.43.0+)** with **omnisharp-vscode (1.21.14+)** extension.
+Solution can be build in **VS2019 (16.8.3+)**. You can also use **VSCode (1.52.0+)** with **omnisharp-vscode (1.23.7+)** extension.
 
-Project targets **.NET Core 3.1**, so you'll need **.NET Core 3.1.102 SDK**.
+Project targets **.NET 5.0.1**, so you'll need **.NET 5.0.101 SDK**.
+
+## Dependencies
+
+**Build from source only:**
+
+- [Microsoft.CodeAnalysis.NetAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.NetAnalyzers/) -- 5.0.1;
 
 ## Documentation
 
