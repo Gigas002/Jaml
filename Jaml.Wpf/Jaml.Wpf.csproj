@@ -1,52 +1,55 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionSuffix>ci925</VersionSuffix>
+    <AssemblyVersion>0.1.0.964</AssemblyVersion>
+    <FileVersion>0.1.0.964</FileVersion>
     <Platforms>AnyCPU;x64</Platforms>
-    <AssemblyVersion>0.1.0.960</AssemblyVersion>
-    <FileVersion>0.1.0.960</FileVersion>
+    <Configurations>Debug;Release</Configurations>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.0-ci925</Version>
     <Authors>Gigas002</Authors>
+    <Company>Gigas002</Company>
     <Description>Jaml is an alternative to Xaml, that uses .json files instead</Description>
     <Copyright>Copyright © Gigas002 2020</Copyright>
-    <PackageLicenseExpression></PackageLicenseExpression>
-    <PackageTags>wpf jaml xaml analogue gui json</PackageTags>
-    <LangVersion>latest</LangVersion>
-    <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/Gigas002/Jaml</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Gigas002/Jaml</RepositoryUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <RepositoryType>git</RepositoryType>
+    <LangVersion>latest</LangVersion>
+    <PackageTags>wpf jaml xaml analogue gui json</PackageTags>
+    <PackageId>Jaml.Wpf</PackageId>
+    <Product>Jaml.Wpf</Product>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+  <PropertyGroup>
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <DocumentationFile>Jaml.Wpf.xml</DocumentationFile>
+    <AnalysisMode>AllEnabledByDefault</AnalysisMode>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <DocumentationFile></DocumentationFile>
-    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\gigas\Documents\Visual Studio 2019\Projects\Jaml\Jaml.Wpf\Jaml.Wpf.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <DocumentationFile>C:\Users\gigas\Documents\Visual Studio 2019\Projects\Jaml\Jaml.Wpf\Jaml.Wpf.xml</DocumentationFile>
+  <PropertyGroup Condition="('$(GITHUB_ACTIONS)' == 'true') Or ('$(APPVEYOR)' == 'true') Or ('$(APPVEYOR)' == 'True')">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\LICENSE.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Constants\" />
+    <None Include="..\LICENSE.md" Pack="true" PackagePath="$(PackageLicenseFile)" />
   </ItemGroup>
 
 </Project>
