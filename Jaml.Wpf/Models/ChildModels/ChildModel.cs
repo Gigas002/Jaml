@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Models.UIElementModels;
-using Jaml.Wpf.Providers.CommandProvider;
+using Jaml.Wpf.Providers.CommandProviders;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global

@@ -2,7 +2,7 @@
 using System.Windows;
 using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Models.StyleModels;
-using Jaml.Wpf.Providers.CommandProvider;
+using Jaml.Wpf.Providers.CommandProviders;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable UnusedMemberInSuper.Global

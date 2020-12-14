@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 using System.Windows.Controls.Primitives;
 using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Models.StyleModels;
-using Jaml.Wpf.Providers.CommandProvider;
+using Jaml.Wpf.Providers.CommandProviders;
 
 namespace Jaml.Wpf.Models.UIElementModels
 {

@@ -65,7 +65,7 @@
             </summary>
             <returns>Current <see cref="T:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1"/></returns>
         </member>
-        <member name="M:Jaml.Wpf.Models.ChildModels.ChildModel.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.ChildModels.ChildModel.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <summary>
             Convert this child to <see cref="T:System.Windows.UIElement"/>
             </summary>
@@ -73,7 +73,7 @@
             <param name="styleProvider"></param>
             <returns>Converted <see cref="T:System.Windows.UIElement"/></returns>
         </member>
-        <member name="M:Jaml.Wpf.Models.ChildModels.ChildModel.ToUIElement``1(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.ChildModels.ChildModel.ToUIElement``1(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <summary>
             Convert this child to <see cref="T:System.Windows.UIElement"/>
             </summary>
@@ -347,16 +347,16 @@
             Click mode
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonBaseModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonBaseModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonBaseModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonBaseModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonBaseModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonBaseModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonBaseModel`1.BindCommands(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonBaseModel`1.BindCommands(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.ButtonModel`1">
@@ -370,10 +370,10 @@
             Element's content
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ButtonModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel`1">
@@ -512,16 +512,16 @@
             
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel`1.BindCommands(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.FrameworkElementModel`1.BindCommands(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.GridModel`1">
@@ -540,10 +540,10 @@
             Collection of column definitions
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.GridModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.GridModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.GridModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.GridModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.ImageModel`1">
@@ -557,10 +557,10 @@
             Element's content
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ImageModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ImageModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.ImageModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.ImageModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1">
@@ -679,7 +679,7 @@
             
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <summary>
             Converts this model to one of <see cref="T:System.Windows.UIElement"/>'s children
             </summary>
@@ -687,7 +687,7 @@
             <param name="styleProvider">Style provider</param>
             <returns>Converted element</returns>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <summary>
             Bind this model properties to the target <see cref="T:System.Windows.UIElement"/>
             </summary>
@@ -695,7 +695,7 @@
             <param name="commandProvider">Command provider</param>
             <param name="styleProvider">Style provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <summary>
             Binds command to passed element
             </summary>
@@ -703,7 +703,7 @@
             <param name="commandModel">Model of command for element</param>
             <param name="commandProvider">Command provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1.BindCommands(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1.BindCommands(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <summary>
             Binds commands to passed element
             </summary>
@@ -766,16 +766,16 @@
             
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel`1.BindCommands(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.MediaElementModel`1.BindCommands(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.PanelModel`1">
@@ -799,10 +799,10 @@
             Is items host
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.PanelModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.PanelModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.PanelModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.PanelModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.UIElementModel`1">
@@ -874,16 +874,16 @@
         <member name="P:Jaml.Wpf.Models.UIElementModels.UIElementModel`1.OpacityMask">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel`1.BindCommands(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider)">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.UIElementModel`1.BindCommands(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.WindowModel`1">
@@ -897,10 +897,10 @@
             Content of the window
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.WindowModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.WindowModel`1.ToUIElement(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Models.UIElementModels.WindowModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProvider.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
+        <member name="M:Jaml.Wpf.Models.UIElementModels.WindowModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
             <inheritdoc />
         </member>
         <member name="T:Jaml.Wpf.Parsers.PropertyParser">
@@ -962,85 +962,85 @@
             <param name="rowDefinition">Row definition string</param>
             <returns>Row definition</returns>
         </member>
-        <member name="T:Jaml.Wpf.Providers.CommandProvider.CommandProvider">
+        <member name="T:Jaml.Wpf.Providers.CommandProviders.CommandProvider">
             <inheritdoc />
         </member>
-        <member name="P:Jaml.Wpf.Providers.CommandProvider.CommandProvider.Commands">
+        <member name="P:Jaml.Wpf.Providers.CommandProviders.CommandProvider.Commands">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.CommandProvider.#ctor(System.Collections.Generic.Dictionary{System.String,System.Action{System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel}}})">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.CommandProvider.#ctor(System.Collections.Generic.Dictionary{System.String,System.Action{System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel}}})">
             <summary>
-            Creates a new <see cref="T:Jaml.Wpf.Providers.CommandProvider.CommandProvider"/> with specified commands
+            Creates a new <see cref="T:Jaml.Wpf.Providers.CommandProviders.CommandProvider"/> with specified commands
             </summary>
             <param name="commands">Commands for this provider</param>
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.CommandProvider.#ctor">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.CommandProvider.#ctor">
             <summary>
-            Creates a new <see cref="T:Jaml.Wpf.Providers.CommandProvider.CommandProvider"/> with empty dictionary of commands
+            Creates a new <see cref="T:Jaml.Wpf.Providers.CommandProviders.CommandProvider"/> with empty dictionary of commands
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.CommandProvider.RegisterCommands(System.Collections.Generic.Dictionary{System.String,System.Action{System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel}}})">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.CommandProvider.RegisterCommands(System.Collections.Generic.Dictionary{System.String,System.Action{System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel}}})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.CommandProvider.UnregisterCommands(System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.CommandProvider.UnregisterCommands(System.Collections.Generic.IEnumerable{System.String})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.CommandProvider.ClearCommands">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.CommandProvider.ClearCommands">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.CommandProvider.RegisterCommand(System.String,System.Action{System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel}})">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.CommandProvider.RegisterCommand(System.String,System.Action{System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel}})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.CommandProvider.UnregisterCommand(System.String)">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.CommandProvider.UnregisterCommand(System.String)">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.CommandProvider.RunCommand(System.String,System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel})">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.CommandProvider.RunCommand(System.String,System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel})">
             <inheritdoc />
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.CommandProvider.GetCommand(System.String)">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.CommandProvider.GetCommand(System.String)">
             <inheritdoc />
         </member>
-        <member name="T:Jaml.Wpf.Providers.CommandProvider.ICommandProvider">
+        <member name="T:Jaml.Wpf.Providers.CommandProviders.ICommandProvider">
             <summary>
             Base interface for command operations
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Providers.CommandProvider.ICommandProvider.Commands">
+        <member name="P:Jaml.Wpf.Providers.CommandProviders.ICommandProvider.Commands">
             <summary>
             Dictionary of commands. Key is name, and Value is action to run
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.ICommandProvider.RegisterCommands(System.Collections.Generic.Dictionary{System.String,System.Action{System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel}}})">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.ICommandProvider.RegisterCommands(System.Collections.Generic.Dictionary{System.String,System.Action{System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel}}})">
             <summary>
             Registers all commands from dictionary
             </summary>
             <param name="commands">Dictionary to register</param>
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.ICommandProvider.UnregisterCommands(System.Collections.Generic.IEnumerable{System.String})">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.ICommandProvider.UnregisterCommands(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
             Delete collection of commands with specified keys
             </summary>
             <param name="commandNames">Collection of keys to delete from dictionary</param>
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.ICommandProvider.ClearCommands">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.ICommandProvider.ClearCommands">
             <summary>
             Clears dictionary of commands
             </summary>
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.ICommandProvider.RegisterCommand(System.String,System.Action{System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel}})">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.ICommandProvider.RegisterCommand(System.String,System.Action{System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel}})">
             <summary>
             Registers one command
             </summary>
             <param name="commandName">Name of command</param>
             <param name="action">Action to run</param>
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.ICommandProvider.UnregisterCommand(System.String)">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.ICommandProvider.UnregisterCommand(System.String)">
             <summary>
             Delete the specified command from dictionary
             </summary>
             <param name="commandName">Command name to delete</param>
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.ICommandProvider.RunCommand(System.String,System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel})">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.ICommandProvider.RunCommand(System.String,System.Object,System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.CommandModels.ICommandArgModel})">
             <summary>
             Starts the command
             </summary>
@@ -1048,7 +1048,7 @@
             <param name="sender">Sender of command</param>
             <param name="args">Arguments for command</param>
         </member>
-        <member name="M:Jaml.Wpf.Providers.CommandProvider.ICommandProvider.GetCommand(System.String)">
+        <member name="M:Jaml.Wpf.Providers.CommandProviders.ICommandProvider.GetCommand(System.String)">
             <summary>
             Gets command by name
             </summary>

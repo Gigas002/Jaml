@@ -6,7 +6,7 @@ using System.Windows.Markup;
 using System.Windows.Media;
 using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Models.StyleModels;
-using Jaml.Wpf.Providers.CommandProvider;
+using Jaml.Wpf.Providers.CommandProviders;
 
 // ReSharper disable MemberCanBeProtected.Global
 // ReSharper disable MemberCanBePrivate.Global

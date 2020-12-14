@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Jaml.Wpf.Models.CommandModels;
 
-namespace Jaml.Wpf.Providers.CommandProvider
+namespace Jaml.Wpf.Providers.CommandProviders
 {
     /// <summary>
     /// Base interface for command operations

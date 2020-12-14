@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 using System.Windows.Controls;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
-using Jaml.Wpf.Providers.CommandProvider;
+using Jaml.Wpf.Providers.CommandProviders;
 
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable AutoPropertyCanBeMadeGetOnly.Global
