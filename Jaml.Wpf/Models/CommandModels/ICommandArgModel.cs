@@ -1,7 +1,7 @@
 ﻿namespace Jaml.Wpf.Models.CommandModels
 {
     /// <summary>
-    /// Vase interface for command's arg model
+    /// Base interface for command's arg model
     /// </summary>
     public interface ICommandArgModel
     {

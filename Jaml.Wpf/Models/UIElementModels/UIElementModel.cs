@@ -277,587 +277,656 @@ namespace Jaml.Wpf.Models.UIElementModels
             switch (eventName)
             {
                 case DragEnter:
-                    {
-                        element.DragEnter += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.DragEnter += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case DragLeave:
-                    {
-                        element.DragLeave += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.DragLeave += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case DragOver:
-                    {
-                        element.DragOver += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.DragOver += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case Drop:
-                    {
-                        element.Drop += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.Drop += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case FocusableChanged:
-                    {
-                        element.FocusableChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.FocusableChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case GiveFeedback:
-                    {
-                        element.GiveFeedback += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.GiveFeedback += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case GotFocus:
-                    {
-                        element.GotFocus += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.GotFocus += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case GotKeyboardFocus:
-                    {
-                        element.GotKeyboardFocus += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.GotKeyboardFocus += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case GotMouseCapture:
-                    {
-                        element.GotMouseCapture += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.GotMouseCapture += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case GotStylusCapture:
-                    {
-                        element.GotStylusCapture += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.GotStylusCapture += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case GotTouchCapture:
-                    {
-                        element.GotTouchCapture += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.GotTouchCapture += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsEnabledChanged:
-                    {
-                        element.IsEnabledChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsEnabledChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsHitTestVisibleChanged:
-                    {
-                        element.IsHitTestVisibleChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsHitTestVisibleChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsKeyboardFocusedChanged:
-                    {
-                        element.IsKeyboardFocusedChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsKeyboardFocusedChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsKeyboardFocusWithinChanged:
-                    {
-                        element.IsKeyboardFocusWithinChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsKeyboardFocusWithinChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsMouseCapturedChanged:
-                    {
-                        element.IsMouseCapturedChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsMouseCapturedChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsMouseCaptureWithinChanged:
-                    {
-                        element.IsMouseCaptureWithinChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsMouseCaptureWithinChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsMouseDirectlyOverChanged:
-                    {
-                        element.IsMouseDirectlyOverChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsMouseDirectlyOverChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsStylusCapturedChanged:
-                    {
-                        element.IsStylusCapturedChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsStylusCapturedChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsStylusCaptureWithinChanged:
-                    {
-                        element.IsStylusCaptureWithinChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsStylusCaptureWithinChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsStylusDirectlyOverChanged:
-                    {
-                        element.IsStylusDirectlyOverChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsStylusDirectlyOverChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case IsVisibleChanged:
-                    {
-                        element.IsVisibleChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.IsVisibleChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case KeyDown:
-                    {
-                        element.KeyDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.KeyDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case KeyUp:
-                    {
-                        element.KeyUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.KeyUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case LayoutUpdated:
-                    {
-                        element.LayoutUpdated += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.LayoutUpdated += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case LostFocus:
-                    {
-                        element.LostFocus += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.LostFocus += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case LostKeyboardFocus:
-                    {
-                        element.LostKeyboardFocus += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.LostKeyboardFocus += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case LostMouseCapture:
-                    {
-                        element.LostMouseCapture += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.LostMouseCapture += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case LostStylusCapture:
-                    {
-                        element.LostStylusCapture += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.LostStylusCapture += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case LostTouchCapture:
-                    {
-                        element.LostTouchCapture += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.LostTouchCapture += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case ManipulationBoundaryFeedback:
-                    {
-                        element.ManipulationBoundaryFeedback += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ManipulationBoundaryFeedback += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case ManipulationCompleted:
-                    {
-                        element.ManipulationCompleted += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ManipulationCompleted += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case ManipulationDelta:
-                    {
-                        element.ManipulationDelta += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ManipulationDelta += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case ManipulationInertiaStarting:
-                    {
-                        element.ManipulationInertiaStarting += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ManipulationInertiaStarting += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case ManipulationStarted:
-                    {
-                        element.ManipulationStarted += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ManipulationStarted += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case ManipulationStarting:
-                    {
-                        element.ManipulationStarting += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ManipulationStarting += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MouseDown:
-                    {
-                        element.MouseDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MouseEnter:
-                    {
-                        element.MouseEnter += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseEnter += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MouseLeave:
-                    {
-                        element.MouseLeave += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseLeave += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MouseLeftButtonDown:
-                    {
-                        element.MouseLeftButtonDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseLeftButtonDown += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MouseLeftButtonUp:
-                    {
-                        element.MouseLeftButtonUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseLeftButtonUp += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MouseMove:
-                    {
-                        element.MouseMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MouseRightButtonDown:
-                    {
-                        element.MouseRightButtonDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseRightButtonDown += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MouseRightButtonUp:
-                    {
-                        element.MouseRightButtonUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseRightButtonUp += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MouseUp:
-                    {
-                        element.MouseUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MouseWheel:
-                    {
-                        element.MouseWheel += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MouseWheel += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewDragEnter:
-                    {
-                        element.PreviewDragEnter += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewDragEnter += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewDragLeave:
-                    {
-                        element.PreviewDragLeave += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewDragLeave += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewDragOver:
-                    {
-                        element.PreviewDragOver += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewDragOver += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewDrop:
-                    {
-                        element.PreviewDrop += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewDrop += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewGiveFeedback:
-                    {
-                        element.PreviewGiveFeedback += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewGiveFeedback += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewGotKeyboardFocus:
-                    {
-                        element.PreviewGotKeyboardFocus += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewGotKeyboardFocus += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewKeyDown:
-                    {
-                        element.PreviewKeyDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewKeyDown += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewKeyUp:
-                    {
-                        element.PreviewKeyUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewKeyUp += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewLostKeyboardFocus:
-                    {
-                        element.PreviewLostKeyboardFocus += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewLostKeyboardFocus += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewMouseDown:
-                    {
-                        element.PreviewMouseDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewMouseDown += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewMouseLeftButtonDown:
-                    {
-                        element.PreviewMouseLeftButtonDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewMouseLeftButtonDown += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewMouseLeftButtonUp:
-                    {
-                        element.PreviewMouseLeftButtonUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewMouseLeftButtonUp += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewMouseMove:
-                    {
-                        element.PreviewMouseMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewMouseMove += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewMouseRightButtonDown:
-                    {
-                        element.PreviewMouseRightButtonDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewMouseRightButtonDown += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewMouseRightButtonUp:
-                    {
-                        element.PreviewMouseRightButtonUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewMouseRightButtonUp += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewMouseUp:
-                    {
-                        element.PreviewMouseUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewMouseUp += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewMouseWheel:
-                    {
-                        element.PreviewMouseWheel += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewMouseWheel += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewQueryContinueDrag:
-                    {
-                        element.PreviewQueryContinueDrag += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewQueryContinueDrag += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewStylusButtonDown:
-                    {
-                        element.PreviewStylusButtonDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewStylusButtonDown += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewStylusButtonUp:
-                    {
-                        element.PreviewStylusButtonUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewStylusButtonUp += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewStylusDown:
-                    {
-                        element.PreviewStylusDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewStylusDown += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewStylusInAirMove:
-                    {
-                        element.PreviewStylusInAirMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewStylusInAirMove += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewStylusInRange:
-                    {
-                        element.PreviewStylusInRange += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewStylusInRange += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewStylusMove:
-                    {
-                        element.PreviewStylusMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewStylusMove += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewStylusOutOfRange:
-                    {
-                        element.PreviewStylusOutOfRange += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewStylusOutOfRange += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewStylusSystemGesture:
-                    {
-                        element.PreviewStylusSystemGesture += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewStylusSystemGesture += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewStylusUp:
-                    {
-                        element.PreviewStylusUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewStylusUp += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewTextInput:
-                    {
-                        element.PreviewTextInput += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewTextInput += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewTouchDown:
-                    {
-                        element.PreviewTouchDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewTouchDown += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewTouchMove:
-                    {
-                        element.PreviewTouchMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewTouchMove += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case PreviewTouchUp:
-                    {
-                        element.PreviewTouchUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.PreviewTouchUp += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case QueryContinueDrag:
-                    {
-                        element.QueryContinueDrag += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.QueryContinueDrag += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case QueryCursor:
-                    {
-                        element.QueryCursor += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.QueryCursor += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusButtonDown:
-                    {
-                        element.StylusButtonDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusButtonDown += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusButtonUp:
-                    {
-                        element.StylusButtonUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusButtonUp += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusDown:
-                    {
-                        element.StylusDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusEnter:
-                    {
-                        element.StylusEnter += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusEnter += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusInAirMove:
-                    {
-                        element.StylusInAirMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusInAirMove += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusInRange:
-                    {
-                        element.StylusInRange += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusInRange += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusLeave:
-                    {
-                        element.StylusLeave += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusLeave += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusMove:
-                    {
-                        element.StylusMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusOutOfRange:
-                    {
-                        element.StylusOutOfRange += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusOutOfRange += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusSystemGesture:
-                    {
-                        element.StylusSystemGesture += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusSystemGesture += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case StylusUp:
-                    {
-                        element.StylusUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.StylusUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case TextInput:
-                    {
-                        element.TextInput += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.TextInput += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case TouchDown:
-                    {
-                        element.TouchDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.TouchDown += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case TouchEnter:
-                    {
-                        element.TouchEnter += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.TouchEnter += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case TouchLeave:
-                    {
-                        element.TouchLeave += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.TouchLeave += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case TouchMove:
-                    {
-                        element.TouchMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.TouchMove += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case TouchUp:
-                    {
-                        element.TouchUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.TouchUp += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
 
                 default:
-                    {
-                        break;
-                        //throw new NotSupportedException($"Event {eventName} is not supported.");
-                    }
+                {
+                    break;
+                    //throw new NotSupportedException($"Event {eventName} is not supported.");
+                }
             }
         }
 

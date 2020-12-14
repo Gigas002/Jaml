@@ -63,7 +63,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         [JsonPropertyName("Volume")]
         public double Volume { get; set; } = 0.5;
 
-        #region WIP
+        #region TODO
 
         /// <summary>
         /// 
@@ -110,6 +110,8 @@ namespace Jaml.Wpf.Models.UIElementModels
 
             BindProperties(element);
 
+            BindCommands(element, commandProvider);
+
             return element;
         }
 
@@ -142,6 +144,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <inheritdoc />
         public new void BindCommand(T element, ICommandModel commandModel, ICommandProvider commandProvider)
         {
+            if (element is null) throw new UIException(nameof(element));
             if (commandModel is null) throw new UIException(nameof(commandModel));
 
             string eventName = commandModel.EventName;
@@ -151,47 +154,44 @@ namespace Jaml.Wpf.Models.UIElementModels
             switch (eventName)
             {
                 case BufferingEnded:
-                    {
-                        if (element is MediaElement mediaElement)
-                            mediaElement.BufferingEnded += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.BufferingEnded += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case BufferingStarted:
-                    {
-                        if (element is MediaElement mediaElement)
-                            mediaElement.BufferingStarted += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.BufferingStarted += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MediaEnded:
-                    {
-                        if (element is MediaElement mediaElement)
-                            mediaElement.MediaEnded += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MediaEnded += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MediaFailed:
-                    {
-                        if (element is MediaElement mediaElement)
-                            mediaElement.MediaFailed += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MediaFailed += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case MediaOpened:
-                    {
-                        if (element is MediaElement mediaElement)
-                            mediaElement.MediaOpened += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.MediaOpened += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case ScriptCommand:
-                    {
-                        if (element is MediaElement mediaElement)
-                            mediaElement.ScriptCommand += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ScriptCommand += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
 
                 default:
                 {
