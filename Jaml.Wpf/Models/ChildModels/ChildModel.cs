@@ -55,7 +55,9 @@ namespace Jaml.Wpf.Models.ChildModels
         {
             foreach (PropertyInfo property in GetType().GetProperties())
             {
+#pragma warning disable IDE0008 // Use explicit type
                 var thisModel = property.GetValue(this, null);
+#pragma warning restore IDE0008 // Use explicit type
 
                 if (thisModel != null) return thisModel;
             }
@@ -71,7 +73,9 @@ namespace Jaml.Wpf.Models.ChildModels
         {
             foreach (PropertyInfo property in GetType().GetProperties())
             {
+#pragma warning disable IDE0008 // Use explicit type
                 var thisModel = property.GetValue(this, null);
+#pragma warning restore IDE0008 // Use explicit type
 
                 if (thisModel != null) return thisModel as IUIElementModel<T>;
             }

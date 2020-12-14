@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Jaml.Wpf.Exceptions;
 using Jaml.Wpf.Models.CommandModels;
 
 namespace Jaml.Wpf.Providers.CommandProviders
@@ -36,6 +37,8 @@ namespace Jaml.Wpf.Providers.CommandProviders
         /// <inheritdoc />
         public void RegisterCommands(Dictionary<string, Action<object, IEnumerable<ICommandArgModel>>> commands)
         {
+            if (commands is null) throw new CommandException(nameof(commands));
+
             foreach ((string commandName, Action<object, IEnumerable<ICommandArgModel>> command) in commands)
                 RegisterCommand(commandName, command);
         }
@@ -43,6 +46,8 @@ namespace Jaml.Wpf.Providers.CommandProviders
         /// <inheritdoc />
         public void UnregisterCommands(IEnumerable<string> commandNames)
         {
+            if (commandNames is null) throw new CommandException(nameof(commandNames));
+
             foreach (string commandName in commandNames) UnregisterCommand(commandName);
         }
 
@@ -50,8 +55,8 @@ namespace Jaml.Wpf.Providers.CommandProviders
         public void ClearCommands() => Commands.Clear();
 
         /// <inheritdoc />
-        public void RegisterCommand(string commandName, Action<object, IEnumerable<ICommandArgModel>> command) =>
-            Commands.TryAdd(commandName, command);
+        public void RegisterCommand(string commandName, Action<object, IEnumerable<ICommandArgModel>> action) =>
+            Commands.TryAdd(commandName, action);
 
         /// <inheritdoc />
         public void UnregisterCommand(string commandName) => Commands.Remove(commandName);
