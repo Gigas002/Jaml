@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows.Controls;
+using Jaml.Wpf.Exceptions;
 using Jaml.Wpf.Models.ChildModels;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Parsers;
@@ -51,6 +52,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <inheritdoc />
         public new void BindProperties(T element, ICommandProvider commandProvider = null, IList<StyleModel> styleModels = null)
         {
+            if (element is null) throw new UIException(nameof(element));
+
             element.Background = PropertyParser.ParseBackground(Background);
 
             //Bind panel's children

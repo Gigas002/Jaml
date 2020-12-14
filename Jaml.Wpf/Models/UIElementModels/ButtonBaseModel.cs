@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows.Controls.Primitives;
+using Jaml.Wpf.Exceptions;
 using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProviders;
@@ -48,7 +49,11 @@ namespace Jaml.Wpf.Models.UIElementModels
         public new void BindProperties(T element, ICommandProvider commandProvider = null,
                                        IList<StyleModel> styleModels = null)
         {
-            Enum.TryParse(ClickMode, out System.Windows.Controls.ClickMode clickMode);
+            if (element is null) throw new UIException(nameof(element));
+
+            bool isParsed = Enum.TryParse(ClickMode, out System.Windows.Controls.ClickMode clickMode);
+            clickMode = isParsed ? clickMode : default;
+
             element.ClickMode = clickMode;
             //element.Command;
             //element.CommandParameter;
@@ -58,6 +63,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <inheritdoc />
         public new void BindCommand(T element, ICommandModel commandModel, ICommandProvider commandProvider)
         {
+            if (commandModel is null) throw new UIException(nameof(commandModel));
+
             string eventName = commandModel.Event;
             string methodName = commandModel.Method;
             IEnumerable<ICommandArgModel> methodArgs = commandModel.Args;

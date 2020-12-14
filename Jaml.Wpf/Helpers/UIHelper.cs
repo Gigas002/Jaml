@@ -20,6 +20,7 @@ namespace Jaml.Wpf.Helpers
         {
             ImageBrush imageBrush;
 
+#pragma warning disable CA1031 // Do not catch general exception types
             try { imageBrush = new ImageBrush(new BitmapImage(PathsHelper.GetUriFromRelativePath(imagePath))); }
             catch (Exception)
             {
@@ -28,6 +29,7 @@ namespace Jaml.Wpf.Helpers
                 //#endif
                 return Brushes.Transparent;
             }
+#pragma warning restore CA1031 // Do not catch general exception types
 
             return imageBrush;
         }

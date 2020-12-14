@@ -139,7 +139,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// Converts this model to one of <see cref="UIElement"/>'s children
         /// </summary>
         /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
+        /// <param name="styleModels">Collection of <see cref="StyleModel"/></param>
         /// <returns>Converted element</returns>
         public T ToUIElement(ICommandProvider commandProvider, IList<StyleModel> styleModels);
 
@@ -148,7 +148,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// </summary>
         /// <param name="element">Target element</param>
         /// <param name="commandProvider">Command provider</param>
-        /// <param name="styleProvider">Style provider</param>
+        /// <param name="styleModels">Collection of <see cref="StyleModel"/></param>
         public void BindProperties(T element, ICommandProvider commandProvider, IList<StyleModel> styleModels);
 
         /// <summary>

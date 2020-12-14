@@ -83,7 +83,7 @@ namespace Jaml.Wpf.Models.ChildModels
         /// Convert this child to <see cref="UIElement"/>
         /// </summary>
         /// <param name="commandProvider"></param>
-        /// <param name="styleProvider"></param>
+        /// <param name="styleModels">Collection of <see cref="StyleModel"/></param>
         /// <returns>Converted <see cref="UIElement"/></returns>
         public UIElement ToUIElement(ICommandProvider commandProvider = null,
                                      IList<StyleModel> styleModels = null)
@@ -98,7 +98,7 @@ namespace Jaml.Wpf.Models.ChildModels
         /// </summary>
         /// <typeparam name="T">Children of <see cref="UIElement"/></typeparam>
         /// <param name="commandProvider"></param>
-        /// <param name="styleProvider"></param>
+        /// <param name="styleModels">Collection of <see cref="StyleModel"/></param>
         /// <returns>Converted <see cref="UIElement"/></returns>
         public T ToUIElement<T>(ICommandProvider commandProvider = null, IList<StyleModel> styleModels = null) where T : UIElement, new()
         {

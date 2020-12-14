@@ -15,7 +15,7 @@ namespace Jaml.Wpf.Models.StyleModels
     // ReSharper disable once ClassNeverInstantiated.Global
 
     /// <summary>
-    /// Basic class, that implements the <see cref="T:Jaml.Wpf.Models.StyleModels.IStyleModel" />
+    /// Basic class, that implements the <see cref="IStyleModel" />
     /// </summary>
     public class StyleModel : IStyleModel
     {
@@ -70,7 +70,8 @@ namespace Jaml.Wpf.Models.StyleModels
             Brush foreground = PropertyParser.ConvertArgbToBrush(Foreground);
             Brush background = PropertyParser.ParseBackground(Background);
             Thickness borderThickness = new Thickness(BorderThickness);
-            Enum.TryParse(Visibility, out Visibility visibility);
+            bool isParsed = Enum.TryParse(Visibility, out Visibility visibility);
+            visibility = isParsed ? visibility : default;
 
             style.Setters.Add(new Setter { Property = Control.FontWeightProperty, Value = fontWeight });
             style.Setters.Add(new Setter { Property = Control.FontStyleProperty, Value = fontStyle });
@@ -91,9 +92,22 @@ namespace Jaml.Wpf.Models.StyleModels
             return style;
         }
 
+        /// <summary>
+        /// Get style model by id from collection
+        /// </summary>
+        /// <param name="styleModels"></param>
+        /// <param name="styleId"></param>
+        /// <returns></returns>
         public static IStyleModel TryGetStyleModel(IEnumerable<StyleModel> styleModels, int styleId) =>
             styleModels?.FirstOrDefault(sm => sm.Id == styleId);
 
+        /// <summary>
+        /// Get style from stylemodel collection by id
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="styleModels"></param>
+        /// <param name="styleId"></param>
+        /// <returns></returns>
         public static T TryGetStyle<T>(IEnumerable<StyleModel> styleModels, int styleId) where T : Style, new() =>
             TryGetStyleModel(styleModels, styleId)?.ToStyle<T>();
     }

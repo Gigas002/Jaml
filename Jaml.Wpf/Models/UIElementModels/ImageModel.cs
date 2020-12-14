@@ -2,6 +2,7 @@
 using System.Text.Json.Serialization;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
+using Jaml.Wpf.Exceptions;
 using Jaml.Wpf.Helpers;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProviders;
@@ -40,6 +41,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         public new void BindProperties(T element, ICommandProvider commandProvider = null,
                                        IList<StyleModel> styleModels = null)
         {
+            if (element is null) throw new UIException(nameof(element));
+
             if (!string.IsNullOrWhiteSpace(Source))
                 element.Source = new BitmapImage(PathsHelper.GetUriFromRelativePath(Source));
         }

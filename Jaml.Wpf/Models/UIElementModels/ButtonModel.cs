@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows.Controls;
+using Jaml.Wpf.Exceptions;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProviders;
 
@@ -38,6 +39,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         public new void BindProperties(T element, ICommandProvider commandProvider = null,
                                        IList<StyleModel> styleModels = null)
         {
+            if (element is null) throw new UIException(nameof(element));
+
             element.Content = Content;
         }
     }

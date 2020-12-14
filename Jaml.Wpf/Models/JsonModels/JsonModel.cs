@@ -21,6 +21,7 @@ namespace Jaml.Wpf.Models.JsonModels
         public static T GetModel<T>(string filePath) where T : IJsonModel
         {
             byte[] bytes = File.ReadAllBytes(filePath);
+
             return JsonSerializer.Deserialize<T>(GetReadOnlySpan(bytes));
         }
 
@@ -30,12 +31,18 @@ namespace Jaml.Wpf.Models.JsonModels
         /// <typeparam name="T">Children of <see cref="IJsonModel"/></typeparam>
         /// <param name="filePath">Path to json file to parse</param>
         /// <returns>Parsed model</returns>
-        public static ValueTask<T> GetModelAsync<T>(string filePath) where T : IJsonModel => JsonSerializer.DeserializeAsync<T>(File.OpenRead(filePath));
+        public static ValueTask<T> GetModelAsync<T>(string filePath) where T : IJsonModel
+        {
+            using FileStream fileStream = File.OpenRead(filePath);
+
+            return JsonSerializer.DeserializeAsync<T>(fileStream);
+        }
 
         /// <inheritdoc />
         public T GetJsonModel<T>(string filePath) where T : IJsonModel
         {
             byte[] bytes = File.ReadAllBytes(filePath);
+
             return JsonSerializer.Deserialize<T>(GetReadOnlySpan(bytes));
         }
     }

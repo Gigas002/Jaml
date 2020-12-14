@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text.Json.Serialization;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Jaml.Wpf.Exceptions;
 using Jaml.Wpf.Helpers;
 using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Models.StyleModels;
@@ -67,7 +68,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <summary>
         /// 
         /// </summary>
-        public MediaClock Clock { get; } = null;
+        public MediaClock Clock { get; }
 
         /// <summary>
         /// 
@@ -116,13 +117,15 @@ namespace Jaml.Wpf.Models.UIElementModels
         public new void BindProperties(T element, ICommandProvider commandProvider = null,
                                        IList<StyleModel> styleModels = null)
         {
+            if (element is null) throw new UIException(nameof(element));
+
             element.Balance = Balance;
             element.Clock = Clock;
             element.IsMuted = IsMuted;
             element.LoadedBehavior = LoadedBehavior;
 
-            TimeSpan.TryParse(Position, out TimeSpan positionTimeSpan);
-            element.Position = positionTimeSpan;
+            bool isParsed = TimeSpan.TryParse(Position, out TimeSpan positionTimeSpan);
+            element.Position = isParsed ? positionTimeSpan : default;
 
             element.ScrubbingEnabled = ScrubbingEnabled;
 
@@ -139,6 +142,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         /// <inheritdoc />
         public new void BindCommand(T element, ICommandModel commandModel, ICommandProvider commandProvider)
         {
+            if (commandModel is null) throw new UIException(nameof(commandModel));
+
             string eventName = commandModel.Event;
             string methodName = commandModel.Method;
             IEnumerable<ICommandArgModel> methodArgs = commandModel.Args;

@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media;
+using Jaml.Wpf.Exceptions;
 using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProviders;
@@ -211,20 +212,22 @@ namespace Jaml.Wpf.Models.UIElementModels
         public new void BindProperties(T element, ICommandProvider commandProvider = null,
                                        IList<StyleModel> styleModels = null)
         {
+            if (element is null) throw new UIException(nameof(element));
+
             //element.BindingGroup = default;
             //element.ContextMenu = default;
             //element.Cursor = default;
             //element.DataContext =
-            Enum.TryParse(FlowDirection, out FlowDirection flowDirection);
-            element.FlowDirection = flowDirection;
+            bool isParsed = Enum.TryParse(FlowDirection, out FlowDirection flowDirection);
+            element.FlowDirection = isParsed ? flowDirection : default;
 
             //Bind focus visual style
             element.FocusVisualStyle = StyleModel.TryGetStyle<Style>(styleModels, FocusVisualStyleId);
 
             element.ForceCursor = ForceCursor;
             element.Height = Height;
-            Enum.TryParse(HorizontalAlignment, out HorizontalAlignment horizontalAlignment);
-            element.HorizontalAlignment = horizontalAlignment;
+            isParsed = Enum.TryParse(HorizontalAlignment, out HorizontalAlignment horizontalAlignment);
+            element.HorizontalAlignment = isParsed ? horizontalAlignment : default;
             //element.InputScope
             if (!string.IsNullOrWhiteSpace(Language))
                 element.Language = XmlLanguage.GetLanguage(Language);
@@ -245,15 +248,18 @@ namespace Jaml.Wpf.Models.UIElementModels
             //element.Tag;
             //element.ToolTip;
             element.UseLayoutRounding = UseLayoutRounding;
-            Enum.TryParse(VerticalAlignment, out VerticalAlignment verticalAlignment);
-            element.VerticalAlignment = verticalAlignment;
+            isParsed = Enum.TryParse(VerticalAlignment, out VerticalAlignment verticalAlignment);
+            element.VerticalAlignment = isParsed ? verticalAlignment : default;
             element.Width = Width;
         }
 
         /// <inheritdoc />
         public new void BindCommand(T element, ICommandModel commandModel, ICommandProvider commandProvider)
         {
-            if (commandProvider == null) return;
+            if (element is null) throw new UIException(nameof(element));
+            if (commandModel is null) throw new UIException(nameof(commandModel));
+
+            if (commandProvider is null) return;
 
             string eventName = commandModel.Event;
             string methodName = commandModel.Method;
@@ -262,90 +268,86 @@ namespace Jaml.Wpf.Models.UIElementModels
             switch (eventName)
             {
                 case ContextMenuClosing:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.ContextMenuClosing += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ContextMenuClosing += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case ContextMenuOpening:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.ContextMenuOpening += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ContextMenuOpening += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case DataContextChanged:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.DataContextChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.DataContextChanged += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case Initialized:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.Initialized += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.Initialized += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case Loaded:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.Loaded += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.Loaded += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case RequestBringIntoView:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.RequestBringIntoView += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.RequestBringIntoView += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case SizeChanged:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.SizeChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.SizeChanged += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case SourceUpdated:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.SourceUpdated += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.SourceUpdated += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case TargetUpdated:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.TargetUpdated += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.TargetUpdated += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case ToolTipClosing:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.ToolTipClosing += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ToolTipClosing += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
                 case ToolTipOpening:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.ToolTipOpening += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.ToolTipOpening += (sender, args) =>
+                        commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
 
                 case Unloaded:
-                    {
-                        if (element is FrameworkElement frameworkElement)
-                            frameworkElement.Unloaded += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
+                {
+                    element.Unloaded += (sender, args) => commandProvider.RunCommand(methodName, sender, methodArgs);
 
-                        break;
-                    }
+                    break;
+                }
 
                 default:
                 {

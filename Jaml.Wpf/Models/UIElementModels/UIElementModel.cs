@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Jaml.Wpf.Exceptions;
 using Jaml.Wpf.Models.CommandModels;
 using Jaml.Wpf.Models.StyleModels;
 using Jaml.Wpf.Providers.CommandProviders;
@@ -237,6 +238,8 @@ namespace Jaml.Wpf.Models.UIElementModels
         public virtual void BindProperties(T element, ICommandProvider commandProvider = null,
                                            IList<StyleModel> styleModels = null)
         {
+            if (element == null) throw new UIException(nameof(element));
+
             element.AllowDrop = AllowDrop;
             //element.CacheMode = default;
             if (!string.IsNullOrWhiteSpace(Clip))
@@ -257,13 +260,16 @@ namespace Jaml.Wpf.Models.UIElementModels
                 element.RenderTransformOrigin = Point.Parse(RenderTransformOrigin);
             element.SnapsToDevicePixels = SnapsToDevicePixels;
             element.Uid = Uid;
-            Enum.TryParse(Visibility, out Visibility visibility);
-            element.Visibility = visibility;
+            bool isParsed = Enum.TryParse(Visibility, out Visibility visibility);
+            element.Visibility = isParsed ? visibility : default;
         }
 
         /// <inheritdoc />
         public virtual void BindCommand(T element, ICommandModel commandModel, ICommandProvider commandProvider)
         {
+            if (element is null) throw new UIException(nameof(element));
+            if (commandModel is null) throw new UIException(nameof(commandModel));
+
             string eventName = commandModel.Event;
             string methodName = commandModel.Method;
             IEnumerable<ICommandArgModel> methodArgs = commandModel.Args;

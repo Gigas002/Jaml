@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -61,12 +62,16 @@ namespace Jaml.Wpf.Parsers
         {
             if (string.IsNullOrWhiteSpace(argbString)) return new SolidColorBrush(Colors.White);
 
-            string[] argb = argbString.Trim().Replace(" ", string.Empty).Split(',');
+            string[] argb = argbString.Trim().Replace(" ", string.Empty, StringComparison.InvariantCulture).Split(',');
 
-            byte.TryParse(argb[0], out byte a);
-            byte.TryParse(argb[1], out byte r);
-            byte.TryParse(argb[2], out byte g);
-            byte.TryParse(argb[3], out byte b);
+            bool isParsed = byte.TryParse(argb[0], out byte a);
+            a = isParsed ? a : default;
+            isParsed = byte.TryParse(argb[1], out byte r);
+            r = isParsed ? r : default;
+            isParsed = byte.TryParse(argb[2], out byte g);
+            g = isParsed ? g : default;
+            isParsed = byte.TryParse(argb[3], out byte b);
+            b = isParsed ? b : default;
 
             return new SolidColorBrush(Color.FromArgb(a, r, g, b));
         }

@@ -82,7 +82,7 @@
             Convert this child to <see cref="T:System.Windows.UIElement"/>
             </summary>
             <param name="commandProvider"></param>
-            <param name="styleProvider"></param>
+            <param name="styleModels">Collection of <see cref="T:Jaml.Wpf.Models.StyleModels.StyleModel"/></param>
             <returns>Converted <see cref="T:System.Windows.UIElement"/></returns>
         </member>
         <member name="M:Jaml.Wpf.Models.ChildModels.ChildModel.ToUIElement``1(Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
@@ -91,7 +91,7 @@
             </summary>
             <typeparam name="T">Children of <see cref="T:System.Windows.UIElement"/></typeparam>
             <param name="commandProvider"></param>
-            <param name="styleProvider"></param>
+            <param name="styleModels">Collection of <see cref="T:Jaml.Wpf.Models.StyleModels.StyleModel"/></param>
             <returns>Converted <see cref="T:System.Windows.UIElement"/></returns>
         </member>
         <member name="T:Jaml.Wpf.Models.CommandModels.CommandArgModel">
@@ -347,6 +347,23 @@
         </member>
         <member name="M:Jaml.Wpf.Models.StyleModels.StyleModel.ToStyle``1">
             <inheritdoc />
+        </member>
+        <member name="M:Jaml.Wpf.Models.StyleModels.StyleModel.TryGetStyleModel(System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.StyleModels.StyleModel},System.Int32)">
+            <summary>
+            Get style model by id from collection
+            </summary>
+            <param name="styleModels"></param>
+            <param name="styleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Jaml.Wpf.Models.StyleModels.StyleModel.TryGetStyle``1(System.Collections.Generic.IEnumerable{Jaml.Wpf.Models.StyleModels.StyleModel},System.Int32)">
+            <summary>
+            Get style from stylemodel collection by id
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="styleModels"></param>
+            <param name="styleId"></param>
+            <returns></returns>
         </member>
         <member name="T:Jaml.Wpf.Models.UIElementModels.ButtonBaseModel`1">
             <summary>
@@ -696,7 +713,7 @@
             Converts this model to one of <see cref="T:System.Windows.UIElement"/>'s children
             </summary>
             <param name="commandProvider">Command provider</param>
-            <param name="styleProvider">Style provider</param>
+            <param name="styleModels">Collection of <see cref="T:Jaml.Wpf.Models.StyleModels.StyleModel"/></param>
             <returns>Converted element</returns>
         </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1.BindProperties(`0,Jaml.Wpf.Providers.CommandProviders.ICommandProvider,System.Collections.Generic.IList{Jaml.Wpf.Models.StyleModels.StyleModel})">
@@ -705,7 +722,7 @@
             </summary>
             <param name="element">Target element</param>
             <param name="commandProvider">Command provider</param>
-            <param name="styleProvider">Style provider</param>
+            <param name="styleModels">Collection of <see cref="T:Jaml.Wpf.Models.StyleModels.StyleModel"/></param>
         </member>
         <member name="M:Jaml.Wpf.Models.UIElementModels.IUIElementModel`1.BindCommand(`0,Jaml.Wpf.Models.CommandModels.ICommandModel,Jaml.Wpf.Providers.CommandProviders.ICommandProvider)">
             <summary>
