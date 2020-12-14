@@ -43,6 +43,7 @@ Project targets **.NET 5.0.1**, so you'll need **.NET 5.0.101 SDK**.
 **Build from source only:**
 
 - [Microsoft.CodeAnalysis.NetAnalyzers](https://www.nuget.org/packages/Microsoft.CodeAnalysis.NetAnalyzers/) -- 5.0.1;
+- [Microsoft.SourceLink.GitHub](https://www.nuget.org/packages/Microsoft.SourceLink.GitHub/) -- 1.0.0;
 
 ## Documentation
 
