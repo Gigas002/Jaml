@@ -4,6 +4,18 @@
         <name>Jaml.Wpf</name>
     </assembly>
     <members>
+        <member name="T:Jaml.Wpf.Exceptions.CommandException">
+            <inheritdoc />
+        </member>
+        <member name="M:Jaml.Wpf.Exceptions.CommandException.#ctor(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jaml.Wpf.Exceptions.CommandException.#ctor(System.String,System.Exception)">
+            <inheritdoc />
+        </member>
+        <member name="M:Jaml.Wpf.Exceptions.CommandException.#ctor">
+            <inheritdoc />
+        </member>
         <member name="T:Jaml.Wpf.Exceptions.UIException">
             <inheritdoc />
         </member>
