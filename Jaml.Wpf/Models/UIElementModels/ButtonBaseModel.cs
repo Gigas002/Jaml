@@ -65,7 +65,7 @@ namespace Jaml.Wpf.Models.UIElementModels
         {
             if (commandModel is null) throw new UIException(nameof(commandModel));
 
-            string eventName = commandModel.Event;
+            string eventName = commandModel.EventName;
             string methodName = commandModel.Method;
             IEnumerable<ICommandArgModel> methodArgs = commandModel.Args;
 

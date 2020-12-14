@@ -16,7 +16,7 @@ namespace Jaml.Wpf.Models.CommandModels
 
         /// <inheritdoc />
         [JsonPropertyName("Event")]
-        public string Event { get; set; } = null;
+        public string EventName { get; set; } = null;
 
         /// <inheritdoc />
         [JsonPropertyName("Method")]

@@ -12,7 +12,7 @@ namespace Jaml.Wpf.Models.CommandModels
         /// <summary>
         /// Event name
         /// </summary>
-        public string Event { get; }
+        public string EventName { get; }
 
         /// <summary>
         /// Method to call

@@ -122,7 +122,7 @@
             Model of commands
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.CommandModels.CommandModel.Event">
+        <member name="P:Jaml.Wpf.Models.CommandModels.CommandModel.EventName">
             <inheritdoc />
         </member>
         <member name="P:Jaml.Wpf.Models.CommandModels.CommandModel.Method">
@@ -151,7 +151,7 @@
             Interface for creating your own CommandModels
             </summary>
         </member>
-        <member name="P:Jaml.Wpf.Models.CommandModels.ICommandModel.Event">
+        <member name="P:Jaml.Wpf.Models.CommandModels.ICommandModel.EventName">
             <summary>
             Event name
             </summary>

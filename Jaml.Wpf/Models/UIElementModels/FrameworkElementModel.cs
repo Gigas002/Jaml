@@ -261,7 +261,7 @@ namespace Jaml.Wpf.Models.UIElementModels
 
             if (commandProvider is null) return;
 
-            string eventName = commandModel.Event;
+            string eventName = commandModel.EventName;
             string methodName = commandModel.Method;
             IEnumerable<ICommandArgModel> methodArgs = commandModel.Args;
 
